@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const pages = await getAllPages();
+  // const pages = await getAllPages();
 
   return (
     <Section>
       <Container className="space-y-6">
-        <Prose className="mb-8">
+        {/* <Prose className="mb-8">
           <h2>All Pages</h2>
           <ul className="grid">
             {pages.map((page: any) => (
@@ -28,7 +28,7 @@ export default async function Page() {
             ))}
           </ul>
         </Prose>
-        <BackButton />
+        <BackButton /> */}
       </Container>
     </Section>
   );

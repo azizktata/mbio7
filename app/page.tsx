@@ -477,7 +477,7 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
             "text-mbio leading-[1.4] text-sm pl-2 text-white"
             
         >
-          "{review.comment}"
+          &quot;{review.comment}&quot;
         </p>
       </CardContent>
       <CardFooter className="bg-mbioSecondary rounded-2xl py-4">
