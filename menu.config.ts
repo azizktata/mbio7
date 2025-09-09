@@ -1,11 +1,11 @@
 // Define the menu items
 export const mainMenu = {
   
-  Découvrir: "/matiere",
-  Fabrication: "/posts",
-  Utilisation: "/utilisation",
-  Expériences: "/experiences",
-  Contact: "/contact",
+  // Découvrir: "/matiere",
+  Fabrication: "/pages/fabrication",
+  Utilisation: "/pages/utilisation",
+  Expériences: "/pages/experiences",
+
 };
 
 export const contentMenu = {

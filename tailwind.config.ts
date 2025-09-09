@@ -33,6 +33,8 @@ const config = {
   			foreground: 'hsl(var(--foreground))',
   			mbioPrimary: 'var(--mbio-primary)',
   			mbioSecondary: 'var(--mbio-secondary)',
+  			mbioTertiary: 'var(--mbio-tertiary)',
+			mbioQuaternary: 'var(--mbio-quaternary)',									  			
   			mbioAccent: 'var(--mbio-accent)',
   			mbioMuted: 'var(--mbio-muted)',
   			mbioMutedForeground: 'var(--mbio-muted-foreground)',
@@ -66,7 +68,8 @@ const config = {
   			}
   		},
   		backgroundImage: {
-  			main: 'var(--mbio-primary)'
+  			main: 'var(--mbio-primary)',
+			gradient: "var(--gradient-default)",
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

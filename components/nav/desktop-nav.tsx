@@ -60,7 +60,7 @@ const Nav = ({ className, children, id }: NavProps) => {
                     <MobileNav />
                 </div>
                 <div className="hidden md:flex">
-                    <CustomButton label="Sign In" href="#contact" />
+                    <CustomButton label="Contact" href="#contact" />
                 </div>
             </div>
         </nav>
