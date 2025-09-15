@@ -58,12 +58,17 @@ export default function Home() {
         <Banner />
      
 
-      <div className="bg-mbioPrimary">
+      <div className="bg-mbioPrimary relative">
         <Mbio7 />
+        <div className="absolute inset-y-20 left-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
         <About />
+        <div className="absolute inset-y-50 right-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
         <Impact />
+        <div className="absolute inset-y-100 left-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
         <WhyUs />
+        <div className="absolute inset-y-150 right-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
         <Blogs />
+        <div className="absolute inset-y-200 left-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
         <Reviews />
         <FAQ />
       </div>
