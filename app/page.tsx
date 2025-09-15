@@ -6,7 +6,7 @@ import Balancer from "react-wrap-balancer";
 import Link from "next/link";
 
 // Icons
-import HeroImage from "@/public/hero.jpg";
+import HeroImage from "@/public/hero-mbio.jpg";
 import WoodWise from "@/public/woodwise.svg";
 import Stats from "@/public/stats.png";
 import Thumbnail from "@/public/video-thumbnail.png";
@@ -46,9 +46,10 @@ export default function Home() {
           alt="mbio7 panel"
           fill
           priority
-          className="object-cover w-full object-top"
+          className="object-cover w-full object-center"
         />
- 
+        <div className="absolute inset-0 bg-[#084E4D78]" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10">
           <Nav />
           <Hero />
@@ -74,7 +75,7 @@ export default function Home() {
 const HeroContent = {
   title: "mBio7, le panneau biosourcé à empreinte carbone négative.",
   description:
-    "mBio7 est un panneau biosourcé fabriqué à partir de matériaux naturels tels que la paille de riz, le chanvre et la chaux. Il est conçu pour offrir une isolation thermique et acoustique optimale tout en étant respectueux de l'environnement.",
+    "MBio7 est un panneau biosourcé fabriqué à partir de matériaux naturels tels que résidus de bois, de fibres végétales, de bambou, de palmes, de noix de coco ou de nombreux autres produits biosourcés. Il est conçu pour offrir une isolation thermique et acoustique optimale tout en étant respectueux de l'environnement.",
   cta: "En savoir plus",
   cta2: "Contactez-nous",
   image: HeroImage,
@@ -119,9 +120,9 @@ const Banner = () => {
 };
 
 const MainContent = {
-  title: "L’innovation mBio7",
+  title: "L’innovation MBio7",
   description:
-    "Le bois moulé sous presse, dont est composé le panneau mBio7, est le seul procédé de construction permettant de bâtir avec un taux négatif en CO2.",
+    "Le bois moulé sous presse, dont est composé le panneau MBio7, est le seul procédé de construction permettant de bâtir avec un taux négatif en CO2.",
   tags: ["biosourcé", "écologique", "isolant", "durable"],
   image: Stats,
 };
@@ -221,7 +222,7 @@ const About = () => {
 };
 
 const chiffres = [
-  { title: "matières recyclées, totalement recyclables", value: "90%+" },
+  { title: "matières recyclées, totalement recyclables", value: "95%+" },
   { title: "Kg de CO₂ économisés par panneau", value: "7,66" },
   { title: "Tonnes de CO₂ évité par maison de 120 m²", value: "3" },
 ];
@@ -547,7 +548,7 @@ const content: FAQItem[] = [
   {
     question: "Quelle est la capacité de production ?",
     answer:
-      "L’usine pilote en Bulgarie peut produire environ 400 panneaux par jour.",
+      "environ 400 panneaux par jour pour l'instant car nous sommes en phase d’extension.",
   },
   {
     question: "À qui s’adresse mBio7 ?",

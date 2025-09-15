@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 // Asset imports
 import Placeholder from "@/public/banner-3.jpg";
 import banner from "@/public/hero.jpg";
+import HeroImage from "@/public/hero-mbio.jpg";
 import thumbnail from "@/public/thumbnail-2.png";
 import main from "@/public/utilisation.png";
 import experience1 from "@/public/mBio7-C-1.png";
@@ -195,10 +196,10 @@ const fabricationContent = [
   {
     title: "La fabrication de nos panneaux mBio7",
     description:
-      "Fruit de plus de trois années de recherche et développement, la mise au point des panneaux mBio7 s’appuie sur un savoir-faire industriel éprouvé depuis plus de 30 ans dans la production de palettes en bois moulé. Ce procédé unique a permis de créer un panneau de construction innovant aux performances techniques remarquables.",
+      "Fruit de plus de 10 années de recherche et développement, la mise au point des panneaux mBio7 s’appuie sur un savoir-faire industriel éprouvé depuis plus de 30 ans dans la production de palettes en bois moulé. Ce procédé unique a permis de créer un panneau de construction innovant aux performances techniques remarquables.",
     specials: [
       "Procédé industriel éprouvé et fiabilisé",
-      "Plus de 3 ans de recherche et d’innovation",
+      "Plus de 10 ans de recherche et d’innovation",
       "Caractéristiques techniques inédites"
     ],
     image: fabrication1,
@@ -206,9 +207,9 @@ const fabricationContent = [
   {
     title: "L'origine de la matière",
     description:
-      "Nos panneaux mBio7 sont constitués à plus de 90 % de bois issu du recyclage. Ces particules de bois sont soigneusement mélangées à de la chaux hydraulique naturelle, du ciment blanc et de l’eau, avant d’être compressées dans un moule pour donner naissance à un matériau robuste, écologique et durable.",
+      "Nos panneaux MBio7 sont constitués à plus de 95 % de fibres de bois et 5% de résine thermodurcissable sans formaldéhyde.",
     specials: [
-      "Utilisation de bois recyclé (>90 %)",
+      "Utilisation de bois recyclé (95 %)",
       "Matériau naturel et biosourcé",
       "Durabilité et respect de l’environnement"
     ],
@@ -388,7 +389,7 @@ const Hero = () => {
 };
 
 const MainContent = {
-  title: "Premier Maison écologique en panneaux de bois moulé en France",
+  title: "Première Maison écologique en panneaux de bois moulé en France",
   description:
     "En 2017 une première maison test est réalisée à Sospel avec l’aide de Jérémy, jeune ingénieur en stage de l’Institut de Technologie ESTIA. Il s’agit bien sûr d’un bâtiment de petite taille en raison du nombre limité de prototypes, mais mBio7 permet toute taille de construction. Cette structure est parfaitement intacte à ce jour, malgré les années et les conditions rudes de la montagne, isolation parfaite et pas une seule fissure malgré l’absence de fondations.",
   dimensions: [

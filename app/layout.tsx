@@ -13,8 +13,7 @@ import { siteConfig } from "@/site.config";
 import { cn } from "@/lib/utils";
 
 import Balancer from "react-wrap-balancer";
-import Logo from "@/public/mbio-logo.svg";
-import LogoV2 from "@/public/footer-logo.svg";
+import Logo from "@/public/mbio7-logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import HeroImage from "@/public/hero.jpg";
@@ -91,10 +90,10 @@ const Footer = () => {
                         <Link href="/">
                             <h3 className="sr-only">{siteConfig.site_name}</h3>
                             <Image
-                                src={LogoV2}
+                                src={Logo}
                                 alt="Logo"
                                 className="dark:invert"
-                                width={120}
+                                width={80}
                                 height={74}
                             ></Image>
                         </Link>

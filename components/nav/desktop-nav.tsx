@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/public/mbio-logo.svg";
+import Logo from "@/public/mbio7-logo.png";
 import { cn } from "../craft";
 import { MobileNav } from "./mobile-nav";
 import CustomButton from "../ui/customButton";
@@ -34,10 +34,10 @@ const Nav = ({ className, children, id }: NavProps) => {
                         alt="Logo"
                         loading="eager"
                         className="dark:invert"
-                        width={30}
-                        height={18.44}
+                        width={40}
+                        height={19.44}
                     ></Image>
-                    <h2 className="text-2xl uppercase ">
+                    <h2 className="text-2xl  ">
                         {siteConfig.site_name}
                     </h2>
                 </Link>
