@@ -9,11 +9,23 @@ import Link from "next/link";
 import HeroImage from "@/public/hero-mbio.jpg";
 import WoodWise from "@/public/woodwise.svg";
 import Stats from "@/public/stats.png";
+import Comparative from "@/public/comparaison.jpg";
+import Label from "@/public/label.png";
 import Thumbnail from "@/public/video-thumbnail.png";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import CustomButton from "@/components/ui/customButton";
-import { ArrowRight, BadgeCheck, LeafyGreen, PlayIcon, PuzzleIcon, Recycle, ShieldCheck, Star, Tags } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  LeafyGreen,
+  PlayIcon,
+  PuzzleIcon,
+  Recycle,
+  ShieldCheck,
+  Star,
+  Tags,
+} from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -28,19 +40,18 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400","500","600","700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
 });
 // This page is using the craft.tsx component and design system
 export default function Home() {
   return (
     <div>
-
-<section className="relative h-[70vh] lg:h-[90vh] w-full">
+      <section className="relative h-[70vh] lg:h-[90vh] w-full">
         <Image
           src={HeroImage}
           alt="mbio7 panel"
@@ -55,8 +66,7 @@ export default function Home() {
           <Hero />
         </div>
       </section>
-        <Banner />
-     
+      <Banner />
 
       <div className="bg-mbioPrimary relative">
         <Mbio7 />
@@ -67,12 +77,13 @@ export default function Home() {
         <div className="absolute inset-y-100 left-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
         <WhyUs />
         <div className="absolute inset-y-150 right-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
-        <Blogs />
+        <ComparativeStudy />
         <div className="absolute inset-y-200 left-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
+        <Blogs />
+        <div className="absolute inset-y-250 right-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
         <Reviews />
         <FAQ />
       </div>
-    
     </div>
   );
 }
@@ -91,20 +102,18 @@ const HeroContent = {
 const Hero = () => {
   return (
     <main className="relative border-none h-[60vh] lg:h-[80vh] flex items-center justify-center text-center">
-
-        <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
-          <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold capitalize mb-1 text-center px-2 max-w-[65ch]">
-            <Balancer>{HeroContent.title}</Balancer>
-          </h1>
-          <p className="text-white max-w-[75ch] text-center text-md sm:text-lg mb-6 px-4">
-            <Balancer>{HeroContent.description}</Balancer>
-          </p>
-          <div className="flex gap-4">
-            <CustomButton label={HeroContent.cta} href="#about" />
-            <CustomButton label={HeroContent.cta2} href="#contact" inverted />
-          </div>
+      <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
+        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold capitalize mb-1 text-center px-2 max-w-[65ch]">
+          <Balancer>{HeroContent.title}</Balancer>
+        </h1>
+        <p className="text-white max-w-[75ch] text-center text-md sm:text-lg mb-6 px-4">
+          <Balancer>{HeroContent.description}</Balancer>
+        </p>
+        <div className="flex gap-4">
+          <CustomButton label={HeroContent.cta} href="/pages/fabrication" />
+          <CustomButton label={HeroContent.cta2} href="#contact" inverted />
         </div>
-     
+      </div>
     </main>
   );
 };
@@ -115,11 +124,7 @@ const Banner = () => {
       <p className="text-center text-base sm:text-lg text-white ">
         {HeroContent.banner}{" "}
       </p>
-      <Image
-        src={WoodWise}
-        alt="Wood Wise"
-        className="h-6 sm:h-8 "
-      />
+      <Image src={WoodWise} alt="Wood Wise" className="h-6 sm:h-8 " />
     </div>
   );
 };
@@ -135,81 +140,101 @@ const MainContent = {
 const Mbio7 = () => {
   return (
     <Section className="!mb-0 !pb-0">
-
-    <Container id="about" className="flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center ">
-      <div className=" w-full">
-        <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-8">{MainContent.title}</h2>
-        <p className="mb-8 text-mbioMutedForeground">
-          {MainContent.description}
-        </p>
-        <div className="flex flex-wrap">
-
-          {
-            MainContent.tags.map((tag) => (
-              <span key={tag} className="rounded-full capitalize text-mbioAccent border border-mbioAccent px-4 py-2 text-xs font-medium mr-2 mb-2 inline-block bg-white/5">
+      <Container
+        id="about"
+        className="flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center"
+      >
+        <div className=" w-full">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-4 lg:mb-8">
+            {MainContent.title}
+          </h2>
+          <p className="mb-4 lg:mb-8 text-mbioMutedForeground">
+            {MainContent.description}
+          </p>
+          <div className="flex flex-wrap">
+            {MainContent.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full capitalize text-mbioAccent border border-mbioAccent px-4 py-2 text-xs font-medium mr-2 mb-2 inline-block bg-white/5"
+              >
                 {tag}
               </span>
-          ))
-        }
+            ))}
+          </div>
         </div>
-      </div>
-      <div className="relative w-full h-52  md:h-96">
-        <Image
-          src={MainContent.image}
-          alt="Stats"
-          className="object-contain rounded-lg"
-          fill
-        />
-      </div>
-    </Container>
+        <div className="relative w-full h-52  md:h-96">
+          <Image
+            src={MainContent.image}
+            alt="Stats"
+            className="object-contain rounded-lg"
+            fill
+          />
+        </div>
+      </Container>
     </Section>
   );
-}
+};
 
 const aboutContent = {
   title: "Une solution pour tous, partout",
-  description: "Pensé pour des constructions durables, antisismiques, saines, résistantes au gel, économes, modulables — mBio7 permet une véritable autonomie :",
+  description:
+    "Pensé pour des constructions durables, antisismiques, saines, résistantes au gel, économes, modulables — mBio7 permet une véritable autonomie :",
   details: [
     "Adapté aux ONG, collectivités, particuliers",
     "Permet l’auto-construction avec des outils simples (visseuse, scie, niveau)",
     "Aucun besoin en eau, aucun besoin technique avancé",
     "Convient à l’habitat d’urgence, économique, adaptable à toutes les situations",
-  ]
+  ],
 };
 
 const About = () => {
   return (
     <Section>
-      <Container className="grid items-center md:grid-cols-2 gap-6 md:gap-16 ">
-        <div className="not-prose relative h-64 md:h-80 flex overflow-hidden rounded-lg relative ">
+      <Container className="grid items-center md:grid-cols-2 gap-6 lg:gap-16 ">
+        <div className="not-prose relative h-64 md:h-96 flex overflow-hidden rounded-lg relative ">
           <Image
             src={Thumbnail}
             alt="Mbio7"
-             className="object-cover object-right rounded-lg"
-          fill
+            className="object-cover object-right rounded-lg"
+            fill
           />
-        <div className="absolute inset-0  bg-black/30" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Link href="https://www.youtube.com/watch?v=jUQu9_26Gdg" target="_blank" rel="noopener noreferrer">
-          <Button 
-            variant="ghost"
-            className="h-16 w-16 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
-          >
-            <PlayIcon className="h-8 w-8 fill-current text-white" />
-          </Button>
-          </Link>
+          <div className="absolute inset-0  bg-black/30" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Link
+              href="https://www.youtube.com/watch?v=jUQu9_26Gdg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="ghost"
+                className="h-16 w-16 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
+              >
+                <PlayIcon className="h-8 w-8 fill-current text-white" />
+              </Button>
+            </Link>
+          </div>
         </div>
-        </div>
-        
+
         <div className="flex flex-col gap-6 py-8 relative">
-          <h2 className="!my-0 font-semibold text-white text-4xl sm:text-5xl ">
-            {aboutContent.title}
-          </h2>
-          <div
-           className="text-mbioMutedForeground max-w-xl prose"
-          >
+          <div className="flex flex-col items-start gap-2">
+            <div className=" ">
+              <Image
+                src={Label}
+                alt="Stats"
+                className="object-contain rounded-lg"
+                width={100}
+                height={100}
+              />
+            </div>
+          
+              <h2 className="!my-0 font-semibold text-white text-4xl sm:text-5xl ">
+                {aboutContent.title}
+              </h2>
+            
+          </div>
+          <div className="text-mbioMutedForeground max-w-xl prose">
             {aboutContent.description}
-        
+
             <br />
             <ul className=" text-mbioAccent marker:text-mbioAccent">
               {aboutContent.details.map((detail, index) => (
@@ -217,9 +242,6 @@ const About = () => {
               ))}
             </ul>
           </div>
-         
-
-       
         </div>
       </Container>
     </Section>
@@ -234,20 +256,18 @@ const chiffres = [
 const Impact = () => {
   return (
     <Section>
-      <Container >
-        <h2 className="font-semibold text-white text-3xl sm:text-5xl  mb-8 text-center">
-          <Balancer>
-
-         Approche durable & humaine
-          </Balancer>
+      <Container>
+        <h2 className="font-semibold text-white text-3xl sm:text-5xl  mb-4 lg:mb-8 text-center">
+          <Balancer>Approche durable & humaine</Balancer>
         </h2>
         <Balancer
           className={cn(
-            "text-mbioMutedForeground text-base text-center  mb-12"
-          
+            "text-mbioMutedForeground text-base text-center mb-6  lg:mb-12"
           )}
         >
-          Léger, modulaire et robuste, mBio7 est la solution éco-constructive qui allie rapidité de mise en œuvre, performance technique et respect de l’environnement.
+          Léger, modulaire et robuste, mBio7 est la solution éco-constructive
+          qui allie rapidité de mise en œuvre, performance technique et respect
+          de l’environnement.
         </Balancer>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mt-6">
@@ -270,59 +290,87 @@ const Impact = () => {
   );
 };
 
-
 const WhyUsContent = [
   {
     title: "Écologique",
     description:
       "Fabriqué à partir de matériaux naturels et renouvelables, le panneau mBio7 contribue à la réduction de l'empreinte carbone des bâtiments.",
-   
   },
   {
     title: "Isolation optimale",
     description:
       "Grâce à ses propriétés isolantes, le panneau mBio7 permet de réduire les pertes de chaleur en hiver et de maintenir la fraîcheur en été, améliorant ainsi le confort thermique des occupants.",
-   
   },
   {
     title: "Durabilité",
     description:
       "Le panneau mBio7 est résistant aux intempéries, aux moisissures et aux insectes, assurant une longue durée de vie et une performance constante dans le temps.",
-   
   },
   {
     title: "Facilité d'installation",
     description:
       "Léger et facile à manipuler, le panneau mBio7 peut être rapidement installé, réduisant ainsi les coûts de main-d'œuvre et le temps de construction.",
-   
-  }
-]
+  },
+];
 
 const WhyUs = () => {
   return (
     <Section>
-      <Container >
-        <h2 className="mb-16 text-center font-semibold">
+      <Container>
+        <h2 className="mb-8 lg:mb-16 text-center font-semibold">
           <Balancer className="text-4xl sm:text-5xl  font-semibold text-white cols-span-full ">
             Pourquoi choisir mBio7 ?
           </Balancer>
         </h2>
         <div className="grid md:grid-cols-2 gap-6  ">
           {WhyUsContent.map((item, index) => (
-            <div key={index} className="flex flex-col gap-4 p-6 bg-white/20 rounded-lg hover:scale-[1.02] hover:shadow-lg transition-all">
-                {index === 0 && <LeafyGreen className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />}
-              {index === 1 && <Recycle className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />}
-              {index === 2 && <ShieldCheck className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />}
-              {index === 3 && <BadgeCheck className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />}
+            <div
+              key={index}
+              className="flex flex-col gap-4 p-6 bg-white/20 rounded-lg hover:scale-[1.02] hover:shadow-lg transition-all"
+            >
+              {index === 0 && (
+                <LeafyGreen className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
+              )}
+              {index === 1 && (
+                <Recycle className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
+              )}
+              {index === 2 && (
+                <ShieldCheck className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
+              )}
+              {index === 3 && (
+                <BadgeCheck className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
+              )}
               <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-            <p className="text-mbioMutedForeground">{item.description}</p>
-          </div>
-        ))}
+              <p className="text-mbioMutedForeground">{item.description}</p>
+            </div>
+          ))}
         </div>
       </Container>
-      </Section>
+    </Section>
   );
 };
+
+const ComparativeStudy = () => {
+  return (
+    <Section>
+      <Container>
+        <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
+          Étude comparative
+        </h2>
+        <div className="relative w-full h-auto">
+          <Image
+            src={Comparative}
+            alt="Étude comparative"
+            width={1200}
+            height={800}
+            className="rounded-lg"
+          />
+        </div>
+      </Container>
+    </Section>
+  );
+};
+
 const blogs = [
   {
     date: "06 Mars 2019",
@@ -354,20 +402,22 @@ const blogs = [
     image:
       "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     category: "Construction",
-  }
+  },
 ];
 
 const Blogs = () => {
   return (
     <Section>
       <Container>
-      <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-16">Nos Actualités</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {blogs.map((blog, index) => (
-          <BlogCard key={index} blog={blog} />
-        ))}
-      </div>
-        </Container>
+        <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
+          Nos Actualités
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {blogs.map((blog, index) => (
+            <BlogCard key={index} blog={blog} />
+          ))}
+        </div>
+      </Container>
     </Section>
   );
 };
@@ -382,7 +432,6 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ blog }: BlogCardProps) => {
-
   return (
     <Card className="hover:shadow-lg  bg-white/10 transition-shadow cursor-pointer py-0 shadow-sm rounded-lg border-none">
       <CardHeader className="p-0 relative">
@@ -394,34 +443,31 @@ const BlogCard = ({ blog }: BlogCardProps) => {
           className="w-full h-full object-cover rounded-lg"
         />
 
-     <div className="absolute bottom-5 right-0 m-4">
-  {/* Blurred background element */}
-  {/* <div className="absolute inset-0 bg-[#F7F7F71A] h-[93px] w-[77px]  backdrop-filter backdrop-blur-sm -z-10 rounded-lg"></div> */}
+        <div className="absolute bottom-5 right-0 m-4">
+          {/* Blurred background element */}
+          {/* <div className="absolute inset-0 bg-[#F7F7F71A] h-[93px] w-[77px]  backdrop-filter backdrop-blur-sm -z-10 rounded-lg"></div> */}
 
-  {/* Content (date) */}
-  {/* <div className="relative h-[93px] w-[77px] flex flex-col items-center justify-center p-2">
+          {/* Content (date) */}
+          {/* <div className="relative h-[93px] w-[77px] flex flex-col items-center justify-center p-2">
     <span className="text-white text-3xl font-light leading-none">{day}</span>
     <span className="text-white text-md uppercase font-light leading-none">{month}</span>
   </div> */}
-</div>
+        </div>
       </CardHeader>
       <CardContent className="mt-6">
-        <span
-          className='text-mbioAccent text-sm rounded-full py-1.5 px-3.5 border border-mbioAccent'
-        >
+        <span className="text-mbioAccent text-sm rounded-full py-1.5 px-3.5 border border-mbioAccent">
           {blog.category}
         </span>
-        <Balancer className="text-white font-semibold text-xl py-4">{blog.title}</Balancer>
-        <Balancer
-          className='text-mbioMutedForeground text-sm'
-        >
+        <Balancer className="text-white font-semibold text-xl py-4">
+          {blog.title}
+        </Balancer>
+        <Balancer className="text-mbioMutedForeground text-sm">
           {blog.description}
         </Balancer>
       </CardContent>
       <CardFooter>
         <Button variant="link" className="text-mbioAccent px-0">
           Lire la suite
-
           <ArrowRight className="h-4 w-4 ml-2" />
         </Button>
       </CardFooter>
@@ -442,17 +488,16 @@ const reviews = [
     comment:
       "WoodWise offre des produits en bois moulé de haute qualité. Je les recommande vivement !",
   },
-
 ];
 
 const Reviews = () => {
   return (
     <Section>
       <Container>
-        <h2 className="font-semibold text-white text-4xl sm:text-5xl  mb-16 text-center">
-        Témoignages de nos clients
+        <h2 className="font-semibold text-white text-4xl sm:text-5xl  mb-8 lg:mb-16 text-center">
+          Témoignages de nos clients
         </h2>
-        
+
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 ">
           {reviews.map((review, index) => (
             <ReviewCard key={index} review={review} />
@@ -478,16 +523,12 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
        
       </CardHeader> */}
       <CardContent className=" pt-6 pb-12 ">
-        <p
-          className=
-            "text-mbio leading-[1.4] text-sm pl-2 text-white"
-            
-        >
+        <p className="text-mbio leading-[1.4] text-sm pl-2 text-white">
           &quot;{review.comment}&quot;
         </p>
       </CardContent>
       <CardFooter className="bg-mbioSecondary rounded-2xl py-4">
-         <div className="flex items-start gap-4">
+        <div className="flex items-start gap-4">
           <Avatar className="h-12 w-12">
             <AvatarFallback className="bg-mbioPrimary text-white">
               {review.name.charAt(0)}
@@ -508,7 +549,7 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
             </div>
           </div>
         </div>
-        </CardFooter>
+      </CardFooter>
     </Card>
   );
 };
@@ -565,11 +606,10 @@ const content: FAQItem[] = [
 const FAQ = () => {
   return (
     <Section>
-      <Container className="grid md:grid-cols-2 gap-3">
+      <Container className="grid md:grid-cols-2 gap-6 lg:gap-4">
         <h2 className="font-semibold text-white text-4xl sm:text-5xl ">
-         FAQ – Questions fréquentes
+          FAQ – Questions fréquentes
         </h2>
- 
 
         <div className="not-prose  flex flex-col gap-4 ">
           {content.map((item, index) => (
@@ -580,17 +620,16 @@ const FAQ = () => {
                 </AccordionTrigger>
                 <AccordionContent className="text-base text-mbioMutedForeground pl-4">
                   <Balancer>
-
-                  {item.answer}
-                  {item.link && (
-                    <a
-                      href={item.link}
-                      className="mt-2 flex w-full items-center opacity-60 transition-all hover:opacity-100"
+                    {item.answer}
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        className="mt-2 flex w-full items-center opacity-60 transition-all hover:opacity-100"
                       >
-                      Learn more 
-                      {/* <ArrowUpRight className="ml-1" size="16" /> */}
-                    </a>
-                  )}
+                        Learn more
+                        {/* <ArrowUpRight className="ml-1" size="16" /> */}
+                      </a>
+                    )}
                   </Balancer>
                 </AccordionContent>
               </AccordionItem>
@@ -601,4 +640,3 @@ const FAQ = () => {
     </Section>
   );
 };
-

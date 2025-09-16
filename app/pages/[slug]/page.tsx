@@ -336,6 +336,13 @@ const utilisationHero = {
     "Construction neuve",
     "Rénovation",
     "Aménagement intérieur",
+    'l’isolation extérieure et intérieure de bâtiments existants',
+    'l’utilisation en coffrage perdu (piscines ou murs de soutènement)',
+    'la construction de murs porteurs et non porteurs',
+    'la création de cloisons intérieures',
+    'et bien plus encore..'
+   
+    
   ],
 }
 
@@ -343,13 +350,14 @@ const Hero = () => {
   return (
     <Section>
       <Container className="grid items-center md:grid-cols-2 gap-6 md:gap-16 ">
-        <div className="not-prose relative h-64 md:h-80 flex overflow-hidden rounded-lg relative ">
+        <div className="not-prose relative h-full flex overflow-hidden rounded-lg relative ">
           <Image
             src={utilisationHero.image}
             alt="Mbio7"
-             className="object-cover object-right rounded-lg"
-          fill
-          />
+             className="object-cover object-bottom rounded-lg w-full h-full"
+            height={600}
+            width={800}
+/>
         <div className="absolute inset-0  bg-black/30" />
         <div className="absolute inset-0 flex items-center justify-center">
           <Link href="https://www.youtube.com/watch?v=vjsfSNBXmXM" target="_blank" rel="noopener noreferrer">
