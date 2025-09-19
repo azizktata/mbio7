@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 
 import { mainMenu, contentMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
+import { LangToggle } from "../lang-toggle";
 
 const Nav = ({ className, children, id }: NavProps) => {
     return (
@@ -59,8 +60,12 @@ const Nav = ({ className, children, id }: NavProps) => {
                     </div>
                     <MobileNav />
                 </div>
+                <div className="flex items-center gap-2">
+
                 <div className="hidden md:flex">
                     <CustomButton label="Contact" href="#contact" />
+                </div>
+                <LangToggle />
                 </div>
             </div>
         </nav>

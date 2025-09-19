@@ -19,6 +19,9 @@ import {
   ArrowRight,
   BadgeCheck,
   LeafyGreen,
+  Mail,
+  MapPin,
+  Phone,
   PlayIcon,
   PuzzleIcon,
   Recycle,
@@ -41,6 +44,8 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ContactForm from "@/components/contact-form";
+import { useLocale, useTranslations } from "next-intl";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -49,6 +54,9 @@ const poppins = Poppins({
 });
 // This page is using the craft.tsx component and design system
 export default function Home() {
+   const locale = useLocale();
+     
+
   return (
     <div>
       <section className="relative h-[70vh] lg:h-[90vh] w-full">
@@ -57,10 +65,10 @@ export default function Home() {
           alt="mbio7 panel"
           fill
           priority
-          className="object-cover w-full object-center"
+          className="object-cover w-full object-bottom  "
         />
         <div className="absolute inset-0 bg-[#084E4D78]" />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10">
           <Nav />
           <Hero />
@@ -83,34 +91,36 @@ export default function Home() {
         <div className="absolute inset-y-250 right-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
         <Reviews />
         <FAQ />
+        <Contact />
       </div>
     </div>
   );
 }
 
-const HeroContent = {
-  title: "mBio7, le panneau biosourcé à empreinte carbone négative.",
-  description:
-    "MBio7 est un panneau biosourcé fabriqué à partir de matériaux naturels tels que résidus de bois, de fibres végétales, de bambou, de palmes, de noix de coco ou de nombreux autres produits biosourcés. Il est conçu pour offrir une isolation thermique et acoustique optimale tout en étant respectueux de l'environnement.",
-  cta: "En savoir plus",
-  cta2: "Contactez-nous",
-  image: HeroImage,
-  banner: "Un produit breveté et développé par",
-};
 
 // This is just some example TSX
 const Hero = () => {
+  const t = useTranslations('Hero');
+  const HeroContent = {
+    title: t("title"),
+    description: t("description"),
+    cta1: t("cta1"),
+    ctaLink: t("cta1_link"),
+    cta2: t("cta2"),
+    image: HeroImage,
+    
+  };
   return (
     <main className="relative border-none h-[60vh] lg:h-[80vh] flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
-        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold capitalize mb-1 text-center px-2 max-w-[65ch]">
+        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold capitalize mb-1 text-center px-2 max-w-[40ch]">
           <Balancer>{HeroContent.title}</Balancer>
         </h1>
         <p className="text-white max-w-[75ch] text-center text-md sm:text-lg mb-6 px-4">
           <Balancer>{HeroContent.description}</Balancer>
         </p>
         <div className="flex gap-4">
-          <CustomButton label={HeroContent.cta} href="/pages/fabrication" />
+          <CustomButton label={HeroContent.cta1} href={HeroContent.ctaLink} />
           <CustomButton label={HeroContent.cta2} href="#contact" inverted />
         </div>
       </div>
@@ -119,10 +129,11 @@ const Hero = () => {
 };
 
 const Banner = () => {
+  const t = useTranslations('Banner');
   return (
     <div className="flex flex-col sm:flex-row gap-3 items-center justify-center p-3 bg-mbioSecondary">
       <p className="text-center text-base sm:text-lg text-white ">
-        {HeroContent.banner}{" "}
+        {t("text")}{" "}
       </p>
       <Image src={WoodWise} alt="Wood Wise" className="h-6 sm:h-8 " />
     </div>
@@ -640,3 +651,52 @@ const FAQ = () => {
     </Section>
   );
 };
+
+const contactSection = {
+  title: "Contactez-nous",
+  email: "contact@mbio7.com",
+  phone: "+33 6 12 34 56 78",
+  address: "123 Rue de l'Innovation, 06000 Nice, France",
+};
+
+const Contact = () => {
+  return (
+     <Section id="contact" className=" relative w-full bg-gray-50 py-12">
+          <div className="absolute inset-y-0 left-0 w-full bg-[#084E4D]   z-0 "></div>
+          <div className="w-[90%] lg:w-[70%] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex flex-col items-start w-full md:w-1/2 z-10">
+              <h4 className="text-lg font-light text-mbioAccent">Contact</h4>
+              <h1 className="text-3xl md:text-5xl font-semibold tracking-wider text-white mb-6">
+                {contactSection.title}
+              </h1>
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <Mail size={24} className="text-mbioAccent" />
+                  <p className="text-white font-semibold text-base sm:text-lg">
+                    {contactSection.email}
+                  </p>
+                </div>
+                <div className="flex items-center gap-4 mb-4">
+                  <MapPin size={28} className="text-mbioAccent" />
+                  <p className="text-white font-semibold text-base sm:text-lg">
+                    {contactSection.address}
+                  </p>
+                </div>
+                <div className="flex items-center gap-4 mb-4">
+                  <Phone size={24} className="text-mbioAccent" />
+                  <p className="text-white font-semibold text-base sm:text-lg">
+                    {contactSection.phone}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full md:w-1/2 lg:w-1/3 z-10">
+              <div className="bg-white p-8 rounded-lg shadow-md max-w-md mx-auto">
+                <ContactForm />
+              </div>
+            </div>
+          </div>
+        </Section>
+  )
+}

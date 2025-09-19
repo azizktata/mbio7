@@ -1,0 +1,145 @@
+{
+    "Hero":{
+        "title": "MBio7, le panneau biosourcé à empreinte carbone négative.",
+        "description": "MBio7 est un panneau biosourcé fabriqué à partir de matériaux naturels tels que résidus de bois, de fibres végétales, de bambou, de palmes, de noix de coco ou de nombreux autres produits biosourcés. Il est conçu pour offrir une isolation thermique et acoustique optimale tout en étant respectueux de l'environnement.",
+        "cta1": "En savoir plus",
+        "cta1_link": "/pages/fabrication",
+
+        "cta2": "Contactez-nous"
+    },
+
+     "Nav": {
+        "home": "Accueil",
+        "homeLink": "/",
+        "about": "Fabrication",
+        "aboutLink": "/pages/fabrication",
+        "projects": "Utilisations",
+        "projectsLink": "/pages/utilisations",
+        "news": "Actualités",
+        "newsLink": "/pages/actualités"
+    },
+
+    "Banner": {
+        "text":"Un produit breveté et développé par"
+    },
+
+    "Innovation": {
+        "title": "Une innovation majeure dans le domaine des matériaux de construction",
+        "description": "MBio7 révolutionne le secteur des matériaux de construction en offrant une solution durable et écologique. Grâce à son empreinte carbone négative, il contribue activement à la lutte contre le changement climatique tout en assurant des performances exceptionnelles en termes d'isolation thermique et acoustique.",
+        "tags": {
+            "eco_friendly": "Écologique",
+            "thermal_insulation": "Isolation thermique",
+            "acoustic_insulation": "Isolation acoustique",
+            "sustainable": "Durable",
+            "carbon_negative": "Carbone négatif",
+            "natural_materials": "Matériaux naturels"
+        }
+    },
+    "Mbio7": {
+        "title": "Une solution pour tous, partout",
+        "description": "Pensé pour des constructions durables, antisismiques, saines, résistantes au gel, économes, modulables — mBio7 permet une véritable autonomie :",
+        "points": {
+            "point1": "Résidentiel : maisons individuelles, logements collectifs, résidences étudiantes, EHPAD, hôtels",
+            "point2": "Tertiaire : bureaux, commerces, restaurants, salles de sport",
+            "point3": "Industriel : bâtiments agricoles, entrepôts, ateliers",
+            "point4": "Équipement public : écoles, crèches, centres de loisirs, bibliothèques",
+            "point5": "Projets temporaires : salons, événements, constructions modulaires"
+        }
+    },
+    "Impact": {
+        "title": "Approche durable & humaine",
+        "description": "Léger, modulaire et robuste, mBio7 est la solution éco-constructive qui allie rapidité de mise en œuvre, performance technique et respect de l’environnement.",
+        "stat1": {
+            "title": "matières recyclées, totalement recyclables",
+            "value": "95%"
+        },
+        "stat2": {
+            "title": "Kg de CO₂ économisés par panneau",
+            "value": "7,66"
+        },
+        "stat3": {
+            "title": "Tonnes de CO₂ évité par maison de 120 m²",
+            "value": "3"
+        }
+
+    },
+
+    "Whyus": {
+        "title": "Pourquoi choisir MBio7 ?",
+        "points": {
+            "point1": {
+                "title": "Durabilité",
+                "description": "Fabriqué à partir de matériaux naturels et renouvelables, MBio7 est conçu pour durer, réduisant ainsi la nécessité de remplacements fréquents et minimisant les déchets."
+            },
+            "point2": {
+                "title": "Performance",
+                "description": "Offrant une isolation thermique et acoustique exceptionnelle, MBio7 améliore le confort intérieur tout en réduisant les coûts énergétiques."
+            },
+            "point3": {
+                "title": "Respect de l'environnement",
+                "description": "Avec son empreinte carbone négative, MBio7 contribue activement à la réduction des émissions de CO₂, aidant ainsi à lutter contre le changement climatique."
+            },
+            "point4": {
+                "title": "Polyvalence",
+                "description": "Adapté à une variété d'applications, MBio7 convient aussi bien aux constructions résidentielles qu'aux bâtiments commerciaux et industriels."
+            },
+            "point5": {
+                "title": "Facilité d'installation",
+                "description": "Léger et modulaire, MBio7 permet une installation rapide et efficace, réduisant les temps de construction et les coûts de main-d'œuvre."
+            }
+        }
+    },
+
+   "Reviews": {
+        "title": "Témoignages de nos clients",
+         "reviews": {
+            "review1": {
+                "name": "Anonyme",
+                "comment": "Les produits en bois moulé de WoodWise sont incroyables ! J'en suis totalement satisfait.."
+            },
+            "review2": {
+                "name": "Anonyme",
+                "comment": "WoodWise offre des produits en bois moulé de haute qualité. Je les recommande vivement !"
+            }
+        }
+   },
+
+    "FAQ": {
+        "title_part1": "Questions",
+        "title_part2": "Fréquentes",
+        "questions": {
+            "q1": {
+                "question": "Qu’est-ce que le panneau MBio7 ?",
+                "answer": "MBio7 est un panneau de construction innovant, fabriqué à plus de 90 % en bois recyclé. Il est léger, modulaire et conçu pour des constructions durables, économiques et rapides."
+            },
+            "q2": {
+                "question": "Quelle est la performance environnementale du panneau ?",
+                "answer": "Chaque panneau présente un bilan carbone négatif de -7,66 kg CO₂-éq. Une maison de 120 m² en MBio7 permet d’éviter environ 3 tonnes de CO₂."
+            },
+            "q3": {
+                "question": "Le panneau est-il résistant ?",
+                "answer": "Oui. Le MBio7 est résistant à l’eau, au feu, aux termites, au gel et aux séismes. C’est un matériau thermo-durcissable qui ne pourrit pas et ne craint pas l’humidité."
+            },
+            "q4": {
+                "question": "Est-il conforme aux normes de construction ?",
+                "answer": "Oui. Les constructions en MBio7 respectent la norme RE 2020 si elles sont associées à un isolant adapté."
+            },
+            "q5": {
+                "question": "Combien pèse un panneau ?",
+                "answer": "Un panneau MBio7 pèse environ 9 kg, ce qui facilite son transport et sa mise en œuvre."
+            },
+            "q6": {
+                "question": "Peut-on construire une maison complète avec ce matériau ?",
+                "answer": "Oui. Par exemple, une maison test de 10 m² a été construite en 2017 à Sospel avec 160 panneaux (≈ 1 450 kg). Les panneaux s’assemblent facilement et permettent des projets de toute taille."
+            },
+            "q7": {
+                "question": "Quelle est la capacité de production ?",
+                "answer": "Environ 400 panneaux par jour pour l'instant car nous sommes en phase d’extension."
+            },
+            "q8": {
+                "question": "À qui s’adresse MBio7 ?",
+                "answer": "Le matériau est idéal pour les ONG (reconstruction d’urgence), les collectivités locales et les particuliers souhaitant des logements écologiques, modulables et économiques."
+            }
+        }
+    }
+}
