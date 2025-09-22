@@ -15,16 +15,15 @@ import { cn } from "@/lib/utils";
 import Balancer from "react-wrap-balancer";
 import Logo from "@/public/mbio7-logo.png";
 import Image from "next/image";
-import Link from "next/link";
 import HeroImage from "@/public/hero.jpg";
 
 import type { Metadata } from "next";
 import CustomButton from "@/components/ui/customButton";
 import Nav from "@/components/nav/desktop-nav";
 import { Toaster } from "sonner";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider, useLocale, useTranslations } from "next-intl";
 import NotFound from "./not-found";
-import { routing } from "@/i18n/routing";
+import { Link, routing } from "@/i18n/routing";
 
 const font = FontSans({
   subsets: ["latin"],
@@ -99,6 +98,14 @@ export default async function RootLayout({
 }
 
 const Footer = () => {
+  const t = useTranslations('Nav');
+  const locale = useLocale();
+     const mainMenu =  [
+    {key: t('home'), href: t('homeLink')},
+    {key: t('fabrication'), href: t('fabricationLink')},
+    {key: t('utilisations'), href: t('utilisationsLink')},
+    {key: t('experiance'), href: t('experianceLink')},
+   ]
   return (
     <footer className="bg-mbioPrimary text-white">
       <Section>
@@ -115,12 +122,16 @@ const Footer = () => {
               ></Image>
             </Link>
             <p>
-              <Balancer>{siteConfig.site_description}</Balancer>
+              <Balancer>
+                {locale === 'fr' ? "mBio7 est un panneau biosourcé à empreinte carbone négative, fabriqué en France, qui allie performance thermique, acoustique et environnementale pour des constructions durables et confortables." : "mBio7 is a bio-based panel with a negative carbon footprint, made in France, combining thermal, acoustic, and environmental performance for sustainable and comfortable buildings."}
+              </Balancer>
             </p>
           </div>
           <div className="flex flex-col gap-2 text-sm">
-            <h5 className="font-medium text-base">Liens rapides</h5>
-            {Object.entries(mainMenu).map(([key, href]) => (
+            <h5 className="font-medium text-base">
+              {locale === 'fr' ? 'Liens utiles' : 'Useful links'}
+            </h5>
+            {mainMenu.map(({key, href}) => (
               <Link
                 className="hover:underline underline-offset-4"
                 key={href}
@@ -134,8 +145,9 @@ const Footer = () => {
         </Container>
         <Container className="border-t not-prose flex flex-col md:flex-row md:gap-2 gap-6 justify-between md:items-center">
           <p className="text-sm text-mbioMutedForeground">
-            &copy; {new Date().getFullYear()} {siteConfig.site_name}– Tous
-            droits réservés.
+            &copy; {new Date().getFullYear()} {siteConfig.site_name}–
+            {locale === 'fr' ? ' Tous droits réservés.' : ' All rights reserved.'}
+
           </p>
           <div className="flex items-center gap-4">
             {/* <Instagram className="w-5 h-5 hover:opacity-80" />

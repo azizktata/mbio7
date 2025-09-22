@@ -140,15 +140,22 @@ const Banner = () => {
   );
 };
 
-const MainContent = {
-  title: "L’innovation MBio7",
-  description:
-    "Le bois moulé sous presse, dont est composé le panneau MBio7, est le seul procédé de construction permettant de bâtir avec un taux négatif en CO2.",
-  tags: ["biosourcé", "écologique", "isolant", "durable"],
-  image: Stats,
-};
 
 const Mbio7 = () => {
+  const t = useTranslations('Mbio7');
+  const MainContent = {
+    title: t("title"),
+    description: t("description"),
+    tags: [
+      { point: t("tags.tag1") },
+      { point: t("tags.tag2") },
+      { point: t("tags.tag3") },
+      { point: t("tags.tag4") },
+      { point: t("tags.tag5") },
+      { point: t("tags.tag6") },
+    ],
+    image: Stats,
+  };
   return (
     <Section className="!mb-0 !pb-0">
       <Container
@@ -156,19 +163,19 @@ const Mbio7 = () => {
         className="flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center"
       >
         <div className=" w-full">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-4 lg:mb-8">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-4 lg:mb-8 ">
             {MainContent.title}
           </h2>
           <p className="mb-4 lg:mb-8 text-mbioMutedForeground">
             {MainContent.description}
           </p>
           <div className="flex flex-wrap">
-            {MainContent.tags.map((tag) => (
+            {MainContent.tags.map((tag, index) => (
               <span
-                key={tag}
+                key={index}
                 className="rounded-full capitalize text-mbioAccent border border-mbioAccent px-4 py-2 text-xs font-medium mr-2 mb-2 inline-block bg-white/5"
               >
-                {tag}
+                {tag.point}
               </span>
             ))}
           </div>
@@ -186,19 +193,19 @@ const Mbio7 = () => {
   );
 };
 
-const aboutContent = {
-  title: "Une solution pour tous, partout",
-  description:
-    "Pensé pour des constructions durables, antisismiques, saines, résistantes au gel, économes, modulables — mBio7 permet une véritable autonomie :",
-  details: [
-    "Adapté aux ONG, collectivités, particuliers",
-    "Permet l’auto-construction avec des outils simples (visseuse, scie, niveau)",
-    "Aucun besoin en eau, aucun besoin technique avancé",
-    "Convient à l’habitat d’urgence, économique, adaptable à toutes les situations",
-  ],
-};
 
 const About = () => {
+  const t = useTranslations('About');
+  const aboutContent = {
+    title: t("title"),
+    description: t("description"),
+    points: [
+     { detail: t("points.point1") },
+      { detail: t("points.point2") },
+      { detail: t("points.point3") },
+      { detail: t("points.point4") },
+    ],
+  };
   return (
     <Section>
       <Container className="grid items-center md:grid-cols-2 gap-6 lg:gap-16 ">
@@ -248,8 +255,8 @@ const About = () => {
 
             <br />
             <ul className=" text-mbioAccent marker:text-mbioAccent">
-              {aboutContent.details.map((detail, index) => (
-                <li key={index}>{detail}</li>
+              {aboutContent.points.map((point, index) => (
+                <li key={index}>{point.detail}</li>
               ))}
             </ul>
           </div>
@@ -259,26 +266,25 @@ const About = () => {
   );
 };
 
-const chiffres = [
-  { title: "matières recyclées, totalement recyclables", value: "95%+" },
-  { title: "Kg de CO₂ économisés par panneau", value: "7,66" },
-  { title: "Tonnes de CO₂ évité par maison de 120 m²", value: "3" },
-];
 const Impact = () => {
+  const t = useTranslations('Impact');
+  const chiffres = [
+    { title: t("stat1.title"), value: t("stat1.value") },
+    { title: t("stat2.title"), value: t("stat2.value") },
+    { title: t("stat3.title"), value: t("stat3.value") },
+  ];
   return (
     <Section>
       <Container>
         <h2 className="font-semibold text-white text-3xl sm:text-5xl  mb-4 lg:mb-8 text-center">
-          <Balancer>Approche durable & humaine</Balancer>
+          <Balancer>{t("title")}</Balancer>
         </h2>
         <Balancer
           className={cn(
             "text-mbioMutedForeground text-base text-center mb-6  lg:mb-12"
           )}
         >
-          Léger, modulaire et robuste, mBio7 est la solution éco-constructive
-          qui allie rapidité de mise en œuvre, performance technique et respect
-          de l’environnement.
+          {t("description")}
         </Balancer>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mt-6">
@@ -301,36 +307,34 @@ const Impact = () => {
   );
 };
 
-const WhyUsContent = [
-  {
-    title: "Écologique",
-    description:
-      "Fabriqué à partir de matériaux naturels et renouvelables, le panneau mBio7 contribue à la réduction de l'empreinte carbone des bâtiments.",
-  },
-  {
-    title: "Isolation optimale",
-    description:
-      "Grâce à ses propriétés isolantes, le panneau mBio7 permet de réduire les pertes de chaleur en hiver et de maintenir la fraîcheur en été, améliorant ainsi le confort thermique des occupants.",
-  },
-  {
-    title: "Durabilité",
-    description:
-      "Le panneau mBio7 est résistant aux intempéries, aux moisissures et aux insectes, assurant une longue durée de vie et une performance constante dans le temps.",
-  },
-  {
-    title: "Facilité d'installation",
-    description:
-      "Léger et facile à manipuler, le panneau mBio7 peut être rapidement installé, réduisant ainsi les coûts de main-d'œuvre et le temps de construction.",
-  },
-];
 
 const WhyUs = () => {
+  const t = useTranslations('Whyus');
+  const WhyUsContent = [
+    {
+      title: t("points.point1.title"),
+      description: t("points.point1.description"),
+    },
+    {
+      title: t("points.point2.title"),
+      description: t("points.point2.description"),
+    },
+    {
+      title: t("points.point3.title"),
+      description: t("points.point3.description"),
+    },
+    {
+      title: t("points.point4.title"),
+      description: t("points.point4.description"),
+    },
+   
+  ];
   return (
     <Section>
       <Container>
         <h2 className="mb-8 lg:mb-16 text-center font-semibold">
           <Balancer className="text-4xl sm:text-5xl  font-semibold text-white cols-span-full ">
-            Pourquoi choisir mBio7 ?
+            {t("title")}
           </Balancer>
         </h2>
         <div className="grid md:grid-cols-2 gap-6  ">
@@ -340,10 +344,10 @@ const WhyUs = () => {
               className="flex flex-col gap-4 p-6 bg-white/20 rounded-lg hover:scale-[1.02] hover:shadow-lg transition-all"
             >
               {index === 0 && (
-                <LeafyGreen className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
+                <Recycle className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
               )}
               {index === 1 && (
-                <Recycle className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
+              <LeafyGreen className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
               )}
               {index === 2 && (
                 <ShieldCheck className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
@@ -366,7 +370,7 @@ const ComparativeStudy = () => {
     <Section>
       <Container>
         <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
-          Étude comparative
+          {useLocale() === 'fr' ? 'Étude comparative' : 'Comparative Study'}
         </h2>
         <div className="relative w-full h-auto">
           <Image
@@ -421,7 +425,7 @@ const Blogs = () => {
     <Section>
       <Container>
         <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
-          Nos Actualités
+          {useLocale() === 'fr' ? 'Derniers articles' : 'Latest Blogs'}
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog, index) => (
@@ -486,27 +490,27 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   );
 };
 
-const reviews = [
-  {
-    name: "Anonyme",
-    rating: 5,
-    comment:
-      "Les produits en bois moulé de WoodWise sont incroyables ! J'en suis totalement satisfait.",
-  },
-  {
-    name: "Anonyme",
-    rating: 5,
-    comment:
-      "WoodWise offre des produits en bois moulé de haute qualité. Je les recommande vivement !",
-  },
-];
 
 const Reviews = () => {
+  const t = useTranslations("Reviews");
+  const reviews = [
+  {
+    name: t("reviews.review1.name"),
+    rating: 5,
+    comment: t("reviews.review1.comment"),
+  },
+  {
+    name: t("reviews.review2.name"),
+    rating: 5,
+    comment: t("reviews.review2.comment"),
+  },
+ 
+  ];
   return (
     <Section>
       <Container>
         <h2 className="font-semibold text-white text-4xl sm:text-5xl  mb-8 lg:mb-16 text-center">
-          Témoignages de nos clients
+          {t("title")}
         </h2>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 ">
@@ -571,55 +575,50 @@ type FAQItem = {
   link?: string;
 };
 
-const content: FAQItem[] = [
-  {
-    question: "Qu’est-ce que le panneau mBio7 ?",
-    answer:
-      "mBio7 est un panneau de construction innovant, fabriqué à plus de 90 % en bois recyclé. Il est léger, modulaire et conçu pour des constructions durables, économiques et rapides.",
-  },
-  {
-    question: "Quelle est la performance environnementale du panneau ?",
-    answer:
-      "Chaque panneau présente un bilan carbone négatif de -7,66 kg CO₂-éq. Une maison de 120 m² en mBio7 permet d’éviter environ 3 tonnes de CO₂.",
-  },
-  {
-    question: "Le panneau est-il résistant ?",
-    answer:
-      "Oui. Le mBio7 est résistant à l’eau, au feu, aux termites, au gel et aux séismes. C’est un matériau thermo-durcissable qui ne pourrit pas et ne craint pas l’humidité.",
-  },
-  {
-    question: "Est-il conforme aux normes de construction ?",
-    answer:
-      "Oui. Les constructions en mBio7 respectent la norme RE 2020 si elles sont associées à un isolant adapté.",
-  },
-  {
-    question: "Combien pèse un panneau ?",
-    answer:
-      "Un panneau mBio7 pèse environ 9 kg, ce qui facilite son transport et sa mise en œuvre.",
-  },
-  {
-    question: "Peut-on construire une maison complète avec ce matériau ?",
-    answer:
-      "Oui. Par exemple, une maison test de 10 m² a été construite en 2017 à Sospel avec 160 panneaux (≈ 1 450 kg). Les panneaux s’assemblent facilement et permettent des projets de toute taille.",
-  },
-  {
-    question: "Quelle est la capacité de production ?",
-    answer:
-      "environ 400 panneaux par jour pour l'instant car nous sommes en phase d’extension.",
-  },
-  {
-    question: "À qui s’adresse mBio7 ?",
-    answer:
-      "Le matériau est idéal pour les ONG (reconstruction d’urgence), les collectivités locales et les particuliers souhaitant des logements écologiques, modulables et économiques.",
-  },
-];
+
 
 const FAQ = () => {
+   const t = useTranslations("FAQ");
+
+  const content: FAQItem[] = [
+  {
+    question: t("questions.q1.question"),
+    answer: t("questions.q1.answer"),
+  },
+  {
+    question: t("questions.q2.question"),
+    answer: t("questions.q2.answer"),
+  },
+  {
+    question: t("questions.q3.question"),
+    answer: t("questions.q3.answer"),
+  },
+  {
+    question: t("questions.q4.question"),
+    answer: t("questions.q4.answer"),
+  },
+  {
+    question: t("questions.q5.question"),
+    answer: t("questions.q5.answer"),
+  },
+  {
+    question: t("questions.q6.question"),
+    answer: t("questions.q6.answer"),   
+  },
+  {
+    question: t("questions.q7.question"),
+    answer: t("questions.q7.answer"),
+  },
+  {
+    question: t("questions.q8.question"),
+    answer: t("questions.q8.answer"),
+  },
+];
   return (
     <Section>
       <Container className="grid md:grid-cols-2 gap-6 lg:gap-4">
         <h2 className="font-semibold text-white text-4xl sm:text-5xl ">
-          FAQ – Questions fréquentes
+          FAQ – {t("title_part1")}  {t("title_part2")}
         </h2>
 
         <div className="not-prose  flex flex-col gap-4 ">
@@ -652,20 +651,23 @@ const FAQ = () => {
   );
 };
 
-const contactSection = {
-  title: "Contactez-nous",
-  email: "contact@mbio7.com",
-  phone: "+33 6 12 34 56 78",
-  address: "123 Rue de l'Innovation, 06000 Nice, France",
-};
 
 const Contact = () => {
+  const locale = useLocale();
+  const contactSection = {
+    subtitle: locale === 'fr' ? 'Restons en contact' : 'Get in Touch',
+    title: locale === 'fr' ? 'Contactez-nous' : 'Contact Us',
+    email: "contact@woodwise.fr",
+    phone: "80157 59053",
+    address: "QUARTIER CUNI, SOSPEL, 06380, FR",
+  };
+
   return (
      <Section id="contact" className=" relative w-full bg-gray-50 py-12">
           <div className="absolute inset-y-0 left-0 w-full bg-[#084E4D]   z-0 "></div>
           <div className="w-[90%] lg:w-[70%] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex flex-col items-start w-full md:w-1/2 z-10">
-              <h4 className="text-lg font-light text-mbioAccent">Contact</h4>
+              <h4 className="text-lg font-light text-mbioAccent">{contactSection.subtitle}</h4>
               <h1 className="text-3xl md:text-5xl font-semibold tracking-wider text-white mb-6">
                 {contactSection.title}
               </h1>

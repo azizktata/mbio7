@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import Logo from "@/public/mbio7-logo.png";
 import { cn } from "../craft";
 import { MobileNav } from "./mobile-nav";
@@ -9,8 +8,18 @@ import { Button } from "../ui/button";
 import { mainMenu, contentMenu } from "@/menu.config";
 import { siteConfig } from "@/site.config";
 import { LangToggle } from "../lang-toggle";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 const Nav = ({ className, children, id }: NavProps) => {
+     const t =  useTranslations('Nav');
+
+   const mainMenu =  [
+    {key: t('home'), href: t('homeLink')},
+    {key: t('fabrication'), href: t('fabricationLink')},
+    {key: t('utilisations'), href: t('utilisationsLink')},
+    {key: t('experiance'), href: t('experianceLink')},
+   ]
     return (
         <nav
             className={cn(
@@ -45,7 +54,7 @@ const Nav = ({ className, children, id }: NavProps) => {
                 {children}
                 <div className="flex items-center gap-2">
                     <div className="mx-2 hidden md:flex">
-                        {Object.entries(mainMenu).map(([key, href]) => (
+                       {mainMenu.map(({ key, href }) => (
                             <Button
                                 key={href}
                                 asChild
@@ -63,7 +72,7 @@ const Nav = ({ className, children, id }: NavProps) => {
                 <div className="flex items-center gap-2">
 
                 <div className="hidden md:flex">
-                    <CustomButton label="Contact" href="#contact" />
+                    <CustomButton label="Contact" href="/#contact" />
                 </div>
                 <LangToggle />
                 </div>

@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Send } from "lucide-react";
 import { sendEmail } from "@/utils/send-email";
 import { toast } from "sonner";
+import { useLocale } from "next-intl";
 
 const formSchema = z.object({
   nom: z.string().min(2, { message: "entrez votre nom." }),
@@ -50,6 +51,7 @@ export default function ContactForm() {
       toast.error(res?.message);
     }
   }
+  const locale = useLocale();
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
@@ -58,7 +60,7 @@ export default function ContactForm() {
           name="nom"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Votre Nom</FormLabel>
+              <FormLabel>{locale === 'fr' ? 'Votre Nom' : 'Your Name'}</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -72,7 +74,7 @@ export default function ContactForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Votre mail</FormLabel>
+              <FormLabel>{locale === 'fr' ? 'Votre mail' : 'Your email'}</FormLabel>
               <FormControl>
                 <Input
                   type="email"
@@ -90,9 +92,9 @@ export default function ContactForm() {
           name="sujet"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Sujet</FormLabel>
+              <FormLabel>{locale === 'fr' ? 'Sujet' : 'Subject'}</FormLabel>
               <FormControl>
-                <Input placeholder="sujet" {...field} />
+                <Input placeholder={locale === 'fr' ? 'sujet' : 'subject'} {...field} />
               </FormControl>
 
               <FormMessage />
@@ -123,10 +125,10 @@ export default function ContactForm() {
           className="bg-mbioSecondary gap-2 rounded-sm text-base px-4 py-6 w-full  font-normal  hover:bg-[#285C8A]"
         >
           {isLoading ? (
-            "en cours..."
+            locale === 'fr' ? 'Envoi...' : 'Sending...'
           ) : (
             <>
-              Envoyer
+              {locale === 'fr' ? 'Envoyer' : 'Send'}
               <Send size={20} />
             </>
           )}

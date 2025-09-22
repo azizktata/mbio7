@@ -28,6 +28,8 @@ import fabrication3 from "@/public/fabrication-3.png";
 import Balancer from "react-wrap-balancer";
 import Nav from "@/components/nav/desktop-nav";
 import { PlayIcon } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 // Revalidate pages every hour
 export const revalidate = 3600;
 
@@ -91,11 +93,131 @@ export const revalidate = 3600;
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string, locale: string }>;
 }) {
-  const { slug } = await params;
   // const page = await getPageBySlug(slug);
+ const { slug, locale } = await params;
+  
+  const handleTranslateTitle = (slug: string) => {
+    const translationsToEn: Record<string, string> = {
+      "fabrication": "manufacture",
+      "utilisations": "how to use",
+      "expérience": "experience",
+    };
+   if (locale === "en") {
+     return translationsToEn[slug] || slug;
+   }
+   else {
+     const translationsToFr: Record<string, string> = {
+       "manufacture": "fabrication",
+       "how to use": "utilisations",
+       "experience": "expérience",
+     };
+     return translationsToFr[slug] || slug;
+   }
 
+  };
+
+  const t = await getTranslations('Fabrication')
+
+  const fabricationContent = [
+  {
+    title: t('fabrication1.title'),
+    description: t('fabrication1.description'),
+    specials: [
+     { point : t('fabrication1.specials.point1') },
+      { point : t('fabrication1.specials.point2') },
+      { point : t('fabrication1.specials.point3') },
+    ],
+    image: fabrication1,
+  },
+  {
+    title: t('fabrication2.title'),
+    description:
+      t('fabrication2.description'),
+    specials: [
+      { point : t('fabrication2.specials.point1') },
+      { point : t('fabrication2.specials.point2') },
+      { point : t('fabrication2.specials.point3') },
+    ],
+    image: fabrication3,
+  },
+  {
+    title: t('fabrication3.title'),
+    description:
+      t('fabrication3.description'),
+    specials: [
+      { point : t('fabrication3.specials.point1') },
+      { point : t('fabrication3.specials.point2') },
+      { point : t('fabrication3.specials.point3') },
+    ],
+    image: fabrication2,
+  },
+];
+
+const t2 = await getTranslations('Experience')
+const experienceContent = [
+
+  {
+    title: t2('experience1.title'),
+    description: t2('experience1.description'),
+    image: experience2,
+    specials: [
+      {
+        point: t2('experience1.specials.point1'),
+      },
+      {
+        point: t2('experience1.specials.point2'),
+      },
+      {
+        point: t2('experience1.specials.point3'),
+      }
+    ],
+  },
+  {
+    title: t2("experience2.title"),
+    description: t2("experience2.description"),
+    image: experience2,
+    specials: [
+      {
+        point: t2("experience2.specials.point1"),
+      },
+      {
+        point: t2("experience2.specials.point2"),
+      },
+      {
+        point: t2("experience2.specials.point3"),
+      }
+    ],
+  },
+  {
+    title: t2("experience3.title"),
+    description: t2("experience3.description"),
+    image: experience3,
+    cta: "https://www.youtube.com/watch?v=xmI_naeRfdw",
+    specials: [
+      {
+        point: t2("experience3.specials.point1"),
+      },
+      {
+        point: t2("experience3.specials.point2"),
+      },
+      {
+        point: t2("experience3.specials.point3"),
+      }
+     ]
+  },
+  {
+    title: t2("experience4.title"),
+    description: t2("experience4.description"),
+    image: experience4,
+    specials: [
+     { point: t2("experience4.specials.point1") },
+      { point: t2("experience4.specials.point2") },
+      { point: t2("experience4.specials.point3") },
+    ]
+  },
+];
   return (
     <div className="min-h-screen w-full bg-mbioPrimary">
       <Nav />
@@ -111,7 +233,7 @@ export default async function Page({
         </div>
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2">
           <h1 className="text-white  text-4xl sm:text-5xl font-semibold capitalize mb-2">
-            <Balancer>{decodeURIComponent(slug.replace(/-/g, " "))}</Balancer>
+           <Balancer>{handleTranslateTitle(decodeURIComponent(slug.replace(/-/g, " ")))}</Balancer>
           </h1>
           <p
             className={
@@ -119,11 +241,11 @@ export default async function Page({
             }
           >
             <Link href={"/"}>Accueil</Link> /{" "}
-            <Balancer>{decodeURIComponent(slug.replace(/-/g, " "))}</Balancer>
+           <Balancer>{handleTranslateTitle(decodeURIComponent(slug.replace(/-/g, " ")))}</Balancer>
           </p>
         </div>
       </div>
-      {decodeURIComponent(slug) === "fabrication" && (
+      { (decodeURIComponent(slug) === "fabrication" || decodeURIComponent(slug) === "manufacture") && (
         <>
         {fabricationContent.map((item, index) => (
           <Section key={index} >
@@ -150,14 +272,14 @@ export default async function Page({
          
         </>
       )}
-       {decodeURIComponent(slug) === "utilisation" && (
+       { (decodeURIComponent(slug) === "utilisations" || decodeURIComponent(slug) === "how-to-use") && (
         <>
           <Main />
           <Hero />
       
         </>
       )}
-       {decodeURIComponent(slug) === "experiences" && (
+       { (decodeURIComponent(slug) === "expérience" || decodeURIComponent(slug) === "experience") && (
         <>
           <ExperienceHero />
             {experienceContent.map((item, index) => (
@@ -192,47 +314,13 @@ export default async function Page({
   );
 }
 
-const fabricationContent = [
-  {
-    title: "La fabrication de nos panneaux mBio7",
-    description:
-      "Fruit de plus de 10 années de recherche et développement, la mise au point des panneaux mBio7 s’appuie sur un savoir-faire industriel éprouvé depuis plus de 30 ans dans la production de palettes en bois moulé. Ce procédé unique a permis de créer un panneau de construction innovant aux performances techniques remarquables.",
-    specials: [
-      "Procédé industriel éprouvé et fiabilisé",
-      "Plus de 10 ans de recherche et d’innovation",
-      "Caractéristiques techniques inédites"
-    ],
-    image: fabrication1,
-  },
-  {
-    title: "L'origine de la matière",
-    description:
-      "Nos panneaux MBio7 sont constitués à plus de 95 % de fibres de bois et 5% de résine thermodurcissable sans formaldéhyde.",
-    specials: [
-      "Utilisation de bois recyclé (95 %)",
-      "Matériau naturel et biosourcé",
-      "Durabilité et respect de l’environnement"
-    ],
-    image: fabrication3,
-  },
-  {
-    title: "La mise en forme et la cuisson",
-    description:
-      "La matière est ensuite placée dans une presse équipée d’un moule mBio7. Une force de plus de 900 tonnes combinée à une cuisson à 170°C assure le thermo-durcissement du composite. Le panneau ressort automatiquement du moule, solide et prêt à l’emploi après refroidissement.",
-    specials: [
-      "Pression de plus de 900 tonnes",
-      "Thermo-durcissement à 170°C",
-      "Panneaux prêts à l’usage immédiatement"
-    ],
-    image: fabrication2,
-  },
-];
+
 
 interface FeatureProps {
   image: any;
   title: string;
   description: string;
-  specials?: string[];
+  specials?: { point: string }[];
   cta?: string;
 }
 
@@ -261,8 +349,8 @@ const Feature = ({ image, title, description, specials, cta }: FeatureProps) => 
         {
           specials &&
          <ul className=" list-disc text-mbioAccent marker:text-mbioAccent pl-5">
-              {specials.map((detail, index) => (
-                <li key={index}>{detail}</li>
+              {specials.map((special, index) => (
+                <li key={index}>{special.point}</li>
               ))}
             </ul>
         }
@@ -298,8 +386,8 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
            {
           specials &&
          <ul className=" list-disc text-mbioAccent marker:text-mbioAccent pl-5">
-              {specials.map((detail, index) => (
-                <li key={index}>{detail}</li>
+              {specials.map((special, index) => (
+                <li key={index}>{special.point}</li>
               ))}
             </ul>
         }
@@ -327,26 +415,25 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
 };
 
 
-const utilisationHero = {
-  title: "Comment utiliser les panneaux mBio7 ?",
-  description:
-    "Les panneaux mBio7 sont polyvalents et peuvent être utilisés dans divers types de projets de construction et de rénovation. Voici quelques-unes des principales utilisations des panneaux mBio7 :",
-  image: thumbnail,
-  details: [
-    "Construction neuve",
-    "Rénovation",
-    "Aménagement intérieur",
-    'l’isolation extérieure et intérieure de bâtiments existants',
-    'l’utilisation en coffrage perdu (piscines ou murs de soutènement)',
-    'la construction de murs porteurs et non porteurs',
-    'la création de cloisons intérieures',
-    'et bien plus encore..'
-   
-    
-  ],
-}
 
 const Hero = () => {
+  const t = useTranslations('UtilisationHero');
+  const utilisationHero = {
+    title: t("title"),
+    description: t("description"),
+    image: thumbnail,
+    details: [
+      t("details.point1"),
+      t("details.point2"),
+      t("details.point3"),
+      t("details.point4"),
+      t("details.point5"),
+      t("details.point6"),
+      t("details.point7"),
+      t("details.point8"),
+
+    ],
+  }
   return (
     <Section>
       <Container className="grid items-center md:grid-cols-2 gap-6 md:gap-16 ">
@@ -396,26 +483,26 @@ const Hero = () => {
   );
 };
 
-const MainContent = {
-  title: "Première Maison écologique en panneaux de bois moulé en France",
-  description:
-    "En 2017 une première maison test est réalisée à Sospel avec l’aide de Jérémy, jeune ingénieur en stage de l’Institut de Technologie ESTIA. Il s’agit bien sûr d’un bâtiment de petite taille en raison du nombre limité de prototypes, mais mBio7 permet toute taille de construction. Cette structure est parfaitement intacte à ce jour, malgré les années et les conditions rudes de la montagne, isolation parfaite et pas une seule fissure malgré l’absence de fondations.",
-  dimensions: [
-    "Longueur : 3.82 m",
-    "Largeur : 2.90 m",
-    "Superficie : 10 m²",
-    'Hauteur : 2.31 m',
-    'Toit en mBio7: 60 panneaux',
-    'Nombre de panneaux: 160',
-    'Poids approximatif:  1 450 kg',
-    'Sol en OSB sur chevrons',
-    'Fenêtres PVC',
-    'Enduit rustique sur treillis agrafé'
-  ],
-  image: main,
-};
 
 const Main = () => {
+  const t = useTranslations('UtilisationMain');
+  const MainContent = {
+    title: t("title"),
+    description: t("description"),
+    dimensions: [
+      t("dimensions.point1"),
+      t("dimensions.point2"),
+      t("dimensions.point3"),
+      t("dimensions.point4"),
+      t("dimensions.point5"),
+      t("dimensions.point6"),
+      t("dimensions.point7"),
+      t("dimensions.point8"),
+      t("dimensions.point9"),
+      t("dimensions.point10"),
+    ],
+    image: main,
+  };
   return (
     <Section>
       <Container className="grid items-stretch">
@@ -431,16 +518,14 @@ const Main = () => {
         </h3>
         <p className="text-mbioMutedForeground leading-[1.6] my-6">
           <Balancer>
-           En 2017 une première maison test est réalisée à Sospel avec l’aide de Jérémy, jeune ingénieur en stage de l’Institut de Technologie ESTIA.
-           Il s’agit bien sûr d’un bâtiment de petite taille en raison du nombre limité de prototypes, mais mBio7 permet toute taille de construction.
-           Cette structure est parfaitement intacte à ce jour, malgré les années et les conditions rudes de la montagne, isolation parfaite et pas une seule fissure malgré l’absence de fondations.
+            {MainContent.description}
           </Balancer>
         </p>
         <div className="flex flex-wrap">
 
           {
-            MainContent.dimensions.map((dimension) => (
-              <span key={dimension} className="rounded-full capitalize text-mbioAccent border border-mbioAccent px-4 py-2 text-xs font-medium mr-2 mb-2 inline-block bg-white/5">
+            MainContent.dimensions.map((dimension, index) => (
+              <span key={index} className="rounded-full capitalize text-mbioAccent border border-mbioAccent px-4 py-2 text-xs font-medium mr-2 mb-2 inline-block bg-white/5">
                 {dimension}
               </span>
           ))
@@ -454,63 +539,16 @@ const Main = () => {
 
 
 
-const experienceContent = [
 
-  {
-    title: "SANITAIRE",
-    description:
-      "De par sa conception c’est un produit sain, non absorbant donc sans humidité et sans possibilité d’intégration de moisissures. Associé à des matériaux sains, votre construction gardera, avec le temps, sa douceur de vivre.",
-    image: experience2,
-    specials: [
-      "Produit sain et non absorbant",
-      "Résistant à l'humidité",
-      "Prévention des moisissures"
-    ],
-  },
-  {
-    title: "SECURITE STRUCTURELLE",
-    description:
-      "Contrairement aux constructions traditionnelles en briques, le bois moulé étant un produit non sécable (qui ne ce fissure pas), votre mur en mBio7 ne peut se fissurer et grâce à sa technique d’assemblage, apporte la souplesse nécessaire pour supporter les mouvements de terrain. Un assemblage de panneaux mBio7 dans les règles de l’art facilite la réalisation d’habitations antisismiques.",
-    image: experience2,
-    specials: [
-      "Produit non sécable (ne se fissure pas)",
-      "Souplesse pour supporter les mouvements de terrain",
-      "Facilite la réalisation d'habitations antisismiques"
-    ],
-  },
-  {
-    title: "SECURITE INCENDIE",
-    description:
-      "Associé à des matériaux classe M1, l’absence d’air à l’intérieure des panneaux mBio7 en fait un produit excessivement difficile à bruler et impossible à s’auto consumer.",
-    image: experience3,
-     cta: "https://www.youtube.com/watch?v=xmI_naeRfdw",
-     specials: [
-       "Absence d'air à l'intérieur des panneaux",
-       "Difficulté à brûler",
-       "Impossible à s'auto-consumer"
-     ]
-  },
-  {
-    title: "ISOLATION THERMIQUE",
-    description:
-      "Le bois moulé est un excellent isolant naturel. Sa structure alvéolaire lui confère une résistance thermique élevée, contribuant ainsi à une meilleure efficacité énergétique des bâtiments.",
-    image: experience4,
-    specials: [
-      "Excellent isolant naturel",
-      "Résistance thermique élevée",
-      "Efficacité énergétique améliorée"
-    ]
-  },
-];
 
-const experienceHero =   {
-    title: "Un petit chez soi vaut mieux qu’un grand chez les autres",
-    description:
-      "Un chez soi, tout simplement, grand ou petit, mais qui protège votre famille et vous permets de faire des économies tout en respectant la nature. mBio7 permet tout cela et bien plus encore",
-    image: experience1,
-   
-  }
-const ExperienceHero = () => {
+const ExperienceHero =  () => {
+  const t2 = useTranslations('Experience');
+  const experienceHero =   {
+      title: t2("title"),
+      description: t2("description"),
+      image: experience1,
+     
+    }
   return (
     <Section>
       <Container className="grid items-stretch">

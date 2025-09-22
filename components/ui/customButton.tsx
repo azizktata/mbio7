@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Link from 'next/link'
 import { cn } from '../craft'
 import { Button } from './button'
+import { Link } from '@/i18n/routing'
 
 export default function CustomButton({ label, className, inverted, asChild, href }: { label: string, className?: string, inverted?: boolean, asChild?: boolean, href: string }) {
   return (
