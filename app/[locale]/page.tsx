@@ -8,7 +8,8 @@ import Link from "next/link";
 // Icons
 import HeroImage from "@/public/hero-mbio.jpg";
 import WoodWise from "@/public/woodwise.svg";
-import Stats from "@/public/stats.png";
+// import Stats from "@/public/stats.png";
+import Logo from "@/public/mbio7-logo.png";
 import Comparative from "@/public/comparaison.jpg";
 import Label from "@/public/label.png";
 import Thumbnail from "@/public/video-thumbnail.png";
@@ -154,7 +155,7 @@ const Mbio7 = () => {
       { point: t("tags.tag5") },
       { point: t("tags.tag6") },
     ],
-    image: Stats,
+    image: Logo,
   };
   return (
     <Section className="!mb-0 !pb-0">
@@ -182,7 +183,7 @@ const Mbio7 = () => {
         </div>
         <div className="relative w-full h-52  md:h-96">
           <Image
-            src={MainContent.image}
+            src={MainContent.image} 
             alt="Stats"
             className="object-contain rounded-lg"
             fill
