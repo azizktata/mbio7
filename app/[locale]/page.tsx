@@ -664,7 +664,7 @@ const Contact = () => {
   };
 
   return (
-     <Section id="contact" className=" relative w-full bg-gray-50 py-12">
+     <Container id="contact" className=" relative w-full bg-gray-50 py-12 ">
           <div className="absolute inset-y-0 left-0 w-full bg-[#084E4D]   z-0 "></div>
           <div className="w-[90%] lg:w-[70%] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex flex-col items-start w-full md:w-1/2 z-10">
@@ -700,6 +700,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </Section>
+        </Container>
   )
 }
