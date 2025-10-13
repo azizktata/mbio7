@@ -7,10 +7,16 @@ import Link from "next/link";
 
 // Icons
 import HeroImage from "@/public/hero-mbio.jpg";
+import HeroBg from "@/public/hero-bg.png";
+import ImpactBg from "@/public/impact-bg.png";
+import ContactBg from "@/public/contact-bg.png";
 import WoodWise from "@/public/woodwise.svg";
 // import Stats from "@/public/stats.png";
 import Logo from "@/public/mbio7-logo.png";
 import Comparative from "@/public/comparaison.jpg";
+import slide2 from "@/public/fabrication-2.png";
+import slide3 from "@/public/fabrication-3.png";
+import slide4 from "@/public/utilisation.png";
 import Label from "@/public/label.png";
 import Thumbnail from "@/public/video-thumbnail.png";
 import Image from "next/image";
@@ -47,6 +53,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ContactForm from "@/components/contact-form";
 import { useLocale, useTranslations } from "next-intl";
+import CarouselV1 from "@/components/carousel-v1";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -55,21 +62,20 @@ const poppins = Poppins({
 });
 // This page is using the craft.tsx component and design system
 export default function Home() {
-   const locale = useLocale();
-     
+  const locale = useLocale();
 
   return (
     <div>
       <section className="relative h-[70vh] lg:h-[90vh] w-full">
         <Image
-          src={HeroImage}
+          src={HeroBg}
           alt="mbio7 panel"
           fill
           priority
           className="object-cover w-full object-bottom  "
         />
-        <div className="absolute inset-0 bg-[#084E4D78]" />
-        <div className="absolute inset-0 bg-black/45" />
+        {/* <div className="absolute inset-0 bg-[#084E4D78]" /> */}
+        <div className="absolute inset-0 bg-black/10" />
         <div className="relative z-10">
           <Nav />
           <Hero />
@@ -77,19 +83,24 @@ export default function Home() {
       </section>
       <Banner />
 
-      <div className="bg-mbioPrimary relative">
+      <div className=" relative">
         <Mbio7 />
-        <div className="absolute inset-y-20 left-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
+        {/* <div className="absolute inset-y-20 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
+
+        <div className="p-2 bg-gradient-to-r from-[#084E4D]/60 to-[#6CC1BB] rounded-br-xl rounded-bl-xl" />
+
+        <CarouselCmp />
+        <div className="p-2 bg-gradient-to-l from-[#084E4D]/60 to-[#6CC1BB] rounded-tr-xl rounded-tl-xl " />
         <About />
-        <div className="absolute inset-y-50 right-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
+        {/* <div className="absolute inset-y-50 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
         <Impact />
-        <div className="absolute inset-y-100 left-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
+        {/* <div className="absolute inset-y-100 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
         <WhyUs />
-        <div className="absolute inset-y-150 right-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
+        {/* <div className="absolute inset-y-150 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
         <ComparativeStudy />
-        <div className="absolute inset-y-200 left-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
+        {/* <div className="absolute inset-y-200 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
         <Blogs />
-        <div className="absolute inset-y-250 right-0 w-1/2 bg-white/10 blur-[100px] h-[500px]" />
+        {/* <div className="absolute inset-y-250 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
         <Reviews />
         <FAQ />
         <Contact />
@@ -98,10 +109,9 @@ export default function Home() {
   );
 }
 
-
 // This is just some example TSX
 const Hero = () => {
-  const t = useTranslations('Hero');
+  const t = useTranslations("Hero");
   const HeroContent = {
     title: t("title"),
     description: t("description"),
@@ -109,15 +119,14 @@ const Hero = () => {
     ctaLink: t("cta1_link"),
     cta2: t("cta2"),
     image: HeroImage,
-    
   };
   return (
     <main className="relative border-none h-[60vh] lg:h-[80vh] flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
-        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold capitalize mb-1 text-center px-2 max-w-[40ch]">
+        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold capitalize mb-1 text-center px-2 max-w-[25ch]">
           <Balancer>{HeroContent.title}</Balancer>
         </h1>
-        <p className="text-white max-w-[75ch] text-center text-md sm:text-lg mb-6 px-4">
+        <p className="text-white max-w-[60ch] text-center text-md sm:text-lg font-medium mb-6 px-4">
           <Balancer>{HeroContent.description}</Balancer>
         </p>
         <div className="flex gap-4">
@@ -130,7 +139,7 @@ const Hero = () => {
 };
 
 const Banner = () => {
-  const t = useTranslations('Banner');
+  const t = useTranslations("Banner");
   return (
     <div className="flex flex-col sm:flex-row gap-3 items-center justify-center p-3 bg-mbioSecondary">
       <p className="text-center text-base sm:text-lg text-white ">
@@ -141,9 +150,8 @@ const Banner = () => {
   );
 };
 
-
 const Mbio7 = () => {
-  const t = useTranslations('Mbio7');
+  const t = useTranslations("Mbio7");
   const MainContent = {
     title: t("title"),
     description: t("description"),
@@ -164,10 +172,10 @@ const Mbio7 = () => {
         className="flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center"
       >
         <div className=" w-full">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-white mb-4 lg:mb-8 ">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-mbioPrimary mb-4 lg:mb-8 ">
             {MainContent.title}
           </h2>
-          <p className="mb-4 lg:mb-8 text-mbioMutedForeground">
+          <p className="mb-4 lg:mb-8 text-muted-foreground">
             {MainContent.description}
           </p>
           <div className="flex flex-wrap">
@@ -183,7 +191,7 @@ const Mbio7 = () => {
         </div>
         <div className="relative w-full h-52  md:h-96">
           <Image
-            src={MainContent.image} 
+            src={MainContent.image}
             alt="Stats"
             className="object-contain rounded-lg"
             fill
@@ -194,14 +202,40 @@ const Mbio7 = () => {
   );
 };
 
+const CarouselCmp = () => {
+  const t = useTranslations("Carousel");
+  const CarouselContent = [
+    {
+      title: t("slide1.title"),
+      description: t("slide1.description"),
+      image: HeroImage,
+    },
+    {
+      title: t("slide2.title"),
+      description: t("slide2.description"),
+      image: slide2,
+    },
+    {
+      title: t("slide3.title"),
+      description: t("slide3.description"),
+      image: slide3,
+    },
+    {
+      title: t("slide4.title"),
+      description: t("slide4.description"),
+      image: slide4,
+    },
+  ];
+  return <CarouselV1 visions={CarouselContent} />;
+};
 
 const About = () => {
-  const t = useTranslations('About');
+  const t = useTranslations("About");
   const aboutContent = {
     title: t("title"),
     description: t("description"),
     points: [
-     { detail: t("points.point1") },
+      { detail: t("points.point1") },
       { detail: t("points.point2") },
       { detail: t("points.point3") },
       { detail: t("points.point4") },
@@ -245,13 +279,12 @@ const About = () => {
                 height={100}
               />
             </div>
-          
-              <h2 className="!my-0 font-semibold text-white text-4xl sm:text-5xl ">
-                {aboutContent.title}
-              </h2>
-            
+
+            <h2 className="!my-0 font-semibold text-mbioPrimary text-4xl sm:text-5xl ">
+              {aboutContent.title}
+            </h2>
           </div>
-          <div className="text-mbioMutedForeground max-w-xl prose">
+          <div className="text-muted-foreground max-w-xl prose">
             {aboutContent.description}
 
             <br />
@@ -268,22 +301,30 @@ const About = () => {
 };
 
 const Impact = () => {
-  const t = useTranslations('Impact');
+  const t = useTranslations("Impact");
   const chiffres = [
     { title: t("stat1.title"), value: t("stat1.value") },
     { title: t("stat2.title"), value: t("stat2.value") },
     { title: t("stat3.title"), value: t("stat3.value") },
   ];
   return (
-    <Section>
-      <Container>
+    <Section className="relative">
+      <div className="relative w-full h-[80vh] overflow-hidden bg-gray-100">
+        <Image
+          alt="Card background"
+          src={ImpactBg}
+          fill
+          priority
+          className="z-0 object-cover w-full object-bottom  rounded-md"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-linear"></div>
+      </div>
+      <Container className="flex flex-col items-center absolute inset-0 z-10 justify-center">
         <h2 className="font-semibold text-white text-3xl sm:text-5xl  mb-4 lg:mb-8 text-center">
           <Balancer>{t("title")}</Balancer>
         </h2>
         <Balancer
-          className={cn(
-            "text-mbioMutedForeground text-base text-center mb-6  lg:mb-12"
-          )}
+          className={cn("text-white/80 text-base text-center mb-6  lg:mb-12")}
         >
           {t("description")}
         </Balancer>
@@ -308,9 +349,8 @@ const Impact = () => {
   );
 };
 
-
 const WhyUs = () => {
-  const t = useTranslations('Whyus');
+  const t = useTranslations("Whyus");
   const WhyUsContent = [
     {
       title: t("points.point1.title"),
@@ -328,13 +368,12 @@ const WhyUs = () => {
       title: t("points.point4.title"),
       description: t("points.point4.description"),
     },
-   
   ];
   return (
     <Section>
       <Container>
         <h2 className="mb-8 lg:mb-16 text-center font-semibold">
-          <Balancer className="text-4xl sm:text-5xl  font-semibold text-white cols-span-full ">
+          <Balancer className="text-4xl sm:text-5xl  font-semibold text-mbioPrimary cols-span-full ">
             {t("title")}
           </Balancer>
         </h2>
@@ -342,13 +381,13 @@ const WhyUs = () => {
           {WhyUsContent.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col gap-4 p-6 bg-white/20 rounded-lg hover:scale-[1.02] hover:shadow-lg transition-all"
+              className="flex flex-col gap-4 p-6 rounded-lg border border-gray/50 hover:scale-[1.02] hover:shadow-lg transition-all"
             >
               {index === 0 && (
                 <Recycle className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
               )}
               {index === 1 && (
-              <LeafyGreen className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
+                <LeafyGreen className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
               )}
               {index === 2 && (
                 <ShieldCheck className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
@@ -356,8 +395,10 @@ const WhyUs = () => {
               {index === 3 && (
                 <BadgeCheck className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
               )}
-              <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-              <p className="text-mbioMutedForeground">{item.description}</p>
+              <h3 className="text-xl font-semibold text-mbioPrimary">
+                {item.title}
+              </h3>
+              <p className="text-muted-foreground">{item.description}</p>
             </div>
           ))}
         </div>
@@ -368,65 +409,75 @@ const WhyUs = () => {
 
 const ComparativeStudy = () => {
   return (
-    <Section>
+    <Section className="bg-mbioPrimary py-16">
       <Container>
+        {/* ... Title ... */}
         <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
-          {useLocale() === 'fr' ? 'Étude comparative' : 'Comparative Study'}
+          {useLocale() === "fr" ? "Étude comparative" : "Comparative Study"}
         </h2>
-        <div className="relative w-full h-auto">
+        {/* === STYLING IDEA 2: FOLDED PAPER (Using a strong offset shadow) === */}
+        <div
+          className="
+          relative w-full 
+          bg-white
+          rounded-lg                     
+          shadow-[8px_8px_0_0_rgba(0,0,0,0.4)]  /* Custom offset shadow for depth */
+          border border-gray-200             /* A light border to define the edge */
+          max-w-4xl mx-auto 
+                       
+        "
+        >
           <Image
             src={Comparative}
             alt="Étude comparative"
             width={1200}
             height={800}
-            className="rounded-lg"
+            className="w-full h-auto rounded-md"
           />
         </div>
+        {/* ================================================================= */}
       </Container>
     </Section>
   );
 };
 
-const blogs = [
-  {
-    date: "06 Mars 2019",
-    title:
-      "Grâce à ces panneaux en bois, il fabrique des maisons qui résistent à toutes conditions climatiques",
-    description:
-      "Denis Mary et Dominique Tallarida vont lancer dès la semaine prochaine la production des fameux panneaux mBio7. Ils ont également été repérés par la Croix-Rouge et le Croissant-Rouge.",
-    link: "https://www.nicematin.com/vie-locale/grace-a-ces-panneaux-en-bois-il-fabrique-des-maisons-qui-resistent-a-toutes-conditions-climatiques-303801",
-    image:
-      "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    category: "Construction",
-  },
-  {
-    date: " 1er janvier 2019",
-    title: "Libé des solutions : Le bois mis en demeure",
-    description:
-      "Parmi les inventeurs, il y a les grands rêveurs et les gens carrés. La maison écologique mBio7 est l’alliance des deux. Dominique Tallarida dans le rôle du Géo Trouvetou, Denis Mary dans celui du technicien. Ces habitants de Sospel (Alpes-Maritimes) ont créé des maisons en panneaux de bois recyclé.",
-    link: "https://www.liberation.fr/france/2019/01/01/le-bois-mis-en-demeure_1700633/",
-    image:
-      "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    category: "Innovation",
-  },
-  {
-    date: "14 Août 2018",
-    title: "Une souscription lancée pour des maisons d’urgence",
-    description:
-      "Lauréats du concours Lépine, le Sospellois Dominique Tallarida et son ami Denis Mary s’apprêtent à commercialiser leur concept d’habitat humanitaire. Ils ont besoin d’un dernier coup de pouce",
-    link: "https://www.pressreader.com/monaco/monaco-matin/20180814/281702615548883",
-    image:
-      "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    category: "Construction",
-  },
-];
-
 const Blogs = () => {
+  const t = useTranslations("Blogs");
+  const blogs = [
+    {
+      date: "06 Nov 2019",
+      title: t("blog1.title"),
+      description: t("blog1.description"),
+      image:
+        "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      link: "https://www.pressreader.com/monaco/monaco-matin/20180814/281702615548883",
+      category: "La Gazette de Monaco",
+    },
+    {
+      date: " 1er janvier 2019",
+      title: t("blog2.title"),
+      description: t("blog2.description"),
+      link: "https://www.liberation.fr/france/2019/01/01/le-bois-mis-en-demeure_1700633/",
+      image:
+        "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Liberation",
+    },
+    {
+      date: "14 Août 2018",
+      title: t("blog3.title"),
+      description: t("blog3.description"),
+      link: "https://www.nicematin.com/vie-locale/grace-a-ces-panneaux-en-bois-il-fabrique-des-maisons-qui-resistent-a-toutes-conditions-climatiques-303801",
+
+      image:
+        "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Nice matin",
+    },
+  ];
   return (
     <Section>
       <Container>
-        <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
-          {useLocale() === 'fr' ? 'Derniers articles' : 'Latest Blogs'}
+        <h2 className="text-4xl sm:text-5xl font-semibold text-mbioPrimary text-center mb-8 lg:mb-16">
+          {useLocale() === "fr" ? "Derniers articles" : "Latest Blogs"}
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog, index) => (
@@ -449,7 +500,7 @@ interface BlogCardProps {
 
 const BlogCard = ({ blog }: BlogCardProps) => {
   return (
-    <Card className="hover:shadow-lg  bg-white/10 transition-shadow cursor-pointer py-0 shadow-sm rounded-lg border-none">
+    <Card className="hover:shadow-lg  bg-white/10 transition-shadow cursor-pointer py-0 shadow-sm rounded-lg ">
       <CardHeader className="p-0 relative">
         <Image
           src={blog.image}
@@ -465,8 +516,8 @@ const BlogCard = ({ blog }: BlogCardProps) => {
 
           {/* Content (date) */}
           {/* <div className="relative h-[93px] w-[77px] flex flex-col items-center justify-center p-2">
-    <span className="text-white text-3xl font-light leading-none">{day}</span>
-    <span className="text-white text-md uppercase font-light leading-none">{month}</span>
+    <span className="text-mbioPrimary text-3xl font-light leading-none">{day}</span>
+    <span className="text-mbioPrimary text-md uppercase font-light leading-none">{month}</span>
   </div> */}
         </div>
       </CardHeader>
@@ -474,16 +525,18 @@ const BlogCard = ({ blog }: BlogCardProps) => {
         <span className="text-mbioAccent text-sm rounded-full py-1.5 px-3.5 border border-mbioAccent">
           {blog.category}
         </span>
-        <Balancer className="text-white font-semibold text-xl py-4">
+        <Balancer className="text-mbioPrimary font-semibold text-xl py-4">
           {blog.title}
         </Balancer>
-        <Balancer className="text-mbioMutedForeground text-sm">
+        <Balancer className="text-muted-foreground text-sm">
           {blog.description}
         </Balancer>
       </CardContent>
       <CardFooter>
         <Button variant="link" className="text-mbioAccent px-0">
-          Lire la suite
+          {
+            useLocale() === "fr" ? "Lire l'article" : "Read full article"
+          }
           <ArrowRight className="h-4 w-4 ml-2" />
         </Button>
       </CardFooter>
@@ -491,24 +544,22 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   );
 };
 
-
 const Reviews = () => {
   const t = useTranslations("Reviews");
   const reviews = [
-  {
-    name: t("reviews.review1.name"),
-    rating: 5,
-    comment: t("reviews.review1.comment"),
-  },
-  {
-    name: t("reviews.review2.name"),
-    rating: 5,
-    comment: t("reviews.review2.comment"),
-  },
- 
+    {
+      name: t("reviews.review1.name"),
+      rating: 5,
+      comment: t("reviews.review1.comment"),
+    },
+    {
+      name: t("reviews.review2.name"),
+      rating: 5,
+      comment: t("reviews.review2.comment"),
+    },
   ];
   return (
-    <Section>
+    <Section className="bg-gradient-to-r from-[#084E4D] to-[#85E08A]">
       <Container>
         <h2 className="font-semibold text-white text-4xl sm:text-5xl  mb-8 lg:mb-16 text-center">
           {t("title")}
@@ -534,12 +585,12 @@ interface ReviewCardProps {
 
 const ReviewCard = ({ review }: ReviewCardProps) => {
   return (
-    <Card className="hover:shadow-lg transition-shadow cursor-pointer shadow-sm rounded-2xl bg-white/15 border-none">
+    <Card className=" shadow-lg transition-shadow cursor-pointer rounded-2xl bg-green/15 border-none ">
       {/* <CardHeader className="">
        
       </CardHeader> */}
       <CardContent className=" pt-6 pb-12 ">
-        <p className="text-mbio leading-[1.4] text-sm pl-2 text-white">
+        <p className="text-mbio leading-[1.4] text-sm pl-2 text-white/80 ">
           &quot;{review.comment}&quot;
         </p>
       </CardContent>
@@ -576,60 +627,58 @@ type FAQItem = {
   link?: string;
 };
 
-
-
 const FAQ = () => {
-   const t = useTranslations("FAQ");
+  const t = useTranslations("FAQ");
 
   const content: FAQItem[] = [
-  {
-    question: t("questions.q1.question"),
-    answer: t("questions.q1.answer"),
-  },
-  {
-    question: t("questions.q2.question"),
-    answer: t("questions.q2.answer"),
-  },
-  {
-    question: t("questions.q3.question"),
-    answer: t("questions.q3.answer"),
-  },
-  {
-    question: t("questions.q4.question"),
-    answer: t("questions.q4.answer"),
-  },
-  {
-    question: t("questions.q5.question"),
-    answer: t("questions.q5.answer"),
-  },
-  {
-    question: t("questions.q6.question"),
-    answer: t("questions.q6.answer"),   
-  },
-  {
-    question: t("questions.q7.question"),
-    answer: t("questions.q7.answer"),
-  },
-  {
-    question: t("questions.q8.question"),
-    answer: t("questions.q8.answer"),
-  },
-];
+    {
+      question: t("questions.q1.question"),
+      answer: t("questions.q1.answer"),
+    },
+    {
+      question: t("questions.q2.question"),
+      answer: t("questions.q2.answer"),
+    },
+    {
+      question: t("questions.q3.question"),
+      answer: t("questions.q3.answer"),
+    },
+    {
+      question: t("questions.q4.question"),
+      answer: t("questions.q4.answer"),
+    },
+    {
+      question: t("questions.q5.question"),
+      answer: t("questions.q5.answer"),
+    },
+    {
+      question: t("questions.q6.question"),
+      answer: t("questions.q6.answer"),
+    },
+    {
+      question: t("questions.q7.question"),
+      answer: t("questions.q7.answer"),
+    },
+    {
+      question: t("questions.q8.question"),
+      answer: t("questions.q8.answer"),
+    },
+  ];
   return (
     <Section>
       <Container className="grid md:grid-cols-2 gap-6 lg:gap-4">
-        <h2 className="font-semibold text-white text-4xl sm:text-5xl ">
-          FAQ – {t("title_part1")}  {t("title_part2")}
+        <h2 className="font-semibold text-mbioPrimary text-4xl sm:text-5xl ">
+          FAQ – {t("title_part1")} {t("title_part2")}
         </h2>
 
         <div className="not-prose  flex flex-col gap-4 ">
           {content.map((item, index) => (
             <Accordion key={index} type="single" collapsible>
               <AccordionItem value={item.question}>
-                <AccordionTrigger className="text-left text-white text-lg">
+                <AccordionTrigger className="text-left text-mbioPrimary text-lg">
                   <div className="flex items-center">{item.question}</div>
                 </AccordionTrigger>
-                <AccordionContent className="text-base text-mbioMutedForeground pl-4">
+                <AccordionContent className="text-base text-muted-foreground pl-4">
                   <Balancer>
                     {item.answer}
                     {item.link && (
@@ -652,54 +701,59 @@ const FAQ = () => {
   );
 };
 
-
 const Contact = () => {
   const locale = useLocale();
   const contactSection = {
-    subtitle: locale === 'fr' ? 'Restons en contact' : 'Get in Touch',
-    title: locale === 'fr' ? 'Contactez-nous' : 'Contact Us',
+    subtitle: locale === "fr" ? "Restons en contact" : "Get in Touch",
+    title: locale === "fr" ? "Contactez-nous" : "Contact Us",
     email: "contact@woodwise.fr",
     phone: "80157 59053",
     address: "QUARTIER CUNI, SOSPEL, 06380, FR",
   };
 
   return (
-     <Container id="contact" className=" relative w-full bg-gray-50 py-12 ">
-          <div className="absolute inset-y-0 left-0 w-full bg-[#084E4D]   z-0 "></div>
-          <div className=" mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex flex-col items-start w-full md:w-1/2 z-10">
-              <h4 className="text-lg font-light text-mbioAccent">{contactSection.subtitle}</h4>
-              <h1 className="text-3xl md:text-5xl font-semibold tracking-wider text-white mb-6">
-                {contactSection.title}
-              </h1>
-              <div>
-                <div className="flex items-center gap-4 mb-4">
-                  <Mail size={24} className="text-mbioAccent" />
-                  <p className="text-white font-semibold text-base sm:text-lg">
-                    {contactSection.email}
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 mb-4">
-                  <MapPin size={28} className="text-mbioAccent" />
-                  <p className="text-white font-semibold text-base sm:text-lg">
-                    {contactSection.address}
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 mb-4">
-                  <Phone size={24} className="text-mbioAccent" />
-                  <p className="text-white font-semibold text-base sm:text-lg">
-                    {contactSection.phone}
-                  </p>
-                </div>
-              </div>
+    <Section
+      id="contact"
+      className=" bg-gradient-to-br from-[#6CC1BB]  to-teal-900"
+    >
+      <Container className="flex flex-col md:flex-row gap-8  md:gap-16 items-start md:items-center">
+        <div className="flex flex-col items-start w-full md:w-1/2">
+          <h4 className="text-lg font-light text-mbioPrimary">
+            {
+              useLocale() === "fr" ? "Restons en contact" : "Get in Touch"
+            }
+          </h4>
+          <h1 className="text-3xl md:text-5xl font-semibold tracking-wider text-white mb-6">
+            {contactSection.title}
+          </h1>
+          <div>
+            <div className="flex items-center gap-4 mb-4">
+              <Mail size={20} className="text-white/50" />
+              <p className="text-white font-semibold text-base sm:text-lg">
+                {contactSection.email}
+              </p>
             </div>
-
-            <div className="w-full md:w-1/2 lg:w-1/3 z-10">
-              <div className="bg-white p-8 rounded-lg shadow-md max-w-md mx-auto">
-                <ContactForm />
-              </div>
+            <div className="flex items-center gap-4 mb-4">
+              <MapPin size={24} className="text-white/50" />
+              <p className="text-white font-semibold text-base sm:text-lg">
+                {contactSection.address}
+              </p>
+            </div>
+            <div className="flex items-center gap-4 mb-4">
+              <Phone size={20} className="text-white/50" />
+              <p className="text-white font-semibold text-base sm:text-lg">
+                {contactSection.phone}
+              </p>
             </div>
           </div>
-        </Container>
-  )
-}
+        </div>
+
+        <div className="w-full md:w-1/2 ">
+          <div className="bg-white p-8 rounded-lg shadow-md ">
+            <ContactForm />
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+};

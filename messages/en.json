@@ -1,8 +1,7 @@
 {
     "Hero": {
-        "title": "MBio7, the bio-based panel with a negative carbon footprint.",
-        "description": "MBio7 is a bio-based panel made from natural materials such as wood residues, plant fibers, bamboo, palm leaves, coconut husks, or many other bio-based products. It is designed to provide optimal thermal and acoustic insulation while being environmentally friendly.",
-        "cta1": "Learn more",
+        "title": "MBio7, ecology serving construction.",
+        "description": "We transform wood waste into housing. We invented the mBio7 panel to allow everyone to build scalable homes.",
         "cta1_link": "/pages/fabrication",
         "cta2": "Contact us"
     },
@@ -20,26 +19,45 @@
         "text": "A patented product developed by"
     },
     "Mbio7": {
-        "title": "A major innovation ",
+        "title": "Building Better ECOLOGICALLY",
         "description": "MBio7 is revolutionizing the construction materials sector by offering a sustainable and eco-friendly solution. With its negative carbon footprint, it actively contributes to the fight against climate change while ensuring exceptional performance in terms of thermal and acoustic insulation.",
         "tags": {
-            "tag1": "Eco-friendly",
-            "tag2": "Thermal insulation",
-            "tag3": "Acoustic insulation",
-            "tag4": "Sustainable",
-            "tag5": "Carbon negative",
-            "tag6": "Natural materials"
+      "tag1": "Ultra-light (9kg) & Innovative",
+      "tag2": "Recycled Wood & Waste-based",
+      "tag3": "Zero Deforestation Impact",
+      "tag4": "CO2-Negative (7.66 kg saved/panel)",
+      "tag5": "Simplified Logistics & Storage",
+      "tag6": "Multi-Thickness & Insulation",
+      "tag7": "Phase Change Material Ready",
+      "tag8": "Acoustic Insulation" 
+    }
+    },
+    "Carousel": {
+        "slide1": {
+            "title": "From Wood waste to Eco-Friendly Homes",
+            "description": "Pioneering technology to transform recycled materials into high-performance, durable construction panels. ♻️"
+        },
+        "slide2": {
+            "title": "Recycled Materials",
+            "description": "Building a greener future with homes crafted from recycled content, reducing waste and environmental impact."
+        },
+        "slide3": {
+            "title": "Transforming to construction panels",
+            "description": "Innovative processes turning recycled materials into robust, eco-friendly construction panels for sustainable living."
+        },
+        "slide4": {
+            "title": "Building Homes, Saving the Planet",
+            "description": "Creating sustainable homes with recycled materials, reducing carbon footprints, and promoting eco-friendly living."
         }
     },
     "About": {
         "title": "A solution for everyone, everywhere",
-        "description": "Designed for sustainable, earthquake-resistant, healthy, frost-resistant, economical, and modular constructions — MBio7 enables true autonomy:",
+        "description": "Designed for sustainable, earthquake-resistant, healthy, frost-resistant, economical, and modular constructions — We invented the mBio7 panel to allow everyone to build scalable homes.",
         "points": {
-            "point1": "Residential: single-family homes, multi-family housing, student residences, nursing homes, hotels",
-            "point2": "Tertiary: offices, shops, restaurants, gyms",
-            "point3": "Industrial: agricultural buildings, warehouses, workshops",
-            "point4": "Public facilities: schools, daycares, leisure centers, libraries",
-            "point5": "Temporary projects: trade shows, events, modular constructions"
+            "point1": "It is water and fire resistant",
+            "point2": "It is not afraid of termites or any other type of insect",
+            "point3": "It is lightweight and non-breakable (non-splittable/non-cracking)",
+            "point4": "compliance with the RE 2020 standard."
         }
     },
     "Impact": {
@@ -141,44 +159,38 @@
             }
         }
     },
-
     "Fabrication": {
         "fabrication1": {
-            "title": "Sourcing and preparation of raw materials",
-            "description": "The production of MBio7 begins with the careful selection of high-quality raw materials, primarily wood residues and other natural fibers. These materials are sourced from sustainable forestry operations and recycled wood to ensure environmental responsibility. Once collected, the raw materials undergo a thorough cleaning and preparation process to remove impurities and ensure optimal quality for the subsequent manufacturing stages.",
-            "specials": 
-                {
-                    "point1":  "Use of recycled wood and natural fibers",
-                    "point2": "Sourcing from sustainable forestry operations",
-                    "point3":  "Thorough cleaning and preparation of materials"
-                }
-          
+            "title": "An innovative manufacturing process",
+            "description": "Based on a technique mastered for over 30 years to produce molded wood pallets, creating housing panels in the shape of our mBio7 panels required more than three years of research and development, ultimately leading to the production of a construction panel with astonishing and ambitious characteristics.",
+            "specials": {
+                "point1": "Proven and reliable industrial process",
+                "point2": "Over 10 years of research and innovation",
+                "point3": "Unprecedented technical characteristics"
+            }
         },
         "fabrication2": {
-            "title": "Mixing and formulation",
-            "description": "The prepared raw materials are then mixed with natural binders and additives to create a homogeneous composite mixture. This formulation is carefully designed to achieve the desired mechanical properties, thermal insulation, and acoustic performance of the final MBio7 panels. The mixing process ensures that all components are evenly distributed, resulting in a consistent and high-quality product.",
-            "specials": 
-                {
-                    "point1": "Use of natural binders and additives",
-                    "point2": "Carefully designed formulation for optimal performance",
-                    "point3": "Homogeneous mixing for consistent quality"
-                }
+            "title": "The origin of the material",
+            "description": "At the origin, there is the material, molded wood, made of more than 90% recycled wood. It is a natural and bio-sourced product. The molded wood is then dried and mixed with thermosetting resin without formaldehyde.",
+            "specials": {
+                "point1": "Use of recycled wood (95%)",
+                "point2": "Natural and bio-sourced material",
+                "point3": "Durability and respect for the environment"
+            }
         },
         "fabrication3": {
-            "title": "Shaping and curing",
-            "description": "The mixture is then placed into a press equipped with a MBio7 mold. A force of over 900 tons combined with curing at 170°C ensures the thermosetting of the composite. The panel automatically releases from the mold, solid and ready for use after cooling.",
-            "specials": 
-                {
-                    "point1": "Pressure of over 900 tons",
-                    "point2": "Thermosetting at 170°C",
-                    "point3": "Panels ready for immediate use"
-                }
+            "title": "Shaping and Solidifying",
+            "description": "The whole is placed in a press equipped with a mBio7 mold. A force of more than 900 tons is applied to the material. 170° cooking for several minutes will solidify the composite material through thermosetting. And our mBio7 panel automatically comes out, ready to be used after cooling.",
+            "specials": {
+                "point1": "Pressure of more than 900 tons",
+                "point2": "Thermosetting at 170°C",
+                "point3": "Panels ready for use immediately"
+            }
         }
     },
-    
     "Experience": {
         "title": "A little home of your own is better than a big one at someone else's",
-           "description": "A home of your own, simply, big or small, but one that protects your family and allows you to save money while respecting nature. mBio7 allows all this and much more",
+        "description": "A home of your own, simply, big or small, but one that protects your family and allows you to save money while respecting nature. mBio7 allows all this and much more",
         "experience1": {
             "title": "HEALTHY",
             "description": "Due to its design, it's a healthy, non-absorbent product, meaning it's free of moisture and the possibility of mold growth. When combined with other healthy materials, your construction will maintain its pleasant living environment over time.",
@@ -216,8 +228,20 @@
             }
         }
     },
-
-
+    "Blogs": {
+        "blog1": {
+            "title": "Innovative eco-material for housing construction",
+            "description": "Innovative eco-material for housing construction, mBio7 is the result of a dream, that of Dominique Tallarida, which became a reality with the help of his friend and associate Denis Mary. Awarded a prize at the prestigious Lépine competition in 2015, the project is now seeking funds to start its semi-automatic industrial production and has launched a crowdfunding campaign (donations) on Monaco Crowdfunding for this purpose."
+        },
+        "blog2": {
+            "title": "Wood is put on notice",
+            "description": "Two Lépine competition winners have created eco-friendly housing and want to turn it into emergency shelters."
+        },
+        "blog3": {
+            "title": "A subscription launched for emergency homes",
+            "description": "Winners of the Lépine competition, Dominique Tallarida from Sospel and his friend Denis Mary are preparing to commercialize their humanitarian housing concept. They need one last push."
+        }
+    },
     "UtilisationHero": {
         "title": "How to use mBio7 panels?",
         "description": "mBio7 panels are versatile and can be used in various types of construction and renovation projects. Here are some of the main uses for mBio7 panels:",
@@ -248,7 +272,4 @@
             "point10": "Rustic coating on stapled trellis"
         }
     }
-
-
-
 }

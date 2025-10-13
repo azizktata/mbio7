@@ -122,7 +122,7 @@ export default function ContactForm() {
         <Button
           disabled={isLoading}
           type="submit"
-          className="bg-mbioSecondary gap-2 rounded-sm text-base px-4 py-6 w-full  font-normal  hover:bg-[#285C8A]"
+          className="bg-mbioPrimary gap-2 rounded-sm text-base px-4 py-6 w-full  font-normal  hover:bg-[#285C8A]"
         >
           {isLoading ? (
             locale === 'fr' ? 'Envoi...' : 'Sending...'

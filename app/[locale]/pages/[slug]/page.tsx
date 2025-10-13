@@ -140,7 +140,7 @@ export default async function Page({
       { point : t('fabrication2.specials.point2') },
       { point : t('fabrication2.specials.point3') },
     ],
-    image: fabrication3,
+    image: fabrication2,
   },
   {
     title: t('fabrication3.title'),
@@ -151,7 +151,7 @@ export default async function Page({
       { point : t('fabrication3.specials.point2') },
       { point : t('fabrication3.specials.point3') },
     ],
-    image: fabrication2,
+    image: fabrication3,
   },
 ];
 
@@ -219,8 +219,10 @@ const experienceContent = [
   },
 ];
   return (
-    <div className="min-h-screen w-full bg-mbioPrimary">
+    <div className="min-h-screen w-full ">
+    <div className="w-full bg-mbioPrimary">
       <Nav />
+      </div>
       <div id="banner" className="relative">
         <div className="relative h-64 w-full">
           <Image
@@ -327,44 +329,59 @@ interface FeatureProps {
 
 const Feature = ({ image, title, description, specials, cta }: FeatureProps) => {
   return (
-    <Container className="grid items-stretch md:grid-cols-2 md:gap-12">
-      <div className="not-prose relative flex h-96 overflow-hidden rounded-lg ">
+    <Container className="grid items-stretch md:grid-cols-2 md:gap-12 relative" >
+      {/* =====================================================
+        GEOMETRY ADDITION - Image Container 
+        - Relative positioning for the absolute pseudo-elements.
+        - `z-0` ensures the image wrapper is in a standard layer.
+        - Increased `h-96` to `h-[420px]` just for a slightly bigger image area.
+      */}
+      <div className="not-prose relative flex h-[420px] overflow-hidden rounded-lg z-0">
+        
+        {/* Slanted Accent Background (Bottom Left Corner) */}
+        <div 
+          className="absolute bottom-0 left-0 w-3/4 h-3/4 bg-mbioAccent opacity-20 transform skew-y-3 -translate-x-1/4 -translate-y-1/4 z-[-1]"
+        ></div>
+
+        {/* Small Solid Corner Shape (Top Right) */}
+
+
+        {/* The actual image element */}
         <Image
           src={image}
-          alt="placeholder"
-          className="fill object-cover object-left"
+          alt="Illustration de panneaux de construction en bois"
+          className="fill object-cover object-left rounded-lg transition-transform duration-500 hover:scale-[1.03] z-10"
         />
-
-       
       </div>
-      <div className="flex flex-col gap-6 py-8 text-white">
-        <h2 className="!my-0 text-white text-4xl sm:text-5xl">{title}</h2>
+      
+      {/* =====================================================
+        TEXT CONTENT - Kept largely the same, maybe slight tweaks
+      */}
+      <div className="flex flex-col gap-6 py-8 text-mbioPrimary">
+        <h2 className="!my-0 text-mbioPrimary text-4xl sm:text-5xl">{title}</h2>
         <Balancer>
-
-        <p className="font-light leading-[1.4] text-mbioMutedForeground">
-          {description}
-        </p>
+          <p className="font-light leading-[1.4] text-muted-foreground">
+            {description}
+          </p>
         </Balancer>
-
         {
           specials &&
-         <ul className=" list-disc text-mbioAccent marker:text-mbioAccent pl-5">
-              {specials.map((special, index) => (
-                <li key={index}>{special.point}</li>
-              ))}
-            </ul>
+          <ul className=" list-disc text-mbioAccent marker:text-mbioAccent pl-5">
+            {specials.map((special, index) => (
+              <li key={index}>{special.point}</li>
+            ))}
+          </ul>
         }
-
         {
           cta &&
-        <div className="not-prose flex items-center gap-2">
-          <Button className="w-fit" asChild>
-            <Link href={cta} target="_blank" rel="noopener noreferrer">Voir la vidéo</Link>
-          </Button>
-         
-        </div> 
+          <div className="not-prose flex items-center gap-2">
+            <Button className="w-fit" asChild>
+              <Link href={cta} target="_blank" rel="noopener noreferrer">Voir la vidéo</Link>
+            </Button>
+          </div>
         }
       </div>
+              
     </Container>
   );
 };
@@ -372,42 +389,67 @@ const Feature = ({ image, title, description, specials, cta }: FeatureProps) => 
 const FeatureInverted = ({ image, title, description, specials, cta }: FeatureProps) => {
   return (
     <Section>
-      <Container className="grid items-stretch md:grid-cols-2 md:gap-12">
-        <div className="flex flex-col gap-6 py-8">
-          <h2 className="!my-0 text-white text-3xl sm:text-5xl">{title}</h2>
+      <Container className="grid items-stretch md:grid-cols-2 md:gap-12 relative" >
+        {/* =====================================================
+          TEXT CONTENT (Left Side) - Kept the same
+        */}
+        <div 
+          className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#064343] opacity-10 transform skew-y-3 -translate-x-1/4 -translate-y-1/4 z-[-1]"
+        ></div>
+        <div className="flex flex-col gap-6 py-8 text-mbioPrimary">
+          <h2 className="!my-0 text-mbioPrimary text-3xl sm:text-5xl">{title}</h2>
 
-      <Balancer>
-
-          <p className="font-light leading-[1.4] text-mbioMutedForeground">
-            {description}
-          </p>
-      </Balancer>
+          <Balancer>
+            <p className="font-light leading-[1.4] text-muted-foreground">
+              {description}
+            </p>
+          </Balancer>
+            
+          {
+            specials &&
+            <ul className=" list-disc text-mbioAccent marker:text-mbioAccent pl-5">
+                {specials.map((special, index) => (
+                  <li key={index}>{special.point}</li>
+                ))}
+              </ul>
+          }
+        </div>
+        
+        {/* =====================================================
+          GEOMETRY ADDITION - Image Container (Right Side)
+        */}
+        <div className="not-prose relative flex h-[420px] overflow-hidden rounded-lg z-0">
           
-           {
-          specials &&
-         <ul className=" list-disc text-mbioAccent marker:text-mbioAccent pl-5">
-              {specials.map((special, index) => (
-                <li key={index}>{special.point}</li>
-              ))}
-            </ul>
-        }
-         
-        </div>
-        <div className="not-prose relative flex h-96 overflow-hidden rounded-lg ">
-          <Image src={image} alt="placeholder" className="fill object-cover" />
-           {
-          cta &&
-           <div className="absolute inset-0 flex items-center justify-center">
-          <Link href="https://www.youtube.com/watch?v=xmI_naeRfdw" target="_blank" rel="noopener noreferrer">
-          <Button 
-            variant="ghost"
-            className="h-16 w-16 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
-          >
-            <PlayIcon className="h-8 w-8 fill-current text-white" />
-          </Button>
-          </Link>
-        </div>
-        }
+          {/* 1. Slanted Accent (Bottom Left) - Subtle background movement */}
+          <div 
+            className="absolute top-0 left-0 w-3/5 h-3/5 bg-[#080d46] opacity-10 transform skew-y-3 -translate-x-1/4 translate-y-1/4 z-[-1] rounded-tl-xl"
+          ></div>
+
+          {/* 2. Structured Corner Frame (Top Right) - Uses a border for a modular, open-box feel */}
+          
+
+          {/* The actual image element with hover effect */}
+          <Image 
+            src={image} 
+            alt="Illustration de panneaux de construction en bois" 
+            className="fill object-cover rounded-lg transition-transform duration-500 hover:scale-[1.03] z-10" 
+          />
+
+          {/* CTA button (Z-20 to ensure it's on top of everything) */}
+          {
+            cta &&
+            <div className="absolute inset-0 flex items-center justify-center z-20">
+              <Link href={cta} target="_blank" rel="noopener noreferrer">
+                <Button 
+                  variant="ghost"
+                  className="h-16 w-16 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0 transition-all duration-300"
+                >
+                  {/* Assuming PlayIcon is defined/imported */}
+                  <PlayIcon className="h-8 w-8 fill-current text-white" />
+                </Button>
+              </Link>
+            </div>
+          }
         </div>
       </Container>
     </Section>
@@ -459,11 +501,11 @@ const Hero = () => {
         </div>
         
         <div className="flex flex-col gap-6 py-8 relative">
-          <h2 className="!my-0 font-semibold text-white text-3xl sm:text-5xl ">
+          <h2 className="!my-0 font-semibold text-mbioPrimary text-3xl sm:text-5xl ">
             {utilisationHero.title}
           </h2>
           <div
-           className="text-mbioMutedForeground max-w-xl prose"
+           className="text-muted-foreground max-w-xl prose"
           >
             {utilisationHero.description}
         
@@ -513,10 +555,10 @@ const Main = () => {
             className="fill object-cover"
           />
         </div>
-        <h3 className="my-2 mt-8 text-white text-3xl sm:text-5xl font-semibold">
+        <h3 className="my-2 mt-8 text-mbioPrimary text-3xl sm:text-5xl font-semibold">
           <Balancer>{MainContent.title}</Balancer>
         </h3>
-        <p className="text-mbioMutedForeground leading-[1.6] my-6">
+        <p className="text-muted-foreground leading-[1.6] my-6">
           <Balancer>
             {MainContent.description}
           </Balancer>
@@ -550,15 +592,18 @@ const ExperienceHero =  () => {
      
     }
   return (
-    <Section>
+    <Section className="relative">
+       <div 
+          className="absolute bottom-0 right-0 w-2/4 h-2/4 bg-[#064343] opacity-10 transform skew-y-3 -translate-x-1/4 -translate-y-1/4 z-[-1]"
+        ></div>
       <Container className="grid items-stretch">
-        <h3 className="text-white text-4xl sm:text-5xl mb-6">
+        <h3 className="text-mbioPrimary text-4xl sm:text-5xl mb-6">
           <Balancer>
 
           {experienceHero.title}
           </Balancer>
           </h3>
-        <p className="text-mbioMutedForeground mb-6" >
+        <p className="text-muted-foreground mb-6" >
           <Balancer>
             {experienceHero.description}
           </Balancer>

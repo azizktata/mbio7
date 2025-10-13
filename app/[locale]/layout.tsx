@@ -123,7 +123,7 @@ const Footer = () => {
             </Link>
             <p>
               <Balancer>
-                {locale === 'fr' ? "mBio7 est un panneau biosourcé à empreinte carbone négative, fabriqué en France, qui allie performance thermique, acoustique et environnementale pour des constructions durables et confortables." : "mBio7 is a bio-based panel with a negative carbon footprint, made in France, combining thermal, acoustic, and environmental performance for sustainable and comfortable buildings."}
+                {locale === 'fr' ? "MBio7, L'écologie au service de la construction" : "MBio7, Ecology at the service of construction."}
               </Balancer>
             </p>
           </div>

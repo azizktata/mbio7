@@ -52,7 +52,9 @@ const Nav = ({ className, children, id }: NavProps) => {
                     </h2>
                 </Link>
                 {children}
-                <div className="flex items-center gap-2">
+
+                <div className="flex items-center gap-2 ml-auto md:ml-0">
+                
                     <div className="mx-2 hidden md:flex">
                        {mainMenu.map(({ key, href }) => (
                             <Button

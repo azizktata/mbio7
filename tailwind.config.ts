@@ -68,7 +68,7 @@ const config = {
   			}
   		},
   		backgroundImage: {
-  			main: 'var(--mbio-primary)',
+  			// main: 'var(--mbio-primary)',
 			gradient: "var(--gradient-default)",
   		},
   		borderRadius: {

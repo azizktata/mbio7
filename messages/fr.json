@@ -1,7 +1,7 @@
 {
     "Hero": {
-        "title": "MBio7, le panneau biosourcé à empreinte carbone négative.",
-        "description": "MBio7 est un panneau biosourcé fabriqué à partir de matériaux naturels tels que résidus de bois, de fibres végétales, de bambou, de palmes, de noix de coco ou de nombreux autres produits biosourcés. Il est conçu pour offrir une isolation thermique et acoustique optimale tout en étant respectueux de l'environnement.",
+        "title": "MBio7, l'écologie au service de la construction.",
+        "description": "On transforme les déchets de bois en habitations. Nous avons inventé le panneau mBio7 pour permettre à tous de construire des maisons évolutives.",
         "cta1": "En savoir plus",
         "cta1_link": "/pages/fabrication",
         "cta2": "Contactez-nous"
@@ -20,26 +20,45 @@
         "text": "Un produit breveté et développé par"
     },
     "Mbio7": {
-        "title": "Une innovation majeure",
-        "description": "MBio7 révolutionne le secteur des matériaux de construction en offrant une solution durable et écologique. Grâce à son empreinte carbone négative, il contribue activement à la lutte contre le changement climatique tout en assurant des performances exceptionnelles en termes d'isolation thermique et acoustique.",
+        "title": "Construire Mieux ÉCOLOGIQUEMENT",
+        "description": "MBio7 révolutionne le secteur des matériaux de construction en offrant une solution durable et écologique. Grâce à son empreinte carbone négative, il contribue activement à la lutte contre le changement climatique tout en assurant des performances exceptionnelles en termes d'isolation thermique et acoustique - Le panneau MBio7 est un éco-matériau :",
         "tags": {
-            "tag1": "Écologique",
-            "tag2": "Isolation thermique",
-            "tag3": "Isolation acoustique",
-            "tag4": "Durable",
-            "tag5": "Carbone négatif",
-            "tag6": "Matériaux naturels"
+            "tag1": "Ultra-léger (9Kg) & Innovant",
+            "tag2": "Issu du Recyclage de Bois",
+            "tag3": "Sans Déforestation",
+            "tag4": "Carbone Négatif (7,66 kg CO2 éq/panneau)",
+            "tag5": "Logistique et Stockage Simplifiés",
+            "tag6": "Multi-épaisseurs & Isolants",
+            "tag7": "Intégration Chaleur Latente",
+            "tag8": "Isolation Acoustique"
+        }
+    },
+    "Carousel": {
+        "slide1": {
+            "title": "Des déchets de bois aux maisons écologiques",
+            "description": "Une technologie de pointe pour transformer les matériaux recyclés en panneaux de construction durables et performants. ♻️"
+        },
+        "slide2": {
+            "title": "Matériaux recyclés",
+            "description": "Construire un avenir plus vert avec des maisons fabriquées à partir de contenu recyclé, réduisant les déchets et l'impact environnemental."
+        },
+        "slide3": {
+            "title": "Transformation en panneaux de construction",
+            "description": "Des processus innovants transformant les matériaux recyclés en panneaux de construction robustes et écologiques pour un habitat durable."
+        },
+        "slide4": {
+            "title": "Construire des maisons, sauver la planète",
+            "description": "Créer des maisons durables avec des matériaux recyclés, réduire les empreintes carbone et promouvoir un mode de vie écologique."
         }
     },
     "About": {
         "title": "Une solution pour tous, partout",
-        "description": "Pensé pour des constructions durables, antisismiques, saines, résistantes au gel, économes, modulables — mBio7 permet une véritable autonomie :",
+        "description": "Pensé pour des constructions durables, antisismiques, saines, résistantes au gel, économes, modulables — Nous avons inventé le panneau mBio7 pour permettre à tous de construire des maisons évolutives.",
         "points": {
-            "point1": "Résidentiel : maisons individuelles, logements collectifs, résidences étudiantes, EHPAD, hôtels",
-            "point2": "Tertiaire : bureaux, commerces, restaurants, salles de sport",
-            "point3": "Industriel : bâtiments agricoles, entrepôts, ateliers",
-            "point4": "Équipement public : écoles, crèches, centres de loisirs, bibliothèques",
-            "point5": "Projets temporaires : salons, événements, constructions modulaires"
+            "point1": "Il est résistant à l’eau et au feu",
+            "point2": "Il ne craint pas les termites ou tout autre type d’insecte",
+            "point3": "Il est léger et non sécable",
+            "point4": "respect de la norme RE 2020."
         }
     },
     "Impact": {
@@ -137,7 +156,7 @@
     "Fabrication": {
         "fabrication1": {
             "title": "La fabrication de nos panneaux mBio7",
-            "description": "Fruit de plus de 10 années de recherche et développement, la mise au point des panneaux mBio7 s’appuie sur un savoir-faire industriel éprouvé depuis plus de 30 ans dans la production de palettes en bois moulé. Ce procédé unique a permis de créer un panneau de construction innovant aux performances techniques remarquables.",
+            "description": "Basé sur une technique maitrisée depuis plus de 30 ans pour produire des palettes en bois moulés, réaliser des panneaux d’habitation à la forme de nos panneau mBio7 a demandé plus de trois années de recherche et de développement, pour arriver enfin à produire un panneau de construction aux caractéristiques étonnantes et ambitieuses.",
             "specials": {
                 "point1": "Procédé industriel éprouvé et fiabilisé",
                 "point2": "Plus de 10 ans de recherche et d’innovation",
@@ -146,7 +165,7 @@
         },
         "fabrication2": {
             "title": "L'origine de la matière",
-            "description": "Nos panneaux MBio7 sont constitués à plus de 95 % de fibres de bois et 5% de résine thermodurcissable sans formaldéhyde.",
+            "description": "A l’origine il y a la matière, du bois moulé, constitué à plus de 90 % de bois issu du recyclage. C’est un produit naturel et biosourcé. Le bois moulé est ensuite séché et mélangé à de la résine thermodurcissable sans formaldéhyde.",
             "specials": {
                 "point1": "Utilisation de bois recyclé (95 %)",
                 "point2": "Matériau naturel et biosourcé",
@@ -155,7 +174,7 @@
         },
         "fabrication3": {
             "title": "La mise en forme et la cuisson",
-            "description": "La matière est ensuite placée dans une presse équipée d’un moule mBio7. Une force de plus de 900 tonnes combinée à une cuisson à 170°C assure le thermo-durcissement du composite. Le panneau ressort automatiquement du moule, solide et prêt à l’emploi après refroidissement.",
+            "description": "Le tout est placé dans une presse équipé d’un moule mBio7. Une force de plus de 900 tonnes est appliquée sur la matière. 170° de cuisson durant plusieurs minutes va solidifier par thermo-durcissement le matériau composite. Et notre panneau mBio7 ressort automatiquement, prêt à être utilisé après refroidissement.",
             "specials": {
                 "point1": "Pression de plus de 900 tonnes",
                 "point2": "Thermo-durcissement à 170°C",
@@ -164,21 +183,20 @@
         }
     },
     "Experience": {
-          "title": "Un petit chez soi vaut mieux qu’un grand chez les autres",
+        "title": "Un petit chez soi vaut mieux qu’un grand chez les autres",
         "description": "Un chez soi, tout simplement, grand ou petit, mais qui protège votre famille et vous permets de faire des économies tout en respectant la nature. mBio7 permet tout cela et bien plus encore",
         "experience1": {
             "title": "SANITAIRE",
-            "description":       "De par sa conception c’est un produit sain, non absorbant donc sans humidité et sans possibilité d’intégration de moisissures. Associé à des matériaux sains, votre construction gardera, avec le temps, sa douceur de vivre.",
-
+            "description": "De par sa conception c’est un produit sain, non absorbant donc sans humidité et sans possibilité d’intégration de moisissures. Associé à des matériaux sains, votre construction gardera, avec le temps, sa douceur de vivre.",
             "specials": {
                 "point1": "Produit sain et non absorbant",
                 "point2": "Résistant à l'humidité",
-                "point3":  "Prévention des moisissures"
+                "point3": "Prévention des moisissures"
             }
         },
         "experience2": {
             "title": "SECURITE STRUCTURELLE",
-            "description":  "Contrairement aux constructions traditionnelles en briques, le bois moulé étant un produit non sécable (qui ne ce fissure pas), votre mur en mBio7 ne peut se fissurer et grâce à sa technique d’assemblage, apporte la souplesse nécessaire pour supporter les mouvements de terrain. Un assemblage de panneaux mBio7 dans les règles de l’art facilite la réalisation d’habitations antisismiques.",
+            "description": "Contrairement aux constructions traditionnelles en briques, le bois moulé étant un produit non sécable (qui ne ce fissure pas), votre mur en mBio7 ne peut se fissurer et grâce à sa technique d’assemblage, apporte la souplesse nécessaire pour supporter les mouvements de terrain. Un assemblage de panneaux mBio7 dans les règles de l’art facilite la réalisation d’habitations antisismiques.",
             "specials": {
                 "point1": "Produit non sécable (ne se fissure pas)",
                 "point2": "Souplesse pour supporter les mouvements de terrain",
@@ -204,7 +222,21 @@
             }
         }
     },
-      "UtilisationHero": {
+    "Blogs": {
+        "blog1": {
+            "title": "Eco-matériau innovant pour la construction d’habitations",
+            "description": "Eco-matériau innovant pour la construction d’habitations, mBio7 est le fruit d’un rêve, celui de Dominique Tallarida, devenu réalité avec l’aide de son ami et associé Denis Mary. Primé au prestigieux concours Lépine 2015, le projet cherche désormais des fonds pour démarrer sa production industrielle semi-automatique et a lancé une campagne de financement participatif (dons) sur Monaco Crowdfunding en ce sens."
+        },
+        "blog2": {
+            "title": "Le bois mis en demeure",
+            "description": "Deux primés au concours Lépine ont créé des logments écolos et veulent en faire des habitats d'urgence."
+        },
+        "blog3": {
+            "title": "Une souscription lancée pour des maisions d'urgence",
+            "description": "Lauréats du concours Lépine, le Sospellois Dominique Tallarida et son ami Denis Mary s'apprêtent à commercialiser leur concept d'habitat humanitaire. Ils ont besoin d'un dernier coup de pouce."
+        }
+    },
+    "UtilisationHero": {
         "title": "Comment utiliser les panneaux mBio7 ?",
         "description": "Les panneaux mBio7 sont polyvalents et peuvent être utilisés dans divers types de projets de construction et de rénovation. Voici quelques-unes des principales utilisations des panneaux mBio7 :",
         "details": {
@@ -218,23 +250,20 @@
             "point8": "et bien plus encore.."
         }
     },
-      "UtilisationMain": {
+    "UtilisationMain": {
         "title": "Première Maison écologique en panneaux de bois moulé en France",
-        "description":
-      "En 2017 une première maison test est réalisée à Sospel avec l’aide de Jérémy, jeune ingénieur en stage de l’Institut de Technologie ESTIA. Il s’agit bien sûr d’un bâtiment de petite taille en raison du nombre limité de prototypes, mais mBio7 permet toute taille de construction. Cette structure est parfaitement intacte à ce jour, malgré les années et les conditions rudes de la montagne, isolation parfaite et pas une seule fissure malgré l’absence de fondations.",
+        "description": "En 2017 une première maison test est réalisée à Sospel avec l’aide de Jérémy, jeune ingénieur en stage de l’Institut de Technologie ESTIA. Il s’agit bien sûr d’un bâtiment de petite taille en raison du nombre limité de prototypes, mais mBio7 permet toute taille de construction. Cette structure est parfaitement intacte à ce jour, malgré les années et les conditions rudes de la montagne, isolation parfaite et pas une seule fissure malgré l’absence de fondations.",
         "dimensions": {
             "point1": "Longueur : 3.82 m",
             "point2": "Largeur : 2.90 m",
-            "point3":  "Superficie : 10 m²",
+            "point3": "Superficie : 10 m²",
             "point4": "Hauteur : 2.31 m",
             "point5": "Toit en mBio7: 60 panneaux",
             "point6": "Nombre de panneaux: 160",
             "point7": "Poids approximatif:  1 450 kg",
-            "point8":  "Sol en OSB sur chevrons",
-            "point9":  "Fenêtres PVC",
-            "point10":  "Enduit rustique sur treillis agrafé"
+            "point8": "Sol en OSB sur chevrons",
+            "point9": "Fenêtres PVC",
+            "point10": "Enduit rustique sur treillis agrafé"
         }
     }
-
-
 }
