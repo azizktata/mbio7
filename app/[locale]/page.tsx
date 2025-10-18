@@ -87,10 +87,10 @@ export default function Home() {
         <Mbio7 />
         {/* <div className="absolute inset-y-20 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
 
-        <div className="p-2 bg-gradient-to-r from-[#084E4D]/60 to-[#6CC1BB] rounded-br-xl rounded-bl-xl" />
+        <div className="p-2 bg-gradient-to-r from-[#084E4D]/60 to-[#6CC1BB] " />
 
         <CarouselCmp />
-        <div className="p-2 bg-gradient-to-l from-[#084E4D]/60 to-[#6CC1BB] rounded-tr-xl rounded-tl-xl " />
+        <div className="p-2 bg-gradient-to-l from-[#084E4D]/60 to-[#6CC1BB]  " />
         <About />
         {/* <div className="absolute inset-y-50 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
         <Impact />
@@ -309,7 +309,7 @@ const Impact = () => {
   ];
   return (
     <Section className="relative">
-      <div className="relative w-full h-[80vh] overflow-hidden bg-gray-100">
+      <div className="relative w-full h-[130vh] sm:h-[90vh] md:h-[80vh] overflow-hidden bg-gray-100">
         <Image
           alt="Card background"
           src={ImpactBg}
@@ -324,7 +324,7 @@ const Impact = () => {
           <Balancer>{t("title")}</Balancer>
         </h2>
         <Balancer
-          className={cn("text-white/80 text-base text-center mb-6  lg:mb-12")}
+          className={cn("text-white/90 text-base text-center mb-6  lg:mb-12")}
         >
           {t("description")}
         </Balancer>
