@@ -123,7 +123,7 @@ const Footer = () => {
             </Link>
             <p>
               <Balancer>
-                {locale === 'fr' ? "MBio7, L'écologie au service de la construction" : "MBio7, Ecology at the service of construction."}
+                {locale === 'fr' ? "mBio7, L'écologie au service de la construction" : "mBio7, Ecology at the service of construction."}
               </Balancer>
             </p>
           </div>

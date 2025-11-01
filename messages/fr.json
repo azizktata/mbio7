@@ -1,7 +1,7 @@
 {
     "Hero": {
-        "title": "MBio7, l'écologie au service de la construction.",
-        "description": "On transforme les déchets de bois en habitations. Nous avons inventé le panneau mBio7 pour permettre à tous de construire des maisons évolutives.",
+        "title": "mBio7, l'écologie au service de la construction.",
+        "description": "On transforme les déchets de bois en habitations, Nous avons inventé le panneau mBio7 pour permettre à tous de construire des maisons évolutives.",
         "cta1": "En savoir plus",
         "cta1_link": "/pages/fabrication",
         "cta2": "Contactez-nous"
@@ -19,9 +19,9 @@
     "Banner": {
         "text": "Un produit breveté et développé par"
     },
-    "Mbio7": {
+    "mBio7": {
         "title": "Construire Mieux ÉCOLOGIQUEMENT",
-        "description": "MBio7 révolutionne le secteur des matériaux de construction en offrant une solution durable et écologique. Grâce à son empreinte carbone négative, il contribue activement à la lutte contre le changement climatique tout en assurant des performances exceptionnelles en termes d'isolation thermique et acoustique - Le panneau MBio7 est un éco-matériau :",
+        "description": "mBio7 révolutionne le secteur des matériaux de construction en offrant une solution durable et écologique. Grâce à son empreinte carbone négative, il contribue activement à la lutte contre le changement climatique tout en assurant des performances exceptionnelles en termes d'isolation thermique et acoustique - Le panneau mBio7 est un éco-matériau :",
         "tags": {
             "tag1": "Ultra-léger (9Kg) & Innovant",
             "tag2": "Issu du Recyclage de Bois",
@@ -63,7 +63,7 @@
     },
     "Impact": {
         "title": "Approche durable & humaine",
-        "description": "MBio7 est la solution éco-constructive qui allie rapidité de mise en œuvre, performance technique et respect de l’environnement.",
+        "description": "mBio7 est la solution éco-constructive qui allie rapidité de mise en œuvre, performance technique et respect de l’environnement.",
         "stat1": {
             "title": "matières recyclées, totalement recyclables",
             "value": "95%"
@@ -78,27 +78,27 @@
         }
     },
     "Whyus": {
-        "title": "Pourquoi choisir MBio7 ?",
+        "title": "Pourquoi choisir mBio7 ?",
         "points": {
             "point1": {
                 "title": "Durabilité",
-                "description": "Fabriqué à partir de matériaux naturels et renouvelables, MBio7 est conçu pour durer, réduisant ainsi la nécessité de remplacements fréquents et minimisant les déchets."
+                "description": "Fabriqué à partir de matériaux naturels et renouvelables, mBio7 est conçu pour durer, réduisant ainsi la nécessité de remplacements fréquents et minimisant les déchets."
             },
             "point2": {
                 "title": "Performance",
-                "description": "Offrant une isolation thermique et acoustique exceptionnelle, MBio7 améliore le confort intérieur tout en réduisant les coûts énergétiques."
+                "description": "Offrant une isolation thermique et acoustique exceptionnelle, mBio7 améliore le confort intérieur tout en réduisant les coûts énergétiques."
             },
             "point3": {
                 "title": "Respect de l'environnement",
-                "description": "Avec son empreinte carbone négative, MBio7 contribue activement à la réduction des émissions de CO₂, aidant ainsi à lutter contre le changement climatique."
+                "description": "Avec son empreinte carbone négative, mBio7 contribue activement à la réduction des émissions de CO₂, aidant ainsi à lutter contre le changement climatique."
             },
             "point4": {
                 "title": "Polyvalence",
-                "description": "Adapté à une variété d'applications, MBio7 convient aussi bien aux constructions résidentielles qu'aux bâtiments commerciaux et industriels."
+                "description": "Adapté à une variété d'applications, mBio7 convient aussi bien aux constructions résidentielles qu'aux bâtiments commerciaux et industriels."
             },
             "point5": {
                 "title": "Facilité d'installation",
-                "description": "Léger et modulaire, MBio7 permet une installation rapide et efficace, réduisant les temps de construction et les coûts de main-d'œuvre."
+                "description": "Léger et modulaire, mBio7 permet une installation rapide et efficace, réduisant les temps de construction et les coûts de main-d'œuvre."
             }
         }
     },
@@ -120,24 +120,24 @@
         "title_part2": "Fréquentes",
         "questions": {
             "q1": {
-                "question": "Qu’est-ce que le panneau MBio7 ?",
-                "answer": "MBio7 est un panneau de construction innovant, fabriqué à plus de 90 % en bois recyclé. Il est léger, modulaire et conçu pour des constructions durables, économiques et rapides."
+                "question": "Qu’est-ce que le panneau mBio7 ?",
+                "answer": "mBio7 est un panneau de construction innovant, fabriqué à plus de 90 % en bois recyclé. Il est léger, modulaire et conçu pour des constructions durables, économiques et rapides."
             },
             "q2": {
                 "question": "Quelle est la performance environnementale du panneau ?",
-                "answer": "Chaque panneau présente un bilan carbone négatif de -7,66 kg CO₂-éq. Une maison de 120 m² en MBio7 permet d’éviter environ 3 tonnes de CO₂."
+                "answer": "Chaque panneau présente un bilan carbone négatif de -7,66 kg CO₂-éq. Une maison de 120 m² en mBio7 permet d’éviter environ 3 tonnes de CO₂."
             },
             "q3": {
                 "question": "Le panneau est-il résistant ?",
-                "answer": "Oui. Le MBio7 est résistant à l’eau, au feu, aux termites, au gel et aux séismes. C’est un matériau thermo-durcissable qui ne pourrit pas et ne craint pas l’humidité."
+                "answer": "Oui. Le mBio7 est résistant à l’eau, au feu, aux termites, au gel et aux séismes. C’est un matériau thermo-durcissable qui ne pourrit pas et ne craint pas l’humidité."
             },
             "q4": {
                 "question": "Est-il conforme aux normes de construction ?",
-                "answer": "Oui. Les constructions en MBio7 respectent la norme RE 2020 si elles sont associées à un isolant adapté."
+                "answer": "Oui. Les constructions en mBio7 respectent la norme RE 2020 si elles sont associées à un isolant adapté."
             },
             "q5": {
                 "question": "Combien pèse un panneau ?",
-                "answer": "Un panneau MBio7 pèse environ 9 kg, ce qui facilite son transport et sa mise en œuvre."
+                "answer": "Un panneau mBio7 pèse environ 9 kg, ce qui facilite son transport et sa mise en œuvre."
             },
             "q6": {
                 "question": "Peut-on construire une maison complète avec ce matériau ?",
@@ -148,7 +148,7 @@
                 "answer": "Environ 400 panneaux par jour pour l'instant car nous sommes en phase d’extension."
             },
             "q8": {
-                "question": "À qui s’adresse MBio7 ?",
+                "question": "À qui s’adresse mBio7 ?",
                 "answer": "Le matériau est idéal pour les ONG (reconstruction d’urgence), les collectivités locales et les particuliers souhaitant des logements écologiques, modulables et économiques."
             }
         }
@@ -225,7 +225,7 @@
     "Blogs": {
         "blog1": {
             "title": "Eco-matériau innovant pour la construction d’habitations",
-            "description": "Eco-matériau innovant pour la construction d’habitations, mBio7 est le fruit d’un rêve, celui de Dominique Tallarida, devenu réalité avec l’aide de son ami et associé Denis Mary. Primé au prestigieux concours Lépine 2015, le projet cherche désormais des fonds pour démarrer sa production industrielle semi-automatique et a lancé une campagne de financement participatif (dons) sur Monaco Crowdfunding en ce sens."
+            "description": "Eco-matériau innovant pour la construction d’habitations, mBio7 est le fruit d’un rêve, celui de Dominique Tallarida, devenu réalité avec l’aide de son ami et associé Denis Mary."
         },
         "blog2": {
             "title": "Le bois mis en demeure",

@@ -13,7 +13,9 @@ import { Button } from "@/components/ui/button";
 
 // Asset imports
 import Placeholder from "@/public/banner-3.jpg";
-import banner from "@/public/hero.jpg";
+// import banner from "@/public/hero.jpg";
+import banner from "@/public/hero-bg.png";
+// import banner from "@/public/hero.jpg";
 import HeroImage from "@/public/hero-mbio.jpg";
 import thumbnail from "@/public/thumbnail-2.png";
 import main from "@/public/utilisation.png";
@@ -24,12 +26,27 @@ import experience4 from "@/public/Isolation-A.png";
 import fabrication1 from "@/public/fabrication-1.png";
 import fabrication2 from "@/public/fabrication-2.png";
 import fabrication3 from "@/public/fabrication-3.png";
+
+import montage1 from "@/public/mBio7-montage01.jpg";
+import montage2 from "@/public/mBio7-montage02.jpg";
+import montage3 from "@/public/mBio7-montage03.jpg";
+import montage4 from "@/public/mBio7-montage04.jpg";
+import montage5 from "@/public/mBio7-montage05.jpg";
+import montage6 from "@/public/mBio7-montage06.jpg";
+import montage7 from "@/public/mBio7-montage07.jpg";
+import montage8 from "@/public/mBio7-montage08.jpg";
+import montage11 from "@/public/mBio7-montage11.jpg";
+import montage12 from "@/public/mBio7-montage12.jpg";
+
+
 // import banner from "@/public/banner-2.jpg";
 import Balancer from "react-wrap-balancer";
 import Nav from "@/components/nav/desktop-nav";
 import { PlayIcon } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
+import CarouselV1 from "@/components/carousel-v1";
+import CarouselV2 from "@/components/carousel-v2";
 // Revalidate pages every hour
 export const revalidate = 3600;
 
@@ -218,13 +235,40 @@ const experienceContent = [
     ]
   },
 ];
+const useImages = [
+  { url: montage1 },
+  { url: montage2 },
+  { url: montage3 },
+  { url: montage4 },
+  { url: montage5 },
+  { url: montage6 },
+  { url: montage7 },
+  { url: montage8 },
+  { url: montage11 },
+  { url: montage12 },
+]
+      // <section className="relative h-[70vh] lg:h-[90vh] w-full">
+      //   <Image
+      //     src={HeroBg}
+      //     alt="mbio7 panel"
+      //     fill
+      //     priority
+      //     className="object-cover w-full object-bottom  "
+      //   />
+      //   {/* <div className="absolute inset-0 bg-[#084E4D78]" /> */}
+      //   <div className="absolute inset-0 bg-black/10" />
+      //   <div className="relative z-10">
+      //     <Nav />
+      //     <Hero />
+      //   </div>
+      // </section>
   return (
-    <div className="min-h-screen w-full ">
-    <div className="w-full bg-mbioPrimary">
+    <div className="min-h-screen w-full relative ">
+    <div className="relative z-10">
+
+  
       <Nav />
-      </div>
-      <div id="banner" className="relative">
-        <div className="relative h-64 w-full">
+        <div className=" h-64 w-full">
           <Image
             src={banner}
             alt={`banner`}
@@ -246,7 +290,7 @@ const experienceContent = [
            <Balancer>{handleTranslateTitle(decodeURIComponent(slug.replace(/-/g, " ")))}</Balancer>
           </p>
         </div>
-      </div>
+        </div>
       { (decodeURIComponent(slug) === "fabrication" || decodeURIComponent(slug) === "manufacture") && (
         <>
         {fabricationContent.map((item, index) => (
@@ -277,8 +321,8 @@ const experienceContent = [
        { (decodeURIComponent(slug) === "utilisations" || decodeURIComponent(slug) === "how-to-use") && (
         <>
           <Main />
+          <CarouselV2 images={useImages} />
           <Hero />
-      
         </>
       )}
        { (decodeURIComponent(slug) === "expérience" || decodeURIComponent(slug) === "experience") && (

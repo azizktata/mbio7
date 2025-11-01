@@ -5,7 +5,7 @@ type SiteConfig = {
 };
 
 export const siteConfig: SiteConfig = {
-  site_name: "MBio7",
-  site_description: "MBio7, le panneau biosourcé à empreinte carbone négative.",
+  site_name: "mBio7",
+  site_description: "mBio7, le panneau biosourcé à empreinte carbone négative.",
   site_domain: "https://mbio7.com",
 };

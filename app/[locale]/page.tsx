@@ -14,12 +14,21 @@ import WoodWise from "@/public/woodwise.svg";
 // import Stats from "@/public/stats.png";
 import Logo from "@/public/mbio7-logo.png";
 import Comparative from "@/public/comparaison.jpg";
+import ComparativeEng from "@/public/Comparative.jpg";
 import slide2 from "@/public/fabrication-2.png";
 import slide3 from "@/public/fabrication-3.png";
 import slide4 from "@/public/utilisation.png";
+
+import sept2025 from "@/public/sept-2025.png";
+import sept2021 from "@/public/sept-2021.png";
+import aout2019 from "@/public/aout-2019.png";
+import juillet2019 from "@/public/juillet-2019.png";
+import mai2022 from "@/public/mai-2022.png";
+import nov2022 from "@/public/novembre-2022.png";
+
 import Label from "@/public/label.png";
 import Thumbnail from "@/public/video-thumbnail.png";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Poppins } from "next/font/google";
 import CustomButton from "@/components/ui/customButton";
 import {
@@ -100,6 +109,7 @@ export default function Home() {
         <ComparativeStudy />
         {/* <div className="absolute inset-y-200 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
         <Blogs />
+        <Actualites />
         {/* <div className="absolute inset-y-250 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
         <Reviews />
         <FAQ />
@@ -123,7 +133,7 @@ const Hero = () => {
   return (
     <main className="relative border-none h-[60vh] lg:h-[80vh] flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
-        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold capitalize mb-1 text-center px-2 max-w-[25ch]">
+        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-1 text-center px-2 max-w-[25ch]">
           <Balancer>{HeroContent.title}</Balancer>
         </h1>
         <p className="text-white max-w-[60ch] text-center text-md sm:text-lg font-medium mb-6 px-4">
@@ -151,7 +161,7 @@ const Banner = () => {
 };
 
 const Mbio7 = () => {
-  const t = useTranslations("Mbio7");
+  const t = useTranslations("mBio7");
   const MainContent = {
     title: t("title"),
     description: t("description"),
@@ -241,6 +251,8 @@ const About = () => {
       { detail: t("points.point4") },
     ],
   };
+  const locale = useLocale();
+  const videoUrl = locale === "fr" ? "https://www.youtube.com/watch?v=jUQu9_26Gdg" : "https://www.youtube.com/watch?v=052uUU0YS-8";
   return (
     <Section>
       <Container className="grid items-center md:grid-cols-2 gap-6 lg:gap-16 ">
@@ -324,7 +336,9 @@ const Impact = () => {
           <Balancer>{t("title")}</Balancer>
         </h2>
         <Balancer
-          className={cn("text-white/90 text-base text-center mb-6  lg:mb-12")}
+          className={cn(
+            "text-white/90 text-base text-center mb-6  lg:mb-12 max-w-[65ch]"
+          )}
         >
           {t("description")}
         </Balancer>
@@ -408,12 +422,13 @@ const WhyUs = () => {
 };
 
 const ComparativeStudy = () => {
+  const locale = useLocale();
   return (
     <Section className="bg-mbioPrimary py-16">
       <Container>
         {/* ... Title ... */}
         <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
-          {useLocale() === "fr" ? "Étude comparative" : "Comparative Study"}
+          {locale === "fr" ? "Étude comparative" : "Comparative Study"}
         </h2>
         {/* === STYLING IDEA 2: FOLDED PAPER (Using a strong offset shadow) === */}
         <div
@@ -428,7 +443,7 @@ const ComparativeStudy = () => {
         "
         >
           <Image
-            src={Comparative}
+            src={locale === "fr" ? Comparative : ComparativeEng}
             alt="Étude comparative"
             width={1200}
             height={800}
@@ -510,16 +525,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
           className="w-full h-full object-cover rounded-lg"
         />
 
-        <div className="absolute bottom-5 right-0 m-4">
-          {/* Blurred background element */}
-          {/* <div className="absolute inset-0 bg-[#F7F7F71A] h-[93px] w-[77px]  backdrop-filter backdrop-blur-sm -z-10 rounded-lg"></div> */}
-
-          {/* Content (date) */}
-          {/* <div className="relative h-[93px] w-[77px] flex flex-col items-center justify-center p-2">
-    <span className="text-mbioPrimary text-3xl font-light leading-none">{day}</span>
-    <span className="text-mbioPrimary text-md uppercase font-light leading-none">{month}</span>
-  </div> */}
-        </div>
+        <div className="absolute bottom-5 right-0 m-4"></div>
       </CardHeader>
       <CardContent className="mt-6">
         <span className="text-mbioAccent text-sm rounded-full py-1.5 px-3.5 border border-mbioAccent">
@@ -534,13 +540,130 @@ const BlogCard = ({ blog }: BlogCardProps) => {
       </CardContent>
       <CardFooter>
         <Button variant="link" className="text-mbioAccent px-0">
-          {
-            useLocale() === "fr" ? "Lire l'article" : "Read full article"
-          }
+          {useLocale() === "fr" ? "Lire l'article" : "Read full article"}
           <ArrowRight className="h-4 w-4 ml-2" />
         </Button>
       </CardFooter>
     </Card>
+  );
+};
+
+const actualitesFR = [
+  {
+    date: "September 2025",
+    title: "Envoi du premier container de pièces industrielles vers la France",
+    image: sept2025,
+  },
+  {
+    date: "Novembre 2022",
+    title: "Reprise des parts de la SAS de Mr Tallarida au profit de Mr Dogui",
+    image: nov2022,
+  },
+  {
+    date: "Aout 2019",
+    title:
+      "Démarrage du 2e chantier de construction de maison d'habitation à Sospel",
+    image: aout2019,
+  },
+  {
+    date: "Juillet 2019",
+    title:
+      "Visite en Bulgarie de William Liu de Guoli Packing Chine pour visualiser la production en vue de reproduire en Chine",
+    image: juillet2019,
+  },
+  {
+    date: "29 septembre 2021",
+    title:
+      "Sélectionné comme un des cinq finalistes (sur 600) de la CleanTech Open France, concours organisé par le ministère de la transition écologique pour récompenser les meilleurs projets nationaux pour la défense de l'environnement",
+    image: sept2021,
+  },
+  {
+    date: "Mai 2022",
+    title: "Présentation à Change Now Paris",
+    image: mai2022,
+  },
+];
+const actualitesEN = [
+  {
+    date: "November 2022",
+    title:
+      "Resumption of the shares of Mr. Tallarida's SAS in favor of Mr. Dogui",
+    image: nov2022,
+  },
+  {
+    date: "September 2025",
+    title: "Sending the first container of industrial parts to France",
+    image: sept2025,
+  },
+  {
+    date: "Aout 2019",
+    title:
+      "Start of the 2nd construction site for residential houses in Sospel",
+    image: aout2019,
+  },
+  {
+    date: "Juillet 2019",
+    title:
+      "Visit to Bulgaria by William Liu of Guoli Packing China to visualize production with a view to reproducing in China",
+    image: juillet2019,
+  },
+  {
+    date: "29 septembre 2021",
+    title:
+      "Selected as one of five finalists (out of 600) for the CleanTech Open France, a competition organized by the Ministry of Ecological Transition to reward the best national projects for environmental protection",
+    image: sept2021,
+  },
+  {
+    date: "Mai 2022",
+    title: "Presentation in Change Now Paris",
+    image: mai2022,
+  },
+];
+interface ActualiteCardProps {
+  actualite: {
+    date: string;
+    title: string;
+
+    image: StaticImageData;
+  };
+}
+
+const ActualitesCard = ({ actualite }: ActualiteCardProps) => {
+  return (
+    <Card className="hover:shadow-lg  bg-white/10 transition-shadow cursor-pointer py-0 shadow-sm rounded-lg ">
+      <div className="relative group">
+        <Image
+          src={actualite.image}
+          alt={actualite.title}
+          className="w-full h-64 object-cover rounded-lg"
+        />
+
+        <div className="absolute inset-0 hidden group-hover:flex flex-col justify-end bg-black/60 p-4 transition-all">
+          <p className="text-mbioAccent">{actualite.date}</p>
+          <Balancer className="text-white font-semibold text-sm py-4 max-w-xs">
+            {actualite.title}
+          </Balancer>
+        </div>
+      </div>
+    </Card>
+  );
+};
+const Actualites = () => {
+  const locale = useLocale();
+  const actualites = locale === "fr" ? actualitesFR : actualitesEN;
+  return (
+    <Section>
+      <Container>
+        <h2 className="text-4xl sm:text-5xl font-semibold text-mbioPrimary text-center mb-8 lg:mb-16">
+          {locale === "fr" ? "Actualités" : "Gallery of Events"}
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
+          {actualites.map((actualite, index) => (
+            <ActualitesCard key={index} actualite={actualite} />
+          ))}
+        </div>
+      </Container>
+    </Section>
   );
 };
 
@@ -718,29 +841,27 @@ const Contact = () => {
     >
       <Container className="flex flex-col md:flex-row gap-8  md:gap-16 items-start md:items-center">
         <div className="flex flex-col items-start w-full md:w-1/2">
-          <h4 className="text-lg font-light text-mbioPrimary">
-            {
-              useLocale() === "fr" ? "Restons en contact" : "Get in Touch"
-            }
+          <h4 className="text-md font-light text-white/70 ml-1 ">
+            {useLocale() === "fr" ? "Restons en contact" : "Get in Touch"}
           </h4>
           <h1 className="text-3xl md:text-5xl font-semibold tracking-wider text-white mb-6">
             {contactSection.title}
           </h1>
-          <div>
+          <div className="ml-1">
             <div className="flex items-center gap-4 mb-4">
-              <Mail size={20} className="text-white/50" />
+              <Mail size={20} className="text-white/70" />
               <p className="text-white font-semibold text-base sm:text-lg">
                 {contactSection.email}
               </p>
             </div>
             <div className="flex items-center gap-4 mb-4">
-              <MapPin size={24} className="text-white/50" />
+              <MapPin size={24} className="text-white/70" />
               <p className="text-white font-semibold text-base sm:text-lg">
                 {contactSection.address}
               </p>
             </div>
             <div className="flex items-center gap-4 mb-4">
-              <Phone size={20} className="text-white/50" />
+              <Phone size={20} className="text-white/70" />
               <p className="text-white font-semibold text-base sm:text-lg">
                 {contactSection.phone}
               </p>

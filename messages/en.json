@@ -1,7 +1,8 @@
 {
     "Hero": {
-        "title": "MBio7, ecology serving construction.",
-        "description": "We transform wood waste into housing. We invented the mBio7 panel to allow everyone to build scalable homes.",
+        "title": "mBio7, ecology serving construction.",
+        "description": "We transform wood waste into housing, We invented the mBio7 panel to allow everyone to build scalable homes.",
+        "cta1": "Learn more",
         "cta1_link": "/pages/fabrication",
         "cta2": "Contact us"
     },
@@ -18,9 +19,9 @@
     "Banner": {
         "text": "A patented product developed by"
     },
-    "Mbio7": {
+    "mBio7": {
         "title": "Building Better ECOLOGICALLY",
-        "description": "MBio7 is revolutionizing the construction materials sector by offering a sustainable and eco-friendly solution. With its negative carbon footprint, it actively contributes to the fight against climate change while ensuring exceptional performance in terms of thermal and acoustic insulation.",
+        "description": "mBio7 is revolutionizing the construction materials sector by offering a sustainable and eco-friendly solution. With its negative carbon footprint, it actively contributes to the fight against climate change while ensuring exceptional performance in terms of thermal and acoustic insulation.",
         "tags": {
       "tag1": "Ultra-light (9kg) & Innovative",
       "tag2": "Recycled Wood & Waste-based",
@@ -55,14 +56,14 @@
         "description": "Designed for sustainable, earthquake-resistant, healthy, frost-resistant, economical, and modular constructions — We invented the mBio7 panel to allow everyone to build scalable homes.",
         "points": {
             "point1": "It is water and fire resistant",
-            "point2": "It is not afraid of termites or any other type of insect",
-            "point3": "It is lightweight and non-breakable (non-splittable/non-cracking)",
+            "point2": "It provides excellent thermal and acoustic insulation",
+            "point3": "It is lightweight and non-breakable",
             "point4": "compliance with the RE 2020 standard."
         }
     },
     "Impact": {
         "title": "Sustainable & human approach",
-        "description": "MBio7 is the eco-constructive solution that combines quick installation, technical performance, and environmental respect.",
+        "description": "mBio7 is the eco-constructive solution that combines quick installation, technical performance, and environmental respect.",
         "stat1": {
             "title": "recycled materials, fully recyclable",
             "value": "95%"
@@ -77,37 +78,37 @@
         }
     },
     "Whyus": {
-        "title": "Why choose MBio7?",
+        "title": "Why choose mBio7?",
         "points": {
             "point1": {
                 "title": "Durability",
-                "description": "Made from natural and renewable materials, MBio7 is designed to last, thereby reducing the need for frequent replacements and minimizing waste."
+                "description": "Made from natural and renewable materials, mBio7 is designed to last, thereby reducing the need for frequent replacements and minimizing waste."
             },
             "point2": {
                 "title": "Performance",
-                "description": "Offering exceptional thermal and acoustic insulation, MBio7 improves indoor comfort while reducing energy costs."
+                "description": "Offering exceptional thermal and acoustic insulation, mBio7 improves indoor comfort while reducing energy costs."
             },
             "point3": {
                 "title": "Sustainability",
-                "description": "With a negative carbon footprint, MBio7 actively contributes to environmental preservation and the fight against climate change."
+                "description": "With a negative carbon footprint, mBio7 actively contributes to environmental preservation and the fight against climate change."
             },
             "point4": {
                 "title": "Versatility",
-                "description": "Suitable for a wide range of applications, from residential to industrial buildings, MBio7 adapts to various construction needs."
+                "description": "Suitable for a wide range of applications, from residential to industrial buildings, mBio7 adapts to various construction needs."
             },
             "point5": {
                 "title": "Ease of installation",
-                "description": "Lightweight and modular, MBio7 allows for quick and easy installation, reducing construction time and labor costs."
+                "description": "Lightweight and modular, mBio7 allows for quick and easy installation, reducing construction time and labor costs."
             },
             "point6": {
                 "title": "Health",
-                "description": "Made from natural materials, MBio7 contributes to a healthier indoor environment by improving air quality and reducing allergens."
+                "description": "Made from natural materials, mBio7 contributes to a healthier indoor environment by improving air quality and reducing allergens."
             }
         }
     },
     "Reviews": {
         "title": "What our clients say",
-        "description": "Discover the testimonials of our satisfied clients who have experienced the benefits of MBio7 in their construction projects.",
+        "description": "Discover the testimonials of our satisfied clients who have experienced the benefits of mBio7 in their construction projects.",
         "reviews": {
             "review1": {
                 "name": "Anonymous",
@@ -126,24 +127,24 @@
         "title_part2": "Questions",
         "questions": {
             "q1": {
-                "question": "What is the MBio7 panel?",
-                "answer": "MBio7 is an innovative construction panel, made of more than 90% recycled wood. It is lightweight, modular, and designed for sustainable, cost-effective, and fast construction."
+                "question": "What is the mBio7 panel?",
+                "answer": "mBio7 is an innovative construction panel, made of more than 90% recycled wood. It is lightweight, modular, and designed for sustainable, cost-effective, and fast construction."
             },
             "q2": {
                 "question": "What is the environmental performance of the panel?",
-                "answer": "Each panel has a negative carbon footprint of -7.66 kg CO₂-eq. A 120 m² house built with MBio7 helps avoid around 3 tons of CO₂."
+                "answer": "Each panel has a negative carbon footprint of -7.66 kg CO₂-eq. A 120 m² house built with mBio7 helps avoid around 3 tons of CO₂."
             },
             "q3": {
                 "question": "Is the panel resistant?",
-                "answer": "Yes. MBio7 is resistant to water, fire, termites, frost, and earthquakes. It is a thermosetting material that does not rot and is unaffected by humidity."
+                "answer": "Yes. mBio7 is resistant to water, fire, termites, frost, and earthquakes. It is a thermosetting material that does not rot and is unaffected by humidity."
             },
             "q4": {
                 "question": "Is it compliant with construction standards?",
-                "answer": "Yes. Constructions using MBio7 comply with the RE 2020 standard when combined with suitable insulation."
+                "answer": "Yes. Constructions using mBio7 comply with the RE 2020 standard when combined with suitable insulation."
             },
             "q5": {
                 "question": "How much does a panel weigh?",
-                "answer": "An MBio7 panel weighs around 9 kg, which makes it easy to transport and install."
+                "answer": "An mBio7 panel weighs around 9 kg, which makes it easy to transport and install."
             },
             "q6": {
                 "question": "Can a complete house be built with this material?",
@@ -154,7 +155,7 @@
                 "answer": "About 400 panels per day for now, as we are currently in an expansion phase."
             },
             "q8": {
-                "question": "Who is MBio7 intended for?",
+                "question": "Who is mBio7 intended for?",
                 "answer": "The material is ideal for NGOs (emergency reconstruction), local authorities, and individuals seeking ecological, modular, and cost-effective housing."
             }
         }
@@ -231,7 +232,7 @@
     "Blogs": {
         "blog1": {
             "title": "Innovative eco-material for housing construction",
-            "description": "Innovative eco-material for housing construction, mBio7 is the result of a dream, that of Dominique Tallarida, which became a reality with the help of his friend and associate Denis Mary. Awarded a prize at the prestigious Lépine competition in 2015, the project is now seeking funds to start its semi-automatic industrial production and has launched a crowdfunding campaign (donations) on Monaco Crowdfunding for this purpose."
+            "description": "Innovative eco-material for housing construction, mBio7 is the result of a dream, that of Dominique Tallarida, which became a reality with the help of his friend and associate Denis Mary."
         },
         "blog2": {
             "title": "Wood is put on notice",
