@@ -1,9 +1,9 @@
 {
     "Hero": {
-        "title": "mBio7, l'écologie au service de la construction.",
+        "title": "Panneau mBio7, l'écologie au service de la construction.",
         "description": "On transforme les déchets de bois en habitations, Nous avons inventé le panneau mBio7 pour permettre à tous de construire des maisons évolutives.",
         "cta1": "En savoir plus",
-        "cta1_link": "/pages/fabrication",
+        "cta1_link": "/pages/utilisations",
         "cta2": "Contactez-nous"
     },
     "Nav": {
@@ -21,7 +21,7 @@
     },
     "mBio7": {
         "title": "Construire Mieux ÉCOLOGIQUEMENT",
-        "description": "mBio7 révolutionne le secteur des matériaux de construction en offrant une solution durable et écologique. Grâce à son empreinte carbone négative, il contribue activement à la lutte contre le changement climatique tout en assurant des performances exceptionnelles en termes d'isolation thermique et acoustique - Le panneau mBio7 est un éco-matériau :",
+        "description": "The mBio7 panel is an eco-material, which is revolutionizing the construction materials sector by offering a sustainable and ecological solution. Thanks to its negative carbon footprint, it actively contributes to the fight against climate change.",
         "tags": {
             "tag1": "Ultra-léger (9Kg) & Innovant",
             "tag2": "Issu du Recyclage de Bois",
@@ -174,7 +174,7 @@
         },
         "fabrication3": {
             "title": "La mise en forme et la cuisson",
-            "description": "Le tout est placé dans une presse équipé d’un moule mBio7. Une force de plus de 900 tonnes est appliquée sur la matière. 170° de cuisson durant plusieurs minutes va solidifier par thermo-durcissement le matériau composite. Et notre panneau mBio7 ressort automatiquement, prêt à être utilisé après refroidissement.",
+            "description": "Le tout est placé dans une presse équipé d’un moule mBio7, Une force de plus de 900 tonnes est appliquée sur la matière, 170° de cuisson durant plusieurs minutes va solidifier par thermo-durcissement le matériau composite, Et notre panneau mBio7 ressort automatiquement, prêt à être utilisé après refroidissement.",
             "specials": {
                 "point1": "Pression de plus de 900 tonnes",
                 "point2": "Thermo-durcissement à 170°C",

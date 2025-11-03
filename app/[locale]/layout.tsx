@@ -123,13 +123,13 @@ const Footer = () => {
             </Link>
             <p>
               <Balancer>
-                {locale === 'fr' ? "mBio7, L'écologie au service de la construction" : "mBio7, Ecology at the service of construction."}
+                {locale === 'fr' ? "mBio7, le panneau biosourcé à empreinte carbone négative." : "mBio7, the bio-based panel with a negative carbon footprint."}
               </Balancer>
             </p>
           </div>
           <div className="flex flex-col gap-2 text-sm">
             <h5 className="font-medium text-base">
-              {locale === 'fr' ? 'Liens utiles' : 'Useful links'}
+              {locale === 'fr' ? 'Liens rapides' : 'Quick links'}
             </h5>
             {mainMenu.map(({key, href}) => (
               <Link

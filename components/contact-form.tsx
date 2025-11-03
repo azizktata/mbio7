@@ -94,7 +94,7 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel>{locale === 'fr' ? 'Sujet' : 'Subject'}</FormLabel>
               <FormControl>
-                <Input placeholder={locale === 'fr' ? 'sujet' : 'subject'} {...field} />
+                <Input {...field} />
               </FormControl>
 
               <FormMessage />
@@ -109,7 +109,7 @@ export default function ContactForm() {
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <textarea
-                  placeholder="Message"
+                 
                   {...field}
                   className="resize-none border border-gray-300 rounded-md p-2 w-full h-32"
                 />

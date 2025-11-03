@@ -1,9 +1,9 @@
 {
     "Hero": {
-        "title": "mBio7, ecology serving construction.",
+        "title": "mBio7 Panel, ecology serving construction.",
         "description": "We transform wood waste into housing, We invented the mBio7 panel to allow everyone to build scalable homes.",
         "cta1": "Learn more",
-        "cta1_link": "/pages/fabrication",
+        "cta1_link": "/pages/how-to-use",
         "cta2": "Contact us"
     },
     "Nav": {
@@ -172,7 +172,7 @@
         },
         "fabrication2": {
             "title": "The origin of the material",
-            "description": "At the origin, there is the material, molded wood, made of more than 90% recycled wood. It is a natural and bio-sourced product. The molded wood is then dried and mixed with thermosetting resin without formaldehyde.",
+            "description": "At the origin, there is the material, molded wood, made of more than 90% recycled wood. It is a natural and bio-sourced product, The molded wood is then dried and mixed with thermosetting resin without formaldehyde.",
             "specials": {
                 "point1": "Use of recycled wood (95%)",
                 "point2": "Natural and bio-sourced material",
@@ -181,7 +181,7 @@
         },
         "fabrication3": {
             "title": "Shaping and Solidifying",
-            "description": "The whole is placed in a press equipped with a mBio7 mold. A force of more than 900 tons is applied to the material. 170° cooking for several minutes will solidify the composite material through thermosetting. And our mBio7 panel automatically comes out, ready to be used after cooling.",
+            "description": "The whole is placed in a press equipped with a mBio7 mold, A force of more than 900 tons is applied to the material, 170° cooking for several minutes will solidify the composite material through thermosetting, And our mBio7 panel automatically comes out, ready to be used after cooling.",
             "specials": {
                 "point1": "Pressure of more than 900 tons",
                 "point2": "Thermosetting at 170°C",

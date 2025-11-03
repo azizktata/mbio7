@@ -11,6 +11,10 @@ import HeroBg from "@/public/hero-bg.png";
 import ImpactBg from "@/public/impact-bg.png";
 import ContactBg from "@/public/contact-bg.png";
 import WoodWise from "@/public/woodwise.svg";
+
+import NiceMatin from "@/public/nice-matin.png";
+import Liberation from "@/public/liberation.png";
+import Monaco from "@/public/monaco.png";
 // import Stats from "@/public/stats.png";
 import Logo from "@/public/mbio7-logo.png";
 import Comparative from "@/public/comparaison.jpg";
@@ -133,10 +137,14 @@ const Hero = () => {
   return (
     <main className="relative border-none h-[60vh] lg:h-[80vh] flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
-        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-1 text-center px-2 max-w-[25ch]">
+        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-4 text-center px-2 max-w-[25ch]">
+{/*          
+          <Balancer>
+            Panneau mBio7, l'écologie au service de la construction
+          </Balancer> */}
           <Balancer>{HeroContent.title}</Balancer>
         </h1>
-        <p className="text-white max-w-[60ch] text-center text-md sm:text-lg font-medium mb-6 px-4">
+        <p className="text-white max-w-[65ch] text-center text-md sm:text-lg font-medium mb-6 px-4">
           <Balancer>{HeroContent.description}</Balancer>
         </p>
         <div className="flex gap-4">
@@ -176,7 +184,7 @@ const Mbio7 = () => {
     image: Logo,
   };
   return (
-    <Section className="!mb-0 !pb-0">
+    <Section className="my-12 !pb-0">
       <Container
         id="about"
         className="flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center"
@@ -185,9 +193,9 @@ const Mbio7 = () => {
           <h2 className="text-4xl sm:text-5xl font-semibold text-mbioPrimary mb-4 lg:mb-8 ">
             {MainContent.title}
           </h2>
-          <p className="mb-4 lg:mb-8 text-muted-foreground">
+          <Balancer className="mb-4 lg:mb-8 text-muted-foreground">
             {MainContent.description}
-          </p>
+          </Balancer>
           <div className="flex flex-wrap">
             {MainContent.tags.map((tag, index) => (
               <span
@@ -332,7 +340,7 @@ const Impact = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-linear"></div>
       </div>
       <Container className="flex flex-col items-center absolute inset-0 z-10 justify-center">
-        <h2 className="font-semibold text-white text-3xl sm:text-5xl  mb-4 lg:mb-8 text-center">
+        <h2 className="font-semibold text-white text-3xl sm:text-5xl  mb-4 lg:mb-6 text-center">
           <Balancer>{t("title")}</Balancer>
         </h2>
         <Balancer
@@ -463,28 +471,25 @@ const Blogs = () => {
       date: "06 Nov 2019",
       title: t("blog1.title"),
       description: t("blog1.description"),
-      image:
-        "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      link: "https://www.pressreader.com/monaco/monaco-matin/20180814/281702615548883",
-      category: "La Gazette de Monaco",
+      image: Monaco,
+      link: "/article la gazette.pdf",
+      category: "La gazette de Monaco",
     },
     {
       date: " 1er janvier 2019",
       title: t("blog2.title"),
       description: t("blog2.description"),
-      link: "https://www.liberation.fr/france/2019/01/01/le-bois-mis-en-demeure_1700633/",
-      image:
-        "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      link: "/article mBio7 Liberation 02.01.jpg",
+      image: Liberation,
       category: "Liberation",
     },
     {
-      date: "14 Août 2018",
+      date: "Août 2018",
       title: t("blog3.title"),
       description: t("blog3.description"),
-      link: "https://www.nicematin.com/vie-locale/grace-a-ces-panneaux-en-bois-il-fabrique-des-maisons-qui-resistent-a-toutes-conditions-climatiques-303801",
-
-      image:
-        "https://images.unsplash.com/photo-1721137287642-43b251bd6f00?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      // link: "https://www.nicematin.com/vie-locale/grace-a-ces-panneaux-en-bois-il-fabrique-des-maisons-qui-resistent-a-toutes-conditions-climatiques-303801",
+      link: "/article Nice Matin 16.08.2018.pdf",
+      image: NiceMatin,
       category: "Nice matin",
     },
   ];
@@ -508,7 +513,8 @@ interface BlogCardProps {
     date: string;
     title: string;
     description: string;
-    image: string;
+    link: string;
+    image: StaticImageData;
     category: string;
   };
 }
@@ -540,8 +546,10 @@ const BlogCard = ({ blog }: BlogCardProps) => {
       </CardContent>
       <CardFooter>
         <Button variant="link" className="text-mbioAccent px-0">
-          {useLocale() === "fr" ? "Lire l'article" : "Read full article"}
-          <ArrowRight className="h-4 w-4 ml-2" />
+          <Link href={blog.link} target="_blank" className="flex items-center gap-1">
+            {useLocale() === "fr" ? "Lire l'article" : "Read full article"}
+            <ArrowRight className="h-4 w-4 " />
+          </Link>
         </Button>
       </CardFooter>
     </Card>
@@ -713,7 +721,7 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
        
       </CardHeader> */}
       <CardContent className=" pt-6 pb-12 ">
-        <p className="text-mbio leading-[1.4] text-sm pl-2 text-white/80 ">
+        <p className="text-mbio leading-[1.4] text-sm pl-2 text-white">
           &quot;{review.comment}&quot;
         </p>
       </CardContent>
