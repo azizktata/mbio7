@@ -79,7 +79,7 @@ export default function Home() {
 
   return (
     <div>
-      <section className="relative h-[70vh] lg:h-[90vh] w-full">
+      <section className="relative h-[600px] lg:h-[650px]  w-full">
         <Image
           src={HeroBg}
           alt="mbio7 panel"
@@ -135,7 +135,7 @@ const Hero = () => {
     image: HeroImage,
   };
   return (
-    <main className="relative border-none h-[60vh] lg:h-[80vh] flex items-center justify-center text-center">
+    <main className="relative border-none h-[500px]  flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
         <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-4 text-center px-2 max-w-[25ch]">
           {/*          
