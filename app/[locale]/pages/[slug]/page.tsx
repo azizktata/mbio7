@@ -394,7 +394,7 @@ const Feature = ({ image, title, description, specials, cta }: FeatureProps) => 
         <Image
           src={image}
           alt="Illustration de panneaux de construction en bois"
-          className="fill object-cover object-left rounded-lg transition-transform duration-500 hover:scale-[1.03] z-10"
+          className="fill object-contain object-left rounded-lg transition-transform duration-500 hover:scale-[1.03] z-10"
         />
       </div>
       
@@ -468,15 +468,13 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
           ></div>
 
           {/* 2. Structured Corner Frame (Top Right) - Uses a border for a modular, open-box feel */}
-              <div 
-          className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#064343] opacity-10 transform skew-y-3 -translate-x-1/4 -translate-y-1/4 z-[-1]"
-        ></div>
+            
 
           {/* The actual image element with hover effect */}
           <Image 
             src={image} 
             alt="Illustration de panneaux de construction en bois" 
-            className="fill object-cover rounded-lg transition-transform duration-500 hover:scale-[1.03] z-10" 
+            className="fill object-contain rounded-lg transition-transform duration-500 hover:scale-[1.03] z-10" 
           />
 
           {/* CTA button (Z-20 to ensure it's on top of everything) */}
