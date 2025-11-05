@@ -355,7 +355,7 @@ const Impact = () => {
           {chiffres.map((item) => (
             <div
               key={item.title}
-              className="group  flex flex-col gap-6 items-center py-12 px-3 bg-card rounded-2xl border shadow-sm transition-background duration-300 hover:bg-gradient hover:text-white"
+              className="group  flex flex-col gap-6 items-center py-8 px-3 bg-card rounded-2xl border shadow-sm transition-background duration-300 hover:bg-gradient hover:text-white"
             >
               <h3 className="text-6xl font-semibold text-mbioTertiary group-hover:text-white">
                 {item.value}

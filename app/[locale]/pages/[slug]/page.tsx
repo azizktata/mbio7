@@ -437,9 +437,7 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
         {/* =====================================================
           TEXT CONTENT (Left Side) - Kept the same
         */}
-        <div 
-          className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#064343] opacity-10 transform skew-y-3 -translate-x-1/4 -translate-y-1/4 z-[-1]"
-        ></div>
+    
         <div className="flex flex-col gap-6 py-8 text-mbioPrimary">
           <h2 className="!my-0 text-mbioPrimary text-3xl sm:text-5xl">{title}</h2>
 
@@ -470,7 +468,9 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
           ></div>
 
           {/* 2. Structured Corner Frame (Top Right) - Uses a border for a modular, open-box feel */}
-          
+              <div 
+          className="absolute top-0 right-0 w-1/4 h-1/4 bg-[#064343] opacity-10 transform skew-y-3 -translate-x-1/4 -translate-y-1/4 z-[-1]"
+        ></div>
 
           {/* The actual image element with hover effect */}
           <Image 
