@@ -274,7 +274,7 @@ const About = () => {
           <div className="absolute inset-0  bg-black/30" />
           <div className="absolute inset-0 flex items-center justify-center">
             <Link
-              href="https://www.youtube.com/watch?v=jUQu9_26Gdg"
+              href={videoUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -329,7 +329,7 @@ const Impact = () => {
   ];
   return (
     <Section className="relative">
-      <div className="relative w-full h-[130vh] sm:h-[90vh] md:h-[80vh] overflow-hidden bg-gray-100">
+      <div className="relative w-full h-[130vh] sm:h-[100vh] md:h-[80vh] overflow-hidden bg-gray-100">
         <Image
           alt="Card background"
           src={ImpactBg}
@@ -345,7 +345,7 @@ const Impact = () => {
         </h2>
         <Balancer
           className={cn(
-            "text-white/90 text-base text-center mb-6  lg:mb-12 max-w-[65ch]"
+            "text-white/90 text-sm lg:text-base text-center mb-6  lg:mb-12 max-w-[70ch]"
           )}
         >
           {t("description")}
