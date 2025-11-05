@@ -648,7 +648,7 @@ const ActualitesCard = ({ actualite }: ActualiteCardProps) => {
 
         <div className="absolute inset-0 hidden group-hover:flex flex-col justify-end bg-black/60 p-4 transition-all">
           <p className="text-mbioAccent">{actualite.date}</p>
-          <Balancer className="text-white font-semibold text-sm py-4 max-w-xs">
+          <Balancer className="text-white font-semibold text-sm py-4 ">
             {actualite.title}
           </Balancer>
         </div>
