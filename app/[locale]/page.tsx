@@ -329,7 +329,7 @@ const Impact = () => {
   ];
   return (
     <Section className="relative">
-      <div className="relative w-full h-[130vh] sm:h-[100vh] md:h-[80vh] overflow-hidden bg-gray-100">
+      <div className="relative w-full h-[140vh] sm:h-[100vh] md:h-[80vh] overflow-hidden bg-gray-100">
         <Image
           alt="Card background"
           src={ImpactBg}
@@ -533,11 +533,11 @@ const BlogCard = ({ blog }: BlogCardProps) => {
 
         <div className="absolute bottom-5 right-0 m-4"></div>
       </CardHeader>
-      <CardContent className="mt-6">
-        <span className="text-mbioAccent text-sm rounded-full py-1.5 px-3.5 border border-mbioAccent">
+      <CardContent className="mt-6 flex flex-col items-start">
+        <p className="text-mbioAccent text-sm  rounded-full py-1.5 px-3.5 border border-mbioAccent">
           {blog.category}
-        </span>
-        <Balancer className="text-mbioPrimary font-semibold text-xl py-4">
+        </p>
+        <Balancer className="text-mbioPrimary font-semibold text-xl py-4 ">
           {blog.title}
         </Balancer>
         <Balancer className="text-muted-foreground text-sm">
