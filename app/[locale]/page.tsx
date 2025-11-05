@@ -345,7 +345,7 @@ const Impact = () => {
         </h2>
         <Balancer
           className={cn(
-            "text-white/90 text-sm lg:text-base text-center mb-6  lg:mb-12 max-w-[70ch]"
+            "text-white/90 text-sm lg:text-base text-center mb-6  lg:mb-12 md:max-w-[70ch]"
           )}
         >
           {t("description")}
