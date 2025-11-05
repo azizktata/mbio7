@@ -138,7 +138,7 @@ const Hero = () => {
     <main className="relative border-none h-[60vh] lg:h-[80vh] flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
         <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-4 text-center px-2 max-w-[25ch]">
-{/*          
+          {/*          
           <Balancer>
             Panneau mBio7, l'écologie au service de la construction
           </Balancer> */}
@@ -260,7 +260,10 @@ const About = () => {
     ],
   };
   const locale = useLocale();
-  const videoUrl = locale === "fr" ? "https://www.youtube.com/watch?v=jUQu9_26Gdg" : "https://www.youtube.com/watch?v=052uUU0YS-8";
+  const videoUrl =
+    locale === "fr"
+      ? "https://www.youtube.com/watch?v=jUQu9_26Gdg"
+      : "https://www.youtube.com/watch?v=052uUU0YS-8";
   return (
     <Section>
       <Container className="grid items-center md:grid-cols-2 gap-6 lg:gap-16 ">
@@ -273,11 +276,7 @@ const About = () => {
           />
           <div className="absolute inset-0  bg-black/30" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <Link
-              href={videoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href={videoUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 className="h-16 w-16 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
@@ -329,33 +328,37 @@ const Impact = () => {
   ];
   return (
     <Section className="relative">
-      <div className="relative w-full h-[140vh] sm:h-[100vh] md:h-[80vh] overflow-hidden bg-gray-100">
+      {/* 1. Reduce the initial high vh value. Use a more predictable height or min-height. */}
+      <div className="relative w-full h-[950px] sm:h-[600px] overflow-hidden bg-gray-100">
         <Image
           alt="Card background"
           src={ImpactBg}
           fill
           priority
-          className="z-0 object-cover w-full object-bottom  rounded-md"
+          className="z-0 object-cover w-full object-bottom rounded-md"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-linear"></div>
       </div>
-      <Container className="flex flex-col items-center absolute inset-0 z-10 justify-center">
-        <h2 className="font-semibold text-white text-3xl sm:text-5xl  mb-4 lg:mb-6 text-center">
+
+      {/* 2. Content container structure remains correct for overlaying. */}
+      <Container className="flex flex-col items-center absolute inset-0 z-10 justify-center p-4">
+        {" "}
+        {/* Added p-4 for safe padding */}
+        <h2 className="font-semibold text-white text-3xl sm:text-5xl mb-4 lg:mb-6 text-center">
           <Balancer>{t("title")}</Balancer>
         </h2>
-        <Balancer
+        <p
           className={cn(
-            "text-white/90 text-sm lg:text-base text-center mb-6  lg:mb-12 md:max-w-[70ch]"
+            "text-white/90 text-sm lg:text-base text-center mb-6 w-full lg:mb-12 md:max-w-[70ch]"
           )}
         >
           {t("description")}
-        </Balancer>
-
+        </p>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mt-6">
           {chiffres.map((item) => (
             <div
               key={item.title}
-              className="group  flex flex-col gap-6 items-center py-8 px-3 bg-card rounded-2xl border shadow-sm transition-background duration-300 hover:bg-gradient hover:text-white"
+              className="group flex flex-col gap-6 items-center py-8 px-3 bg-card rounded-2xl border shadow-sm transition-background duration-300 hover:bg-gradient hover:text-white"
             >
               <h3 className="text-6xl font-semibold text-mbioTertiary group-hover:text-white">
                 {item.value}
@@ -546,7 +549,11 @@ const BlogCard = ({ blog }: BlogCardProps) => {
       </CardContent>
       <CardFooter>
         <Button variant="link" className="text-mbioAccent px-0">
-          <Link href={blog.link} target="_blank" className="flex items-center gap-1">
+          <Link
+            href={blog.link}
+            target="_blank"
+            className="flex items-center gap-1"
+          >
             {useLocale() === "fr" ? "Lire l'article" : "Read full article"}
             <ArrowRight className="h-4 w-4 " />
           </Link>
