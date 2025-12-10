@@ -123,7 +123,8 @@ const Footer = () => {
             </Link>
             <p>
               <Balancer>
-                {locale === 'fr' ? "mBio7, le panneau biosourcé à empreinte carbone négative." : "mBio7, the bio-based panel with a negative carbon footprint."}
+                {locale === 'fr' ? "mBio7, la solution éco-matériau idéale pour la construction rapide d'habitations en bois moulé." : "mBio7, the ideal eco-material solution for the rapid construction of molded wood homes."}
+                {/* {locale === 'fr' ? "mBio7, le panneau biosourcé à empreinte carbone négative." : "mBio7, the bio-based panel with a negative carbon footprint."} */}
               </Balancer>
             </p>
           </div>

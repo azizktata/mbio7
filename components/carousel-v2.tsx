@@ -11,6 +11,8 @@ import { Card, CardContent } from "./ui/card";
 import Image, { StaticImageData } from "next/image";
 import { Container } from "./craft";
 import { useLocale } from "next-intl";
+import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 
 export default function CarouselV2({
   images,
@@ -22,18 +24,18 @@ export default function CarouselV2({
   //   );
   const myImages = Object.values(images);
   const locale = useLocale();
+   const plugin = React.useRef(
+        Autoplay({ delay: 2000, stopOnInteraction: true })
+      );
   return (
-    <div className="w-full bg-gray-100/40 py-8">
+    <div className="w-full bg-gray-100/40 bg-[#EFF5F5] py-8">
       <Container>
         <h2 className="!my-0 font-semibold text-mbioPrimary text-3xl sm:text-5xl ">
           {locale === "fr" ? "Process de construction" : "Construction process"}
         </h2>
         <Carousel
           className="w-full  my-8"
-          opts={{
-            align: "start",
-            loop: true,
-          }}
+         plugins={[plugin.current]}
         >
           <CarouselContent>
             {myImages.map((image, index) => (
@@ -54,8 +56,8 @@ export default function CarouselV2({
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="text-mbioPrimary rounded-sm" />
-          <CarouselNext className="text-mbioPrimary rounded-sm" />
+          <CarouselPrevious variant={'ghost'} className="text-mbioPrimary rounded-sm shadow-none border-none" />
+          <CarouselNext variant={'ghost'} className="text-mbioPrimary rounded-sm shadow-none border-none" />
         </Carousel>
       </Container>
     </div>

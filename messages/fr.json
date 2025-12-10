@@ -1,7 +1,7 @@
 {
     "Hero": {
-        "title": "Panneau mBio7, l'écologie au service de la construction.",
-        "description": "On transforme les déchets de bois en habitations, Nous avons inventé le panneau mBio7 pour permettre à tous de construire des maisons évolutives.",
+        "title": "L'éco-matériau révolutionnaire",
+        "description": "mBio7 est un panneau en bois moulé, qui permet de bâtir facilement et rapidement des maisons durables, écologiques et bioclimatiques, résistantes au feu et aux intempéries.",
         "cta1": "En savoir plus",
         "cta1_link": "/pages/utilisations",
         "cta2": "Contactez-nous"
@@ -21,7 +21,7 @@
     },
     "mBio7": {
         "title": "Construire Mieux ÉCOLOGIQUEMENT",
-        "description": "The mBio7 panel is an eco-material, which is revolutionizing the construction materials sector by offering a sustainable and ecological solution. Thanks to its negative carbon footprint, it actively contributes to the fight against climate change.",
+        "description": "Le panneau mBio7 est un éco-matériau révolutionnaire, matériau renouvelable par excellence puisqu'issu de bois recyclé et broyé, mBio7 épargne les forêts et garantit un bilan Co2 optimisé, fabrication et transport.",
         "tags": {
             "tag1": "Ultra-léger (9Kg) & Innovant",
             "tag2": "Issu du Recyclage de Bois",
@@ -53,7 +53,7 @@
     },
     "About": {
         "title": "Une solution pour tous, partout",
-        "description": "Pensé pour des constructions durables, antisismiques, saines, résistantes au gel, économes, modulables — Nous avons inventé le panneau mBio7 pour permettre à tous de construire des maisons évolutives.",
+        "description": "mBio7 est un panneau en bois moulé constitué à plus de 90 % de bois issu du recyclage . C’est un produit naturel, biosourcé, reproductible, transportable et économique.",
         "points": {
             "point1": "Il est résistant à l’eau et au feu",
             "point2": "Il ne craint pas les termites ou tout autre type d’insecte",
@@ -62,8 +62,8 @@
         }
     },
     "Impact": {
-        "title": "Approche durable & humaine",
-        "description": "mBio7 est la solution éco-constructive qui allie rapidité de mise en œuvre, performance technique et respect de l’environnement.",
+        "title": "L'éco-matériau révolutionnaire",
+        "description": "mBio7 est la solution éco-matériau idéale pour la construction rapide d'habitations en bois moulé.",
         "stat1": {
             "title": "matières recyclées, totalement recyclables",
             "value": "95%"
@@ -238,7 +238,8 @@
     },
     "UtilisationHero": {
         "title": "Comment utiliser les panneaux mBio7 ?",
-        "description": "Les panneaux mBio7 sont polyvalents et peuvent être utilisés dans divers types de projets de construction et de rénovation. Voici quelques-unes des principales utilisations des panneaux mBio7 :",
+        "description1": "Les panneaux mBio7 sont polyvalents et peuvent être utilisés dans divers types de projets de construction et de rénovation. Voici quelques-unes des principales utilisations des panneaux mBio7 :",
+        "description": "L’assemblage de ces panneaux, par emboîtement, vissage et remplissage avec cellulose, paille, laine, terre, béton ou tout autre matériau, permet le montage, le blocage, l’isolation et la finition des murs, cloisons, sols, bardages et toitures d’habitations, de manière simple et modulable.",
         "details": {
             "point1": "Construction neuve",
             "point2": "Rénovation",

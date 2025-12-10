@@ -137,14 +137,14 @@ const Hero = () => {
   return (
     <main className="relative border-none h-[500px]  flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
-        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-4 text-center px-2 max-w-[25ch]">
+        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-4 text-center px-2 max-w-[30ch]">
           {/*          
           <Balancer>
             Panneau mBio7, l'écologie au service de la construction
           </Balancer> */}
           <Balancer>{HeroContent.title}</Balancer>
         </h1>
-        <p className="text-white max-w-[65ch] text-center text-md sm:text-lg font-medium mb-6 px-4">
+        <p className="text-white max-w-[75ch] text-center text-md sm:text-lg font-medium mb-6 px-4">
           <Balancer>{HeroContent.description}</Balancer>
         </p>
         <div className="flex gap-4">
@@ -262,7 +262,7 @@ const About = () => {
   const locale = useLocale();
   const videoUrl =
     locale === "fr"
-      ? "https://www.youtube.com/watch?v=jUQu9_26Gdg"
+      ? "https://www.youtube.com/watch?v=InH4IXHmUZo"
       : "https://www.youtube.com/watch?v=052uUU0YS-8";
   return (
     <Section>
@@ -337,7 +337,7 @@ const Impact = () => {
           priority
           className="z-0 object-cover w-full object-bottom rounded-md"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-linear"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-linear"></div>
       </div>
 
       {/* 2. Content container structure remains correct for overlaying. */}
@@ -349,7 +349,7 @@ const Impact = () => {
         </h2>
         <p
           className={cn(
-            "text-white/90 text-sm lg:text-base text-center mb-6 w-full lg:mb-12 md:max-w-[70ch]"
+            "text-white text-sm lg:text-base text-center mb-6 w-full lg:mb-12 md:max-w-[60ch]"
           )}
         >
           {t("description")}

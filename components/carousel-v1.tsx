@@ -9,24 +9,23 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "./ui/card";
 import Image, { StaticImageData } from "next/image";
+import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 
 export default function CarouselV1({
   visions,
 }: {
   visions: { title: string; description: string; image: StaticImageData }[];
 }) {
-  //   const plugin = React.useRef(
-  //     Autoplay({ delay: 2000, stopOnInteraction: true })
-  //   );
+    const plugin = React.useRef(
+      Autoplay({ delay: 3000, stopOnInteraction: true })
+    );
   const myVisions = Object.values(visions);
 
   return (
     <Carousel
       className="w-full  "
-      opts={{
-        align: "start",
-        loop: true,
-      }}
+      plugins={[plugin.current]}
     >
       <CarouselContent className="">
         {myVisions.map((vision, index) => (
@@ -56,8 +55,8 @@ export default function CarouselV1({
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute top-1/2 left-4 transform -translate-y-1/2 z-20  p-2 rounded-none bg-blue-400/50 border-none text-white  hover:bg-white/40" />
-      <CarouselNext className="absolute top-1/2 right-4 transform -translate-y-1/2 z-20  p-2  rounded-none bg-blue-400/50 border-none text-white hover:bg-white/40" />
+      <CarouselPrevious  className="absolute top-1/2 left-4 transform -translate-y-1/2 z-20  p-2 rounded-none bg-blue-400/50 border-none text-white  hover:bg-white/40 h-12 w-12" />
+      <CarouselNext className="absolute top-1/2 right-4 transform -translate-y-1/2 z-20  p-2  rounded-none bg-blue-400/50 border-none text-white hover:bg-white/40 h-12 w-12" />
     </Carousel>
   );
 }

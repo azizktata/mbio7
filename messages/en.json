@@ -1,7 +1,7 @@
 {
     "Hero": {
-        "title": "mBio7 Panel, ecology serving construction.",
-        "description": "We transform wood waste into housing, We invented the mBio7 panel to allow everyone to build scalable homes.",
+        "title": "The revolutionary eco-material",
+        "description": "mBio7 is a molded wood panel that enables easy and rapid construction of sustainable, eco-friendly, and bioclimatic homes that are fire and weather resistant.",
         "cta1": "Learn more",
         "cta1_link": "/pages/how-to-use",
         "cta2": "Contact us"
@@ -20,8 +20,8 @@
         "text": "A patented product developed by"
     },
     "mBio7": {
-        "title": "Building Better ECOLOGICALLY",
-        "description": "mBio7 is revolutionizing the construction materials sector by offering a sustainable and eco-friendly solution. With its negative carbon footprint, it actively contributes to the fight against climate change while ensuring exceptional performance in terms of thermal and acoustic insulation.",
+        "title": "Construire Mieux ÉCOLOGIQUEMENT",
+        "description": "The mBio7 panel is a renewable material par excellence, made from recycled and crushed wood. It spares forests and guarantees an optimized CO2 balance during manufacturing and transportation.",
         "tags": {
       "tag1": "Ultra-light (9kg) & Innovative",
       "tag2": "Recycled Wood & Waste-based",
@@ -53,7 +53,7 @@
     },
     "About": {
         "title": "A solution for everyone, everywhere",
-        "description": "Designed for sustainable, earthquake-resistant, healthy, frost-resistant, economical, and modular constructions — We invented the mBio7 panel to allow everyone to build scalable homes.",
+        "description": "mBio7 is a molded wood panel made of more than 90% recycled wood. It is a natural, bio-sourced, reproducible, transportable, and economical product.",
         "points": {
             "point1": "It is water and fire resistant",
             "point2": "It provides excellent thermal and acoustic insulation",
@@ -62,8 +62,8 @@
         }
     },
     "Impact": {
-        "title": "Sustainable & human approach",
-        "description": "mBio7 is the eco-constructive solution that combines quick installation, technical performance, and environmental respect.",
+        "title": "The revolutionary eco-material",
+        "description": "mBio7 is the ideal eco-material solution for the rapid construction of molded wood homes.",
         "stat1": {
             "title": "recycled materials, fully recyclable",
             "value": "95%"
@@ -245,7 +245,7 @@
     },
     "UtilisationHero": {
         "title": "How to use mBio7 panels?",
-        "description": "mBio7 panels are versatile and can be used in various types of construction and renovation projects. Here are some of the main uses for mBio7 panels:",
+        "description": "The assembly of these panels, by interlocking, screwing, and filling with cellulose, straw, wool, earth, concrete, or any other material, allows the mounting, blocking, insulation, and finishing of walls, partitions, floors, cladding, and roofs of dwellings in a simple and modular way.",
         "details": {
             "point1": "New construction",
             "point2": "Renovation",
