@@ -107,7 +107,7 @@ const Footer = () => {
     {key: t('experiance'), href: t('experianceLink')},
    ]
   return (
-    <footer className="bg-mbioPrimary text-white">
+    <footer className="bg-[#2A6F6A] text-white">
       <Section>
         <Container className="grid md:grid-cols-[1.5fr_0.5fr_0.5fr] gap-12">
           <div className="flex flex-col gap-6 not-prose">

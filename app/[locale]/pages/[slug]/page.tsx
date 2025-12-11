@@ -275,7 +275,7 @@ const useImages = [
             className="object-cover w-full object-top"
             fill
           />
-          <div className="absolute inset-0 bg-[#084E4D78]/50 "></div>
+          <div className="absolute inset-0 bg-[#6CC1BB]/40 "></div>
         </div>
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2">
           <h1 className="text-white  text-4xl sm:text-5xl font-semibold capitalize mb-2">

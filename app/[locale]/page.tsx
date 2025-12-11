@@ -22,6 +22,15 @@ import ComparativeEng from "@/public/Comparative.jpg";
 import slide2 from "@/public/fabrication-2.png";
 import slide3 from "@/public/fabrication-3.png";
 import slide4 from "@/public/utilisation.png";
+import hero2 from "@/public/hero-2.jpg";
+import hero3 from "@/public/hero-3.jpg";
+import hero4 from "@/public/hero-4.jpg";
+import hero5 from "@/public/hero-5.jpg";
+import hero6 from "@/public/hero-6.jpg";
+
+import slide1 from "@/public/mBio7-montage12.jpg";
+import slide5 from "@/public/mBio7-montage01.jpg";
+
 
 import sept2025 from "@/public/sept-2025.png";
 import sept2021 from "@/public/sept-2021.png";
@@ -67,6 +76,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ContactForm from "@/components/contact-form";
 import { useLocale, useTranslations } from "next-intl";
 import CarouselV1 from "@/components/carousel-v1";
+import CarouselHero from "@/components/carousel-hero";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -79,14 +89,14 @@ export default function Home() {
 
   return (
     <div>
-      <section className="relative h-[600px] lg:h-[650px]  w-full">
-        <Image
+      <section className="relative h-[550px] lg:h-[600px]  w-full">
+        {/* <Image
           src={HeroBg}
           alt="mbio7 panel"
           fill
           priority
           className="object-cover w-full object-bottom  "
-        />
+        /> */}
         {/* <div className="absolute inset-0 bg-[#084E4D78]" /> */}
         <div className="absolute inset-0 bg-black/10" />
         <div className="relative z-10">
@@ -100,10 +110,10 @@ export default function Home() {
         <Mbio7 />
         {/* <div className="absolute inset-y-20 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
 
-        <div className="p-2 bg-gradient-to-r from-[#084E4D]/60 to-[#6CC1BB] " />
+        <div className="p-2 bg-gradient-to-b from-[#084E4D]/60 to-[#6CC1BB] " />
 
         <CarouselCmp />
-        <div className="p-2 bg-gradient-to-l from-[#084E4D]/60 to-[#6CC1BB]  " />
+        <div className="p-2 bg-gradient-to-t from-[#084E4D]/60 to-[#6CC1BB] " />
         <About />
         {/* <div className="absolute inset-y-50 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
         <Impact />
@@ -134,14 +144,22 @@ const Hero = () => {
     cta2: t("cta2"),
     image: HeroImage,
   };
+  const locale = useLocale();
+  const Heroes = [
+    { title: HeroContent.title, description: HeroContent.description, image: hero4 },
+    { title: HeroContent.title, description: HeroContent.description, image: hero5 },
+    { title: HeroContent.title, description: HeroContent.description, image: juillet2019 },
+    { title: HeroContent.title, description: HeroContent.description, image: hero3 },
+    { title: HeroContent.title, description: HeroContent.description, image: hero6 },
+    // { title: HeroContent.title, description: HeroContent.description, image: hero2 },
+
+  ]
   return (
-    <main className="relative border-none h-[500px]  flex items-center justify-center text-center">
+    <main className="relative border-none h-[400px]  flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
-        <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-4 text-center px-2 max-w-[30ch]">
-          {/*          
-          <Balancer>
-            Panneau mBio7, l'écologie au service de la construction
-          </Balancer> */}
+        <CarouselHero heros={Heroes} />
+        {/* <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-4 text-center px-2 max-w-[30ch]">
+
           <Balancer>{HeroContent.title}</Balancer>
         </h1>
         <p className="text-white max-w-[75ch] text-center text-md sm:text-lg font-medium mb-6 px-4">
@@ -150,7 +168,7 @@ const Hero = () => {
         <div className="flex gap-4">
           <CustomButton label={HeroContent.cta1} href={HeroContent.ctaLink} />
           <CustomButton label={HeroContent.cta2} href="#contact" inverted />
-        </div>
+        </div> */}
       </div>
     </main>
   );
@@ -223,10 +241,15 @@ const Mbio7 = () => {
 const CarouselCmp = () => {
   const t = useTranslations("Carousel");
   const CarouselContent = [
+    // {
+    //   title: t("slide1.title"),
+    //   description: t("slide1.description"),
+    //   image: slide1,
+    // },
     {
-      title: t("slide1.title"),
-      description: t("slide1.description"),
-      image: HeroImage,
+      title: t("slide4.title"),
+      description: t("slide4.description"),
+      image: slide4,
     },
     {
       title: t("slide2.title"),
@@ -237,11 +260,6 @@ const CarouselCmp = () => {
       title: t("slide3.title"),
       description: t("slide3.description"),
       image: slide3,
-    },
-    {
-      title: t("slide4.title"),
-      description: t("slide4.description"),
-      image: slide4,
     },
   ];
   return <CarouselV1 visions={CarouselContent} />;
@@ -279,7 +297,7 @@ const About = () => {
             <Link href={videoUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
-                className="h-16 w-16 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
+                className="h-16 w-16 rounded-full bg-mbioSecondary hover:bg-mbioTertiary p-0"
               >
                 <PlayIcon className="h-8 w-8 fill-current text-white" />
               </Button>
@@ -329,6 +347,7 @@ const Impact = () => {
   return (
     <Section className="relative">
       {/* 1. Reduce the initial high vh value. Use a more predictable height or min-height. */}
+
       <div className="relative w-full h-[950px] sm:h-[600px] overflow-hidden bg-gray-100">
         <Image
           alt="Card background"
@@ -337,7 +356,8 @@ const Impact = () => {
           priority
           className="z-0 object-cover w-full object-bottom rounded-md"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-linear"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-linear"></div> */}
+        <div className="absolute inset-0 bg-gradient-to-b bg-[#6CC1BB]/30 via-linear"></div>
       </div>
 
       {/* 2. Content container structure remains correct for overlaying. */}
@@ -360,7 +380,7 @@ const Impact = () => {
               key={item.title}
               className="group flex flex-col gap-6 items-center py-8 px-3 bg-card rounded-2xl border shadow-sm transition-background duration-300 hover:bg-gradient hover:text-white"
             >
-              <h3 className="text-6xl font-semibold text-mbioTertiary group-hover:text-white">
+              <h3 className="text-6xl font-semibold text-mbioPrimary group-hover:text-white">
                 {item.value}
               </h3>
               <Balancer className="text-2xl font-semibold text-black group-hover:text-white text-center">
@@ -435,7 +455,7 @@ const WhyUs = () => {
 const ComparativeStudy = () => {
   const locale = useLocale();
   return (
-    <Section className="bg-mbioPrimary py-16">
+    <Section className="bg-gradient-to-l from-[#2A6F6A] to-[#85E08A] py-16">
       <Container>
         {/* ... Title ... */}
         <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
@@ -697,7 +717,7 @@ const Reviews = () => {
     },
   ];
   return (
-    <Section className="bg-gradient-to-r from-[#084E4D] to-[#85E08A]">
+    <Section className="bg-gradient-to-r from-[#2A6F6A] to-[#85E08A]">
       <Container>
         <h2 className="font-semibold text-white text-4xl sm:text-5xl  mb-8 lg:mb-16 text-center">
           {t("title")}
@@ -852,7 +872,8 @@ const Contact = () => {
   return (
     <Section
       id="contact"
-      className=" bg-gradient-to-br from-[#6CC1BB]  to-teal-900"
+      className=" bg-gradient-to-br from-[#2A6F6A] to-[#85E08A]"
+      // bg-gradient-to-l from-[#084E4D] to-[#85E08A]
     >
       <Container className="flex flex-col md:flex-row gap-8  md:gap-16 items-start md:items-center">
         <div className="flex flex-col items-start w-full md:w-1/2">
