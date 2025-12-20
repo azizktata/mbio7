@@ -51,7 +51,7 @@ export default function CarouselHero({
               </div>
               <CardContent className="absolute inset-0 z-10 flex items-end justify-center ">
                 <div className="  flex flex-col items-start sm:items-center mb-32 md:mb-26 ">
-                  <h1 className="mb-4 font-semibold text-2xl md:text-4xl lg:text-5xl  text-left sm:text-center text-white  tracking-wider">
+                  <h1 className="mb-4 font-semibold text-3xl md:text-4xl lg:text-5xl  text-left sm:text-center text-white  tracking-wider">
                     {hero.title}
                   </h1>
                   <p className="text-xs sm:text-sm md:text-base  text-gray-100 font-normal mb-4 max-w-[75ch]  text-left sm:text-center  tracking-widest">
@@ -64,8 +64,8 @@ export default function CarouselHero({
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious  className="absolute top-1/2 left-2 transform -translate-y-1/2 z-20  p-2 bg-transparent rounded-full  border-white text-white/70 group hover:bg-white/40 hover:text-mbioPrimary md:h-12 md:w-12" />
-      <CarouselNext className="absolute top-1/2 right-2 transform -translate-y-1/2 z-20  p-2 bg-transparent rounded-full border-white text-white/70 group hover:bg-white/40 hover:text-mbioPrimary md:h-12 md:w-12" />
+      <CarouselPrevious  className="absolute top-1/2 left-2 transform -translate-y-1/2 z-20  p-2 bg-transparent rounded-full  border-white text-white/70 group hover:bg-white/40 hover:text-mbioPrimary h-8 w-8 lg:h-12 lg:w-12" />
+      <CarouselNext className="absolute top-1/2 right-2 transform -translate-y-1/2 z-20  p-2 bg-transparent rounded-full border-white text-white/70 group hover:bg-white/40 hover:text-mbioPrimary h-8 w-8 lg:h-12 lg:w-12" />
     </Carousel>
   );
 }
