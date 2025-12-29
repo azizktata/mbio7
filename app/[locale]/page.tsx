@@ -31,6 +31,17 @@ import hero6 from "@/public/hero-6.jpg";
 import slide1 from "@/public/mBio7-montage12.jpg";
 import slide5 from "@/public/mBio7-montage01.jpg";
 
+import heroSlide1 from "@/public/hero-slides/hero-slide (1).webp";
+import heroSlide2 from "@/public/hero-slides/hero-slide (2).webp";
+import heroSlide3 from "@/public/hero-slides/hero-slide (3).webp";
+import heroSlide4 from "@/public/hero-slides/hero-slide (4).webp";
+import heroSlide5 from "@/public/hero-slides/hero-slide (5).webp";
+import heroSlide6 from "@/public/hero-slides/hero-slide (6).webp";
+import heroSlide7 from "@/public/hero-slides/hero-slide (7).webp";
+import heroSlide8 from "@/public/hero-slides/hero-slide (8).webp";
+import heroSlide9 from "@/public/hero-slides/hero-slide (9).webp";
+import heroSlide10 from "@/public/hero-slides/hero-slide (10).webp";
+
 
 import sept2025 from "@/public/sept-2025.png";
 import sept2021 from "@/public/sept-2021.png";
@@ -146,11 +157,15 @@ const Hero = () => {
   };
   const locale = useLocale();
   const Heroes = [
-    { title: HeroContent.title, description: HeroContent.description, image: hero4 },
-    { title: HeroContent.title, description: HeroContent.description, image: hero5 },
-    { title: HeroContent.title, description: HeroContent.description, image: juillet2019 },
-    { title: HeroContent.title, description: HeroContent.description, image: hero3 },
-    { title: HeroContent.title, description: HeroContent.description, image: hero6 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide1 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide3 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide4 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide5 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide6 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide7 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide8 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide9 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide10 },
     // { title: HeroContent.title, description: HeroContent.description, image: hero2 },
 
   ]
@@ -158,17 +173,6 @@ const Hero = () => {
     <main className="relative border-none h-[400px]  flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
         <CarouselHero heros={Heroes} />
-        {/* <h1 className="text-white  text-3xl  sm:text-4xl md:text-5xl lg:text-6xl font-semibold  mb-4 text-center px-2 max-w-[30ch]">
-
-          <Balancer>{HeroContent.title}</Balancer>
-        </h1>
-        <p className="text-white max-w-[75ch] text-center text-md sm:text-lg font-medium mb-6 px-4">
-          <Balancer>{HeroContent.description}</Balancer>
-        </p>
-        <div className="flex gap-4">
-          <CustomButton label={HeroContent.cta1} href={HeroContent.ctaLink} />
-          <CustomButton label={HeroContent.cta2} href="#contact" inverted />
-        </div> */}
       </div>
     </main>
   );

@@ -43,8 +43,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Mbio7",
-  description: "mBio7, le panneau biosourcé à empreinte carbone négative.",
+  title: "mBio7",
+  description: "mBio7, le panneau éco-materiau piège à CO².",
   metadataBase: new URL(siteConfig.site_domain),
   alternates: {
     canonical: "/",
