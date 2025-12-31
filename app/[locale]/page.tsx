@@ -41,6 +41,7 @@ import heroSlide7 from "@/public/hero-slides/hero-slide (7).webp";
 import heroSlide8 from "@/public/hero-slides/hero-slide (8).webp";
 import heroSlide9 from "@/public/hero-slides/hero-slide (9).webp";
 import heroSlide10 from "@/public/hero-slides/hero-slide (10).webp";
+import heroSlide11 from "@/public/hero-slides/hero-slide (11).webp";
 
 
 import sept2025 from "@/public/sept-2025.png";
@@ -159,6 +160,7 @@ const Hero = () => {
   const Heroes = [
     { title: HeroContent.title, description: HeroContent.description, image: heroSlide1 },
     { title: HeroContent.title, description: HeroContent.description, image: heroSlide3 },
+    { title: HeroContent.title, description: HeroContent.description, image: heroSlide11 },
     { title: HeroContent.title, description: HeroContent.description, image: heroSlide4 },
     { title: HeroContent.title, description: HeroContent.description, image: heroSlide5 },
     { title: HeroContent.title, description: HeroContent.description, image: heroSlide6 },
