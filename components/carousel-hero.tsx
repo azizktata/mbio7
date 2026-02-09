@@ -17,14 +17,14 @@ import { useLocale } from "next-intl";
 export default function CarouselHero({
   heros,
 }: {
-  heros: { title: string; description: string; image: StaticImageData }[];
+  heros: { title: string; description: string; image: string | StaticImageData; cta: string }[];
 }) {
     const plugin = React.useRef(
       Autoplay({ delay: 5000, stopOnInteraction: true })
     );
   const myHeros = Object.values(heros);
   const locale = useLocale();
-  const cta = locale === "fr" ? "En Savoir Plus" : "Learn More";
+ 
   const ctaLink = locale === "fr" ? "/pages/utilisations" : "/pages/how-to-use";
   return (
     <Carousel
@@ -57,7 +57,7 @@ export default function CarouselHero({
                   <p className="text-xs sm:text-sm md:text-base  text-gray-100 font-normal mb-4 max-w-[75ch]  text-left sm:text-center  tracking-widest">
                     {hero.description}
                   </p>
-                   <CustomButton label={cta} href={ctaLink}  className="self-start sm:self-center mt-4"/>
+                   <CustomButton label={hero.cta} href={ctaLink}  className="self-start sm:self-center mt-4"/>
                 </div>
               </CardContent>
             </Card>

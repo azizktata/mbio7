@@ -15,7 +15,7 @@ import React from "react";
 export default function CarouselV1({
   visions,
 }: {
-  visions: { title: string; description: string; image: StaticImageData }[];
+  visions: { title: string; description: string; image: string | StaticImageData | false }[];
 }) {
     const plugin = React.useRef(
       Autoplay({ delay: 3000, stopOnInteraction: true })
@@ -35,13 +35,15 @@ export default function CarouselV1({
           <CarouselItem className="basis-full" key={index}>
             <Card className="h-[400px] relative bg-mbioSecondary">
               <div className="relative w-full h-full overflow-hidden bg-mbioSecondary">
-                <Image
-                  alt="Card background"
-                  src={vision.image}
-                  fill
-                  priority
-                  className="z-0 object-cover lg:object-contain object-center  lg:object-rihgt lg:object-right"
-                />
+                {vision.image && (
+                  <Image
+                    alt="Card background"
+                    src={vision.image}
+                    fill
+                    priority
+                    className="z-0 object-cover lg:object-contain object-center  lg:object-rihgt lg:object-right"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-linear"></div>
               </div>
               <CardContent className="absolute inset-0 z-10 flex items-center justify-start p-8 md:p-16 ">

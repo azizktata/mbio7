@@ -6,10 +6,9 @@ import Balancer from "react-wrap-balancer";
 import Link from "next/link";
 
 // Icons
-import HeroImage from "@/public/hero-mbio.jpg";
 import HeroBg from "@/public/hero-bg.png";
 import ImpactBg from "@/public/impact-bg.png";
-import ContactBg from "@/public/contact-bg.png";
+// import ContactBg from "@/public/contact-bg.png";
 import WoodWise from "@/public/woodwise.svg";
 
 import NiceMatin from "@/public/nice-matin.png";
@@ -19,29 +18,11 @@ import Monaco from "@/public/monaco.png";
 import Logo from "@/public/mbio7-logo.png";
 import Comparative from "@/public/comparaison.jpg";
 import ComparativeEng from "@/public/Comparative.jpg";
+import slide1 from "@/public/mBio7-montage12.jpg";
 import slide2 from "@/public/fabrication-2.png";
 import slide3 from "@/public/fabrication-3.png";
 import slide4 from "@/public/utilisation.png";
-import hero2 from "@/public/hero-2.jpg";
-import hero3 from "@/public/hero-3.jpg";
-import hero4 from "@/public/hero-4.jpg";
-import hero5 from "@/public/hero-5.jpg";
-import hero6 from "@/public/hero-6.jpg";
-
-import slide1 from "@/public/mBio7-montage12.jpg";
 import slide5 from "@/public/mBio7-montage01.jpg";
-
-import heroSlide1 from "@/public/hero-slides/hero-slide (1).webp";
-import heroSlide2 from "@/public/hero-slides/hero-slide (2).webp";
-import heroSlide3 from "@/public/hero-slides/hero-slide (3).webp";
-import heroSlide4 from "@/public/hero-slides/hero-slide (4).webp";
-import heroSlide5 from "@/public/hero-slides/hero-slide (5).webp";
-import heroSlide6 from "@/public/hero-slides/hero-slide (6).webp";
-import heroSlide7 from "@/public/hero-slides/hero-slide (7).webp";
-import heroSlide8 from "@/public/hero-slides/hero-slide (8).webp";
-import heroSlide9 from "@/public/hero-slides/hero-slide (9).webp";
-import heroSlide10 from "@/public/hero-slides/hero-slide (10).webp";
-import heroSlide11 from "@/public/hero-slides/hero-slide (11).webp";
 
 
 import sept2025 from "@/public/sept-2025.png";
@@ -64,11 +45,9 @@ import {
   MapPin,
   Phone,
   PlayIcon,
-  PuzzleIcon,
   Recycle,
   ShieldCheck,
   Star,
-  Tags,
 } from "lucide-react";
 import {
   Accordion,
@@ -89,6 +68,20 @@ import ContactForm from "@/components/contact-form";
 import { useLocale, useTranslations } from "next-intl";
 import CarouselV1 from "@/components/carousel-v1";
 import CarouselHero from "@/components/carousel-hero";
+import {
+  getHeroSection,
+  getAboutSection,
+  getProcessSection,
+  getVideoSection,
+  getImpactSection,
+  getWhyUsSection,
+  getComparativeSection,
+  getBlogsSection,
+  getActualitesSection,
+  getReviewsSection,
+  getFAQSection,
+  getContactSection,
+} from "@/lib/wp-fetch";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -96,8 +89,9 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 // This page is using the craft.tsx component and design system
-export default function Home() {
+export default  function Home() {
   const locale = useLocale();
+
 
   return (
     <div>
@@ -113,68 +107,53 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/10" />
         <div className="relative z-10">
           <Nav />
-          <Hero />
+          <Hero locale={locale} />
         </div>
       </section>
       <Banner />
 
       <div className=" relative">
-        <Mbio7 />
+        <Mbio7 locale={locale} />
         {/* <div className="absolute inset-y-20 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
 
         <div className="p-2 bg-gradient-to-b from-[#084E4D]/60 to-[#6CC1BB] " />
 
-        <CarouselCmp />
+        <CarouselCmp locale={locale} />
         <div className="p-2 bg-gradient-to-t from-[#084E4D]/60 to-[#6CC1BB] " />
-        <About />
+        <About locale={locale} />
         {/* <div className="absolute inset-y-50 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
-        <Impact />
+        <Impact locale={locale} />
         {/* <div className="absolute inset-y-100 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
-        <WhyUs />
+        <WhyUs locale={locale} />
         {/* <div className="absolute inset-y-150 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
-        <ComparativeStudy />
+        <ComparativeStudy locale={locale} />
         {/* <div className="absolute inset-y-200 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
-        <Blogs />
-        <Actualites />
+        <Blogs locale={locale} />
+        <Actualites locale={locale} />
         {/* <div className="absolute inset-y-250 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
-        <Reviews />
-        <FAQ />
-        <Contact />
+        <Reviews locale={locale} />
+        <FAQ locale={locale} />
+        <Contact locale={locale} />
       </div>
     </div>
   );
 }
 
-// This is just some example TSX
-const Hero = () => {
-  const t = useTranslations("Hero");
-  const HeroContent = {
-    title: t("title"),
-    description: t("description"),
-    cta1: t("cta1"),
-    ctaLink: t("cta1_link"),
-    cta2: t("cta2"),
-    image: HeroImage,
-  };
-  const locale = useLocale();
-  const Heroes = [
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide1 },
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide3 },
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide11 },
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide4 },
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide5 },
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide6 },
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide7 },
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide8 },
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide9 },
-    { title: HeroContent.title, description: HeroContent.description, image: heroSlide10 },
-    // { title: HeroContent.title, description: HeroContent.description, image: hero2 },
+const Hero = async ({locale}) => {
+  const heroData = await getHeroSection(locale);
+  console.log("Hero Data:", heroData); // Debug log to check the fetched data
 
-  ]
+  const heroes = heroData.imageUrls.map((url) => ({
+    title: heroData.title,
+    description: heroData.subtitle,
+    image: url,
+    cta: heroData.cta,
+  }));
+
   return (
     <main className="relative border-none h-[400px]  flex items-center justify-center text-center">
       <div className="absolute inset-0  z-10 flex flex-col items-center justify-center gap-2">
-        <CarouselHero heros={Heroes} />
+        <CarouselHero heros={heroes} />
       </div>
     </main>
   );
@@ -192,21 +171,9 @@ const Banner = () => {
   );
 };
 
-const Mbio7 = () => {
-  const t = useTranslations("mBio7");
-  const MainContent = {
-    title: t("title"),
-    description: t("description"),
-    tags: [
-      { point: t("tags.tag1") },
-      { point: t("tags.tag2") },
-      { point: t("tags.tag3") },
-      { point: t("tags.tag4") },
-      { point: t("tags.tag5") },
-      { point: t("tags.tag6") },
-    ],
-    image: Logo,
-  };
+const Mbio7 = async ({ locale }: { locale: string }) => {
+  const aboutData = await getAboutSection(locale);
+
   return (
     <Section className="my-12 !pb-0">
       <Container
@@ -215,108 +182,91 @@ const Mbio7 = () => {
       >
         <div className=" w-full">
           <h2 className="text-4xl sm:text-5xl font-semibold text-mbioPrimary mb-4 lg:mb-8 ">
-            {MainContent.title}
+            {aboutData.title}
           </h2>
           <Balancer className="mb-4 lg:mb-8 text-muted-foreground">
-            {MainContent.description}
+            {aboutData.description}
           </Balancer>
           <div className="flex flex-wrap">
-            {MainContent.tags.map((tag, index) => (
+            {aboutData.tags.map((tag, index) => (
               <span
                 key={index}
                 className="rounded-full capitalize text-mbioAccent border border-mbioAccent px-4 py-2 text-xs font-medium mr-2 mb-2 inline-block bg-white/5"
               >
-                {tag.point}
+                {tag}
               </span>
             ))}
           </div>
         </div>
         <div className="relative w-full h-52  md:h-96">
-          <Image
-            src={MainContent.image}
-            alt="Stats"
-            className="object-contain rounded-lg"
-            fill
-          />
+          {aboutData.logo ? (
+            <Image
+              src={aboutData.logo}
+              alt="mBio7 logo"
+              className="object-contain rounded-lg"
+              fill
+            />
+          ) : (
+            <Image
+              src={Logo}
+              alt="mBio7 logo"
+              className="object-contain rounded-lg"
+              fill
+            />
+          )}
         </div>
       </Container>
     </Section>
   );
 };
 
-const CarouselCmp = () => {
-  const t = useTranslations("Carousel");
-  const CarouselContent = [
-    // {
-    //   title: t("slide1.title"),
-    //   description: t("slide1.description"),
-    //   image: slide1,
-    // },
-    {
-      title: t("slide4.title"),
-      description: t("slide4.description"),
-      image: slide4,
-    },
-    {
-      title: t("slide2.title"),
-      description: t("slide2.description"),
-      image: slide2,
-    },
-    {
-      title: t("slide3.title"),
-      description: t("slide3.description"),
-      image: slide3,
-    },
-  ];
-  return <CarouselV1 visions={CarouselContent} />;
+const fallbackSlideImages = [slide4, slide2, slide3];
+
+const CarouselCmp = async ({ locale }: { locale: string }) => {
+  const slides = await getProcessSection(locale);
+
+  const slidesWithFallback = slides.map((slide, index) => ({
+    ...slide,
+    image: slide.image || fallbackSlideImages[index % fallbackSlideImages.length],
+  }));
+
+  return <CarouselV1 visions={slidesWithFallback} />;
 };
 
-const About = () => {
-  const t = useTranslations("About");
-  const aboutContent = {
-    title: t("title"),
-    description: t("description"),
-    points: [
-      { detail: t("points.point1") },
-      { detail: t("points.point2") },
-      { detail: t("points.point3") },
-      { detail: t("points.point4") },
-    ],
-  };
-  const locale = useLocale();
-  const videoUrl =
-    locale === "fr"
-      ? "https://www.youtube.com/watch?v=InH4IXHmUZo"
-      : "https://www.youtube.com/watch?v=052uUU0YS-8";
+const About = async ({ locale }: { locale: string }) => {
+  const videoData = await getVideoSection(locale);
+
   return (
     <Section>
       <Container className="grid items-center md:grid-cols-2 gap-6 lg:gap-16 ">
         <div className="not-prose relative h-64 md:h-96 flex overflow-hidden rounded-lg relative ">
           <Image
-            src={Thumbnail}
+            src={videoData.thumbnail || Thumbnail}
             alt="Mbio7"
             className="object-cover object-right rounded-lg"
             fill
           />
           <div className="absolute inset-0  bg-black/30" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Link href={videoUrl} target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="ghost"
-                className="h-16 w-16 rounded-full bg-mbioSecondary hover:bg-mbioTertiary p-0"
-              >
-                <PlayIcon className="h-8 w-8 fill-current text-white" />
-              </Button>
-            </Link>
-          </div>
+          {videoData.video_url && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Link href={videoData.video_url} target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="ghost"
+                  className="h-16 w-16 rounded-full bg-mbioSecondary hover:bg-mbioTertiary p-0"
+                >
+                  <PlayIcon className="h-8 w-8 fill-current text-white" />
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col gap-6 py-8 relative">
           <div className="flex flex-col items-start gap-2">
             <div className=" ">
               <Image
-                src={Label}
-                alt="Stats"
+                src={videoData.label || Label}
+                alt="Label"
                 className="object-contain rounded-lg"
                 width={100}
                 height={100}
@@ -324,16 +274,16 @@ const About = () => {
             </div>
 
             <h2 className="!my-0 font-semibold text-mbioPrimary text-4xl sm:text-5xl ">
-              {aboutContent.title}
+              {videoData.title}
             </h2>
           </div>
           <div className="text-muted-foreground max-w-xl prose">
-            {aboutContent.description}
+            {videoData.description}
 
             <br />
             <ul className=" text-mbioAccent marker:text-mbioAccent">
-              {aboutContent.points.map((point, index) => (
-                <li key={index}>{point.detail}</li>
+              {videoData.points.map((point, index) => (
+                <li key={index}>{point}</li>
               ))}
             </ul>
           </div>
@@ -343,45 +293,36 @@ const About = () => {
   );
 };
 
-const Impact = () => {
-  const t = useTranslations("Impact");
-  const chiffres = [
-    { title: t("stat1.title"), value: t("stat1.value") },
-    { title: t("stat2.title"), value: t("stat2.value") },
-    { title: t("stat3.title"), value: t("stat3.value") },
-  ];
+const Impact = async ({ locale }: { locale: string }) => {
+  const impactData = await getImpactSection(locale);
+
   return (
     <Section className="relative">
-      {/* 1. Reduce the initial high vh value. Use a more predictable height or min-height. */}
-
       <div className="relative w-full h-[950px] sm:h-[600px] overflow-hidden bg-gray-100">
         <Image
           alt="Card background"
-          src={ImpactBg}
+          src={impactData.background || ImpactBg}
           fill
           priority
           className="z-0 object-cover w-full object-bottom rounded-md"
         />
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-linear"></div> */}
         <div className="absolute inset-0 bg-gradient-to-b bg-[#6CC1BB]/30 via-linear"></div>
       </div>
 
-      {/* 2. Content container structure remains correct for overlaying. */}
       <Container className="flex flex-col items-center absolute inset-0 z-10 justify-center p-4">
         {" "}
-        {/* Added p-4 for safe padding */}
         <h2 className="font-semibold text-white text-3xl sm:text-5xl mb-4 lg:mb-6 text-center">
-          <Balancer>{t("title")}</Balancer>
+          <Balancer>{impactData.title}</Balancer>
         </h2>
         <p
           className={cn(
             "text-white text-sm lg:text-base text-center mb-6 w-full lg:mb-12 md:max-w-[60ch]"
           )}
         >
-          {t("description")}
+          {impactData.description}
         </p>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 mt-6">
-          {chiffres.map((item) => (
+          {impactData.stats.map((item) => (
             <div
               key={item.title}
               className="group flex flex-col gap-6 items-center py-8 px-3 bg-card rounded-2xl border shadow-sm transition-background duration-300 hover:bg-gradient hover:text-white"
@@ -400,166 +341,110 @@ const Impact = () => {
   );
 };
 
-const WhyUs = () => {
-  const t = useTranslations("Whyus");
-  const WhyUsContent = [
-    {
-      title: t("points.point1.title"),
-      description: t("points.point1.description"),
-    },
-    {
-      title: t("points.point2.title"),
-      description: t("points.point2.description"),
-    },
-    {
-      title: t("points.point3.title"),
-      description: t("points.point3.description"),
-    },
-    {
-      title: t("points.point4.title"),
-      description: t("points.point4.description"),
-    },
-  ];
+const whyUsIcons = [Recycle, LeafyGreen, ShieldCheck, BadgeCheck];
+
+const WhyUs = async ({ locale }: { locale: string }) => {
+  const whyUsData = await getWhyUsSection(locale);
+
   return (
     <Section>
       <Container>
         <h2 className="mb-8 lg:mb-16 text-center font-semibold">
           <Balancer className="text-4xl sm:text-5xl  font-semibold text-mbioPrimary cols-span-full ">
-            {t("title")}
+            {whyUsData.title}
           </Balancer>
         </h2>
         <div className="grid md:grid-cols-2 gap-6  ">
-          {WhyUsContent.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col gap-4 p-6 rounded-lg border border-gray/50 hover:scale-[1.02] hover:shadow-lg transition-all"
-            >
-              {index === 0 && (
-                <Recycle className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
-              )}
-              {index === 1 && (
-                <LeafyGreen className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
-              )}
-              {index === 2 && (
-                <ShieldCheck className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
-              )}
-              {index === 3 && (
-                <BadgeCheck className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
-              )}
-              <h3 className="text-xl font-semibold text-mbioPrimary">
-                {item.title}
-              </h3>
-              <p className="text-muted-foreground">{item.description}</p>
-            </div>
-          ))}
+          {whyUsData.points.map((item, index) => {
+            const Icon = whyUsIcons[index % whyUsIcons.length];
+            return (
+              <div
+                key={index}
+                className="flex flex-col gap-4 p-6 rounded-lg border border-gray/50 hover:scale-[1.02] hover:shadow-lg transition-all"
+              >
+                <Icon className="h-16 w-16 bg-mbioAccent p-4 rounded-full" />
+                <h3 className="text-xl font-semibold text-mbioPrimary">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground">{item.description}</p>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </Section>
   );
 };
 
-const ComparativeStudy = () => {
-  const locale = useLocale();
+const ComparativeStudy = async ({ locale }: { locale: string }) => {
+  const compData = await getComparativeSection(locale);
+  const fallbackImage = locale === "fr" ? Comparative : ComparativeEng;
+
   return (
     <Section className="bg-gradient-to-l from-[#2A6F6A] to-[#85E08A] py-16">
       <Container>
-        {/* ... Title ... */}
         <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
-          {locale === "fr" ? "Étude comparative" : "Comparative Study"}
+          {compData.title}
         </h2>
-        {/* === STYLING IDEA 2: FOLDED PAPER (Using a strong offset shadow) === */}
         <div
           className="
-          relative w-full 
+          relative w-full
           bg-white
-          rounded-lg                     
-          shadow-[8px_8px_0_0_rgba(0,0,0,0.4)]  /* Custom offset shadow for depth */
-          border border-gray-200             /* A light border to define the edge */
-          max-w-4xl mx-auto 
-                       
+          rounded-lg
+          shadow-[8px_8px_0_0_rgba(0,0,0,0.4)]
+          border border-gray-200
+          max-w-4xl mx-auto
         "
         >
           <Image
-            src={locale === "fr" ? Comparative : ComparativeEng}
-            alt="Étude comparative"
+            src={compData.image || fallbackImage}
+            alt={compData.title}
             width={1200}
             height={800}
             className="w-full h-auto rounded-md"
           />
         </div>
-        {/* ================================================================= */}
       </Container>
     </Section>
   );
 };
 
-const Blogs = () => {
-  const t = useTranslations("Blogs");
-  const blogs = [
-    {
-      date: "06 Nov 2019",
-      title: t("blog1.title"),
-      description: t("blog1.description"),
-      image: Monaco,
-      link: "/article la gazette.pdf",
-      category: "La gazette de Monaco",
-    },
-    {
-      date: " 1er janvier 2019",
-      title: t("blog2.title"),
-      description: t("blog2.description"),
-      link: "/article mBio7 Liberation 02.01.jpg",
-      image: Liberation,
-      category: "Liberation",
-    },
-    {
-      date: "Août 2018",
-      title: t("blog3.title"),
-      description: t("blog3.description"),
-      // link: "https://www.nicematin.com/vie-locale/grace-a-ces-panneaux-en-bois-il-fabrique-des-maisons-qui-resistent-a-toutes-conditions-climatiques-303801",
-      link: "/article Nice Matin 16.08.2018.pdf",
-      image: NiceMatin,
-      category: "Nice matin",
-    },
-  ];
+const fallbackBlogImages = [Monaco, Liberation, NiceMatin];
+
+const Blogs = async ({ locale }: { locale: string }) => {
+  const blogsData = await getBlogsSection(locale);
+
   return (
     <Section>
       <Container>
         <h2 className="text-4xl sm:text-5xl font-semibold text-mbioPrimary text-center mb-8 lg:mb-16">
-          {useLocale() === "fr" ? "Derniers articles" : "Latest Blogs"}
+          {blogsData.title}
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {blogs.map((blog, index) => (
-            <BlogCard key={index} blog={blog} />
+          {blogsData.blogs.map((blog, index) => (
+            <BlogCard key={index} blog={blog} fallbackImage={fallbackBlogImages[index % fallbackBlogImages.length]} cta={blogsData.cta} />
           ))}
         </div>
       </Container>
     </Section>
   );
 };
-interface BlogCardProps {
-  blog: {
-    date: string;
-    title: string;
-    description: string;
-    link: string;
-    image: StaticImageData;
-    category: string;
-  };
-}
 
-const BlogCard = ({ blog }: BlogCardProps) => {
+const BlogCard = ({ blog, fallbackImage, cta }: {
+  blog: { date: string; title: string; description: string; link: string; image: string | false; category: string };
+  fallbackImage: StaticImageData;
+  cta: string;
+}) => {
   return (
     <Card className="hover:shadow-lg  bg-white/10 transition-shadow cursor-pointer py-0 shadow-sm rounded-lg ">
       <CardHeader className="p-0 relative">
         <Image
-          src={blog.image}
+          src={blog.image || fallbackImage}
           alt={blog.title}
           width={400}
           height={200}
           className="w-full h-full object-cover rounded-lg"
         />
-
         <div className="absolute bottom-5 right-0 m-4"></div>
       </CardHeader>
       <CardContent className="mt-6 flex flex-col items-start">
@@ -580,7 +465,7 @@ const BlogCard = ({ blog }: BlogCardProps) => {
             target="_blank"
             className="flex items-center gap-1"
           >
-            {useLocale() === "fr" ? "Lire l'article" : "Read full article"}
+            {cta}
             <ArrowRight className="h-4 w-4 " />
           </Link>
         </Button>
@@ -589,93 +474,20 @@ const BlogCard = ({ blog }: BlogCardProps) => {
   );
 };
 
-const actualitesFR = [
-  {
-    date: "September 2025",
-    title: "Envoi du premier container de pièces industrielles vers la France",
-    image: sept2025,
-  },
-  {
-    date: "Novembre 2022",
-    title: "Reprise des parts de la SAS de Mr Tallarida au profit de Mr Dogui",
-    image: nov2022,
-  },
-  {
-    date: "Aout 2019",
-    title:
-      "Démarrage du 2e chantier de construction de maison d'habitation à Sospel",
-    image: aout2019,
-  },
-  {
-    date: "Juillet 2019",
-    title:
-      "Visite en Bulgarie de William Liu de Guoli Packing Chine pour visualiser la production en vue de reproduire en Chine",
-    image: juillet2019,
-  },
-  {
-    date: "29 septembre 2021",
-    title:
-      "Sélectionné comme un des cinq finalistes (sur 600) de la CleanTech Open France, concours organisé par le ministère de la transition écologique pour récompenser les meilleurs projets nationaux pour la défense de l'environnement",
-    image: sept2021,
-  },
-  {
-    date: "Mai 2022",
-    title: "Présentation à Change Now Paris",
-    image: mai2022,
-  },
-];
-const actualitesEN = [
-  {
-    date: "November 2022",
-    title:
-      "Resumption of the shares of Mr. Tallarida's SAS in favor of Mr. Dogui",
-    image: nov2022,
-  },
-  {
-    date: "September 2025",
-    title: "Sending the first container of industrial parts to France",
-    image: sept2025,
-  },
-  {
-    date: "Aout 2019",
-    title:
-      "Start of the 2nd construction site for residential houses in Sospel",
-    image: aout2019,
-  },
-  {
-    date: "Juillet 2019",
-    title:
-      "Visit to Bulgaria by William Liu of Guoli Packing China to visualize production with a view to reproducing in China",
-    image: juillet2019,
-  },
-  {
-    date: "29 septembre 2021",
-    title:
-      "Selected as one of five finalists (out of 600) for the CleanTech Open France, a competition organized by the Ministry of Ecological Transition to reward the best national projects for environmental protection",
-    image: sept2021,
-  },
-  {
-    date: "Mai 2022",
-    title: "Presentation in Change Now Paris",
-    image: mai2022,
-  },
-];
-interface ActualiteCardProps {
-  actualite: {
-    date: string;
-    title: string;
+const fallbackActualiteImages = [sept2025, nov2022, aout2019, juillet2019, sept2021, mai2022];
 
-    image: StaticImageData;
-  };
-}
-
-const ActualitesCard = ({ actualite }: ActualiteCardProps) => {
+const ActualitesCard = ({ actualite, fallbackImage }: {
+  actualite: { date: string; title: string; image: string | false };
+  fallbackImage: StaticImageData;
+}) => {
   return (
     <Card className="hover:shadow-lg  bg-white/10 transition-shadow cursor-pointer py-0 shadow-sm rounded-lg ">
       <div className="relative group">
         <Image
-          src={actualite.image}
+          src={actualite.image || fallbackImage}
           alt={actualite.title}
+          width={400}
+          height={256}
           className="w-full h-64 object-cover rounded-lg"
         />
 
@@ -689,18 +501,19 @@ const ActualitesCard = ({ actualite }: ActualiteCardProps) => {
     </Card>
   );
 };
-const Actualites = () => {
-  const locale = useLocale();
-  const actualites = locale === "fr" ? actualitesFR : actualitesEN;
+
+const Actualites = async ({ locale }: { locale: string }) => {
+  const actualitesData = await getActualitesSection(locale);
+
   return (
     <Section>
       <Container>
         <h2 className="text-4xl sm:text-5xl font-semibold text-mbioPrimary text-center mb-8 lg:mb-16">
-          {locale === "fr" ? "Actualités" : "Gallery of Events"}
+          {actualitesData.title}
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 items-start">
-          {actualites.map((actualite, index) => (
-            <ActualitesCard key={index} actualite={actualite} />
+          {actualitesData.items.map((actualite, index) => (
+            <ActualitesCard key={index} actualite={actualite} fallbackImage={fallbackActualiteImages[index % fallbackActualiteImages.length]} />
           ))}
         </div>
       </Container>
@@ -708,29 +521,18 @@ const Actualites = () => {
   );
 };
 
-const Reviews = () => {
-  const t = useTranslations("Reviews");
-  const reviews = [
-    {
-      name: t("reviews.review1.name"),
-      rating: 5,
-      comment: t("reviews.review1.comment"),
-    },
-    {
-      name: t("reviews.review2.name"),
-      rating: 5,
-      comment: t("reviews.review2.comment"),
-    },
-  ];
+const Reviews = async ({ locale }: { locale: string }) => {
+  const reviewsData = await getReviewsSection(locale);
+
   return (
     <Section className="bg-gradient-to-r from-[#2A6F6A] to-[#85E08A]">
       <Container>
         <h2 className="font-semibold text-white text-4xl sm:text-5xl  mb-8 lg:mb-16 text-center">
-          {t("title")}
+          {reviewsData.title}
         </h2>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 ">
-          {reviews.map((review, index) => (
+          {reviewsData.reviews.map((review, index) => (
             <ReviewCard key={index} review={review} />
           ))}
         </div>
@@ -785,58 +587,18 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
   );
 };
 
-type FAQItem = {
-  question: string;
-  answer: string;
-  link?: string;
-};
+const FAQ = async ({ locale }: { locale: string }) => {
+  const faqData = await getFAQSection(locale);
 
-const FAQ = () => {
-  const t = useTranslations("FAQ");
-
-  const content: FAQItem[] = [
-    {
-      question: t("questions.q1.question"),
-      answer: t("questions.q1.answer"),
-    },
-    {
-      question: t("questions.q2.question"),
-      answer: t("questions.q2.answer"),
-    },
-    {
-      question: t("questions.q3.question"),
-      answer: t("questions.q3.answer"),
-    },
-    {
-      question: t("questions.q4.question"),
-      answer: t("questions.q4.answer"),
-    },
-    {
-      question: t("questions.q5.question"),
-      answer: t("questions.q5.answer"),
-    },
-    {
-      question: t("questions.q6.question"),
-      answer: t("questions.q6.answer"),
-    },
-    {
-      question: t("questions.q7.question"),
-      answer: t("questions.q7.answer"),
-    },
-    {
-      question: t("questions.q8.question"),
-      answer: t("questions.q8.answer"),
-    },
-  ];
   return (
     <Section>
       <Container className="grid md:grid-cols-2 gap-6 lg:gap-4">
         <h2 className="font-semibold text-mbioPrimary text-4xl sm:text-5xl ">
-          FAQ – {t("title_part1")} {t("title_part2")}
+          FAQ – {faqData.title_part1} {faqData.title_part2}
         </h2>
 
         <div className="not-prose  flex flex-col gap-4 ">
-          {content.map((item, index) => (
+          {faqData.questions.map((item, index) => (
             <Accordion key={index} type="single" collapsible>
               <AccordionItem value={item.question}>
                 <AccordionTrigger className="text-left text-mbioPrimary text-lg">
@@ -845,15 +607,6 @@ const FAQ = () => {
                 <AccordionContent className="text-base text-muted-foreground pl-4">
                   <Balancer>
                     {item.answer}
-                    {item.link && (
-                      <a
-                        href={item.link}
-                        className="mt-2 flex w-full items-center opacity-60 transition-all hover:opacity-100"
-                      >
-                        Learn more
-                        {/* <ArrowUpRight className="ml-1" size="16" /> */}
-                      </a>
-                    )}
                   </Balancer>
                 </AccordionContent>
               </AccordionItem>
@@ -865,47 +618,39 @@ const FAQ = () => {
   );
 };
 
-const Contact = () => {
-  const locale = useLocale();
-  const contactSection = {
-    subtitle: locale === "fr" ? "Restons en contact" : "Get in Touch",
-    title: locale === "fr" ? "Contactez-nous" : "Contact Us",
-    email: "contact@woodwise.fr",
-    phone: "80157 59053",
-    address: "QUARTIER CUNI, SOSPEL, 06380, FR",
-  };
+const Contact = async ({ locale }: { locale: string }) => {
+  const contactData = await getContactSection(locale);
 
   return (
     <Section
       id="contact"
       className=" bg-gradient-to-br from-[#2A6F6A] to-[#85E08A]"
-      // bg-gradient-to-l from-[#084E4D] to-[#85E08A]
     >
       <Container className="flex flex-col md:flex-row gap-8  md:gap-16 items-start md:items-center">
         <div className="flex flex-col items-start w-full md:w-1/2">
           <h4 className="text-md font-light text-white/70 ml-1 ">
-            {useLocale() === "fr" ? "Restons en contact" : "Get in Touch"}
+            {contactData.subtitle}
           </h4>
           <h1 className="text-3xl md:text-5xl font-semibold tracking-wider text-white mb-6">
-            {contactSection.title}
+            {contactData.title}
           </h1>
           <div className="ml-1">
             <div className="flex items-center gap-4 mb-4">
               <Mail size={20} className="text-white/70" />
               <p className="text-white font-semibold text-base sm:text-lg">
-                {contactSection.email}
+                {contactData.email}
               </p>
             </div>
             <div className="flex items-center gap-4 mb-4">
               <MapPin size={24} className="text-white/70" />
               <p className="text-white font-semibold text-base sm:text-lg">
-                {contactSection.address}
+                {contactData.address}
               </p>
             </div>
             <div className="flex items-center gap-4 mb-4">
               <Phone size={20} className="text-white/70" />
               <p className="text-white font-semibold text-base sm:text-lg">
-                {contactSection.phone}
+                {contactData.phone}
               </p>
             </div>
           </div>
