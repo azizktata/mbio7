@@ -118,7 +118,9 @@ export default  function Home() {
 
         <div className="p-2 bg-gradient-to-b from-[#084E4D]/60 to-[#6CC1BB] " />
 
-        <CarouselCmp locale={locale} />
+        <div className="">
+          <CarouselCmp locale={locale} />
+        </div>
         <div className="p-2 bg-gradient-to-t from-[#084E4D]/60 to-[#6CC1BB] " />
         <About locale={locale} />
         {/* <div className="absolute inset-y-50 right-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
@@ -265,7 +267,7 @@ const About = async ({ locale }: { locale: string }) => {
           <div className="flex flex-col items-start gap-2">
             <div className=" ">
               <Image
-                src={videoData.label || Label}
+                src={Label}
                 alt="Label"
                 className="object-contain rounded-lg"
                 width={100}
@@ -298,7 +300,7 @@ const Impact = async ({ locale }: { locale: string }) => {
 
   return (
     <Section className="relative">
-      <div className="relative w-full h-[950px] sm:h-[600px] overflow-hidden bg-gray-100">
+      <div className="absolute inset-0 overflow-hidden bg-gray-100">
         <Image
           alt="Card background"
           src={impactData.background || ImpactBg}
@@ -309,8 +311,7 @@ const Impact = async ({ locale }: { locale: string }) => {
         <div className="absolute inset-0 bg-gradient-to-b bg-[#6CC1BB]/30 via-linear"></div>
       </div>
 
-      <Container className="flex flex-col items-center absolute inset-0 z-10 justify-center p-4">
-        {" "}
+      <Container className="relative z-10 flex flex-col items-center justify-center py-12 sm:py-16">
         <h2 className="font-semibold text-white text-3xl sm:text-5xl mb-4 lg:mb-6 text-center">
           <Balancer>{impactData.title}</Balancer>
         </h2>
@@ -413,6 +414,7 @@ const fallbackBlogImages = [Monaco, Liberation, NiceMatin];
 
 const Blogs = async ({ locale }: { locale: string }) => {
   const blogsData = await getBlogsSection(locale);
+  console.log("Blogs Data:", blogsData); // Debug log to check the fetched data
 
   return (
     <Section>
@@ -594,7 +596,7 @@ const FAQ = async ({ locale }: { locale: string }) => {
     <Section>
       <Container className="grid md:grid-cols-2 gap-6 lg:gap-4">
         <h2 className="font-semibold text-mbioPrimary text-4xl sm:text-5xl ">
-          FAQ – {faqData.title_part1} {faqData.title_part2}
+          FAQ – {faqData.title}
         </h2>
 
         <div className="not-prose  flex flex-col gap-4 ">

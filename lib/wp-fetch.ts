@@ -96,8 +96,7 @@ export interface FAQItem {
 }
 
 export interface FAQSection {
-  title_part1: string;
-  title_part2: string;
+  title: string;
   questions: Record<string, FAQItem>;
 }
 
@@ -342,16 +341,14 @@ export const getReviewsSection = async (
 export const getFAQSection = async (
   locale: string
 ): Promise<{
-  title_part1: string;
-  title_part2: string;
+  title: string;
   questions: FAQItem[];
 }> => {
   const landing = await fetchLandingPage();
   const section = getSection<FAQSection>(landing.acf, "faqsection", locale);
 
   return {
-    title_part1: section.title_part1,
-    title_part2: section.title_part2,
+    title: section.title,
     questions: Object.values(section.questions),
   };
 };

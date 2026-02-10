@@ -32,7 +32,7 @@ export default function CarouselV1({
     >
       <CarouselContent className="">
         {myVisions.map((vision, index) => (
-          <CarouselItem className="basis-full" key={index}>
+          <CarouselItem className="basis-full max-w-6xl mx-auto" key={index}>
             <Card className="h-[400px] relative bg-mbioSecondary">
               <div className="relative w-full h-full overflow-hidden bg-mbioSecondary">
                 {vision.image && (

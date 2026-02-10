@@ -104,28 +104,30 @@ const MOCK_LANDING_PAGE = {
 
     // ==================== VIDEO SECTION ====================
     videosection_fr: {
-      title: "Un matériau certifié",
+      title: "Une solution pour tous, partout",
       description:
-        "Le panneau mBio7 est certifié par des organismes reconnus, garantissant sa qualité et sa durabilité.",
+        "mBio7 est un panneau en bois moulé constitué à plus de 90 % de bois issu du recyclage . C’est un produit naturel, biosourcé, reproductible, transportable et économique.",
       points: {
-        "point-1": "Résistance au feu (classement M1)",
-        "point-2": "Isolation thermique et acoustique",
-        "point-3": "Durabilité et longévité",
+        "point-1": "Il est résistant à l’eau et au feu",
+        "point-2": "Il offre une excellente isolation thermique et acoustique",
+        "point-3": "Il est léger et incassable",
+        "point-4": "Conformité à la norme RE 2020.",
       },
-      video_url: "https://www.youtube.com/watch?v=example",
+      video_url: "https://www.youtube.com/watch?v=InH4IXHmUZo",
       thumbnail: false,
       label: false,
     },
     videosection_en: {
-      title: "A certified material",
+      title: "A solution for everyone, everywhere",
       description:
-        "The mBio7 panel is certified by recognized organizations, guaranteeing its quality and durability.",
+        "mBio7 is a molded wood panel made of more than 90% recycled wood. It is a natural, bio-sourced, reproducible, transportable, and economical product.",
       points: {
-        "point-1": "Fire resistance (M1 classification)",
-        "point-2": "Thermal and acoustic insulation",
-        "point-3": "Durability and longevity",
+        "point-1": "It is water and fire resistant",
+        "point-2": "It provides excellent thermal and acoustic insulation",
+        "point-3": "It is lightweight and non-breakable",
+        "point-4": "Compliance with the RE 2020 standard.",
       },
-      video_url: "https://www.youtube.com/watch?v=example",
+      video_url: "https://www.youtube.com/watch?v=InH4IXHmUZo",
       thumbnail: false,
       label: false,
     },
