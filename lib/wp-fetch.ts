@@ -1,3 +1,7 @@
+import { fabricationMock } from "@/mocks/fabrication";
+import { utilisationsMock } from "@/mocks/utilisations";
+import { experienceMock } from "@/mocks/experience";
+
 const BASE_URL = "https://www.mbio7.com/index.php/wp-json/wp/v2";
 
 export interface HeroSection {
@@ -144,7 +148,7 @@ export interface LandingPageResponse {
 }
 
 export const fetchLandingPage = async (): Promise<LandingPageResponse> => {
-  const res = await fetch(`${BASE_URL}/mbio7?_fields=acf&acf_format=standard`, {
+  const res = await fetch(`${BASE_URL}/mbio7?slug=landingpage&_fields=acf&acf_format=standard`, {
     // next: { revalidate: 3600 },
   });
   const data = await res.json();
@@ -358,4 +362,188 @@ export const getContactSection = async (
 ): Promise<ContactSection> => {
   const landing = await fetchLandingPage();
   return getSection<ContactSection>(landing.acf, "contactsection", locale);
+};
+
+// ============================================================
+// Sub-page interfaces
+// ============================================================
+
+export interface FabricationItem {
+  title: string;
+  description: string;
+  specials: Record<string, string>;
+}
+
+export interface FabricationPageACF {
+  fabricationsection_fr: Record<string, FabricationItem>;
+  fabricationsection_en: Record<string, FabricationItem>;
+  [key: string]: unknown;
+}
+
+export interface ExperienceHeroACF {
+  title: string;
+  description: string;
+}
+
+export interface ExperienceItem {
+  title: string;
+  description: string;
+  specials: Record<string, string>;
+  cta?: string;
+}
+
+export interface ExperiencePageACF {
+  experiencehero_fr: ExperienceHeroACF;
+  experiencehero_en: ExperienceHeroACF;
+  experiencesection_fr: Record<string, ExperienceItem>;
+  experiencesection_en: Record<string, ExperienceItem>;
+  [key: string]: unknown;
+}
+
+export interface UtilisationHeroACF {
+  title: string;
+  description: string;
+  details: Record<string, string>;
+}
+
+export interface UtilisationMainACF {
+  title: string;
+  description: string;
+  dimensions: Record<string, string>;
+}
+
+export interface UtilisationsPageACF {
+  utilisationhero_fr: UtilisationHeroACF;
+  utilisationhero_en: UtilisationHeroACF;
+  utilisationmain_fr: UtilisationMainACF;
+  utilisationmain_en: UtilisationMainACF;
+  [key: string]: unknown;
+}
+
+export interface SubPageResponse<T> {
+  id: number;
+  slug: string;
+  title: { rendered: string };
+  acf: T;
+}
+
+// ============================================================
+// Sub-page fetch functions (with mock fallback)
+// ============================================================
+
+export const fetchFabricationPage =
+  async (): Promise<SubPageResponse<FabricationPageACF>> => {
+    try {
+      const res = await fetch(
+        `${BASE_URL}/mbio7?slug=fabrication&_fields=acf,slug,title&acf_format=standard`,
+        { next: { revalidate: 3600 } }
+      );
+        // const res = await fetch(`${BASE_URL}/mbio7?_fields=acf&acf_format=standard`, {
+
+      if (!res.ok) throw new Error("Fetch failed");
+      const data = await res.json();
+      if (!data || data.length === 0) throw new Error("Not found");
+      return data[0];
+    } catch {
+      return fabricationMock;
+    }
+  };
+
+export const fetchUtilisationsPage =
+  async (): Promise<SubPageResponse<UtilisationsPageACF>> => {
+    try {
+      const res = await fetch(
+        `${BASE_URL}/mbio7?slug=utilisations&_fields=acf,slug,title&acf_format=standard`,
+        { next: { revalidate: 3600 } }
+      );
+      if (!res.ok) throw new Error("Fetch failed");
+      const data = await res.json();
+      if (!data || data.length === 0) throw new Error("Not found");
+      return data[0];
+    } catch {
+      return utilisationsMock;
+    }
+  };
+
+export const fetchExperiencePage =
+  async (): Promise<SubPageResponse<ExperiencePageACF>> => {
+    try {
+      const res = await fetch(
+        `${BASE_URL}/mbio7?slug=experience&_fields=acf,slug,title&acf_format=standard`,
+        { next: { revalidate: 3600 } }
+      );
+      if (!res.ok) throw new Error("Fetch failed");
+      const data = await res.json();
+      if (!data || data.length === 0) throw new Error("Not found");
+      return data[0];
+    } catch {
+      return experienceMock;
+    }
+  };
+
+// ============================================================
+// Sub-page section getters
+// ============================================================
+
+export const getFabricationSection = async (
+  locale: string
+): Promise<{ title: string; description: string; specials: { point: string }[] }[]> => {
+  const page = await fetchFabricationPage();
+  const key = `fabricationsection_${locale}` as keyof FabricationPageACF;
+  const section = page.acf[key] as Record<string, FabricationItem>;
+  return Object.values(section).map((item) => ({
+    title: item.title,
+    description: item.description,
+    specials: Object.values(item.specials).map((point) => ({ point })),
+  }));
+};
+
+export const getUtilisationHeroSection = async (
+  locale: string
+): Promise<{ title: string; description: string; details: string[] }> => {
+  const page = await fetchUtilisationsPage();
+  const key = `utilisationhero_${locale}` as keyof UtilisationsPageACF;
+  const section = page.acf[key] as UtilisationHeroACF;
+  return {
+    title: section.title,
+    description: section.description,
+    details: Object.values(section.details),
+  };
+};
+
+export const getUtilisationMainSection = async (
+  locale: string
+): Promise<{ title: string; description: string; dimensions: string[] }> => {
+  const page = await fetchUtilisationsPage();
+  const key = `utilisationmain_${locale}` as keyof UtilisationsPageACF;
+  const section = page.acf[key] as UtilisationMainACF;
+  return {
+    title: section.title,
+    description: section.description,
+    dimensions: Object.values(section.dimensions),
+  };
+};
+
+export const getExperienceHeroSection = async (
+  locale: string
+): Promise<{ title: string; description: string }> => {
+  const page = await fetchExperiencePage();
+  const key = `experiencehero_${locale}` as keyof ExperiencePageACF;
+  return page.acf[key] as ExperienceHeroACF;
+};
+
+export const getExperienceSection = async (
+  locale: string
+): Promise<
+  { title: string; description: string; specials: { point: string }[]; cta?: string }[]
+> => {
+  const page = await fetchExperiencePage();
+  const key = `experiencesection_${locale}` as keyof ExperiencePageACF;
+  const section = page.acf[key] as Record<string, ExperienceItem>;
+  return Object.values(section).map((item) => ({
+    title: item.title,
+    description: item.description,
+    specials: Object.values(item.specials).map((point) => ({ point })),
+    cta: item.cta,
+  }));
 };

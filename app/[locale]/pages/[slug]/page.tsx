@@ -1,4 +1,3 @@
-import { getPageBySlug, getAllPages } from "@/lib/wordpress";
 import { Section, Container, Prose } from "@/components/craft";
 import { siteConfig } from "@/site.config";
 
@@ -38,83 +37,97 @@ import montage8 from "@/public/mBio7-montage08.jpg";
 import montage11 from "@/public/mBio7-montage11.jpg";
 import montage12 from "@/public/mBio7-montage12.jpg";
 
-
 // import banner from "@/public/banner-2.jpg";
 import Balancer from "react-wrap-balancer";
 import Nav from "@/components/nav/desktop-nav";
 import { PlayIcon } from "lucide-react";
-import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
 import CarouselV1 from "@/components/carousel-v1";
 import CarouselV2 from "@/components/carousel-v2";
+
+import {
+  getFabricationSection,
+  getUtilisationHeroSection,
+  getUtilisationMainSection,
+  getExperienceHeroSection,
+  getExperienceSection,
+} from "@/lib/wp-fetch";
+
 // Revalidate pages every hour
 export const revalidate = 3600;
 
-// export async function generateStaticParams() {
-//   const pages = await getAllPages();
+export async function generateStaticParams() {
+  return [
+    { slug: "fabrication" },
+    { slug: "utilisations" },
+    { slug: "expérience" },
+    { slug: "manufacture" },
+    { slug: "how-to-use" },
+    { slug: "experience" },
+  ];
+}
 
-//   return pages.map((page) => ({
-//     slug: page.slug,
-//   }));
-// }
+function getPageTitle(slug: string, locale: string): string {
+  const decoded = decodeURIComponent(slug.replace(/-/g, " "));
+  const toEn: Record<string, string> = {
+    fabrication: "Manufacture",
+    utilisations: "How to use",
+    "expérience": "Experience",
+  };
+  const toFr: Record<string, string> = {
+    manufacture: "Fabrication",
+    "how to use": "Utilisations",
+    experience: "Expérience",
+  };
+  if (locale === "en") return toEn[decoded] || decoded;
+  return toFr[decoded] || decoded;
+}
 
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: Promise<{ slug: string }>;
-// }): Promise<Metadata> {
-//   const { slug } = await params;
-//   const page = await getPageBySlug(slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>;
+}): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const title = getPageTitle(slug, locale);
+  const description = `mBio7 - ${title}`;
 
-//   if (!page) {
-//     return {};
-//   }
+  const ogUrl = new URL(`${siteConfig.site_domain}/api/og`);
+  ogUrl.searchParams.append("title", title);
+  ogUrl.searchParams.append("description", description);
 
-//   const ogUrl = new URL(`${siteConfig.site_domain}/api/og`);
-//   ogUrl.searchParams.append("title", page.title.rendered);
-//   // Strip HTML tags for description and limit length
-//   const description = page.excerpt?.rendered
-//     ? page.excerpt.rendered.replace(/<[^>]*>/g, "").trim()
-//     : page.content.rendered
-//         .replace(/<[^>]*>/g, "")
-//         .trim()
-//         .slice(0, 200) + "...";
-//   ogUrl.searchParams.append("description", description);
-
-//   return {
-//     title: page.title.rendered,
-//     description: description,
-//     openGraph: {
-//       title: page.title.rendered,
-//       description: description,
-//       type: "article",
-//       url: `${siteConfig.site_domain}/pages/${page.slug}`,
-//       images: [
-//         {
-//           url: ogUrl.toString(),
-//           width: 1200,
-//           height: 630,
-//           alt: page.title.rendered,
-//         },
-//       ],
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title: page.title.rendered,
-//       description: description,
-//       images: [ogUrl.toString()],
-//     },
-//   };
-// }
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      url: `${siteConfig.site_domain}/${locale}/pages/${slug}`,
+      images: [
+        {
+          url: ogUrl.toString(),
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogUrl.toString()],
+    },
+  };
+}
 
 export default async function Page({
   params,
 }: {
   params: Promise<{ slug: string, locale: string }>;
 }) {
-  // const page = await getPageBySlug(slug);
  const { slug, locale } = await params;
-  
+
   const handleTranslateTitle = (slug: string) => {
     const translationsToEn: Record<string, string> = {
       "fabrication": "manufacture",
@@ -135,106 +148,61 @@ export default async function Page({
 
   };
 
-  const t = await getTranslations('Fabrication')
+  const decoded = decodeURIComponent(slug);
+  const isFabrication = decoded === "fabrication" || decoded === "manufacture";
+  const isUtilisations = decoded === "utilisations" || decoded === "how-to-use";
+  const isExperience = decoded === "expérience" || decoded === "experience";
 
-  const fabricationContent = [
-  {
-    title: t('fabrication1.title'),
-    description: t('fabrication1.description'),
-    specials: [
-     { point : t('fabrication1.specials.point1') },
-      { point : t('fabrication1.specials.point2') },
-      { point : t('fabrication1.specials.point3') },
-    ],
-    image: fabrication1,
-  },
-  {
-    title: t('fabrication2.title'),
-    description:
-      t('fabrication2.description'),
-    specials: [
-      { point : t('fabrication2.specials.point1') },
-      { point : t('fabrication2.specials.point2') },
-      { point : t('fabrication2.specials.point3') },
-    ],
-    image: fabrication2,
-  },
-  {
-    title: t('fabrication3.title'),
-    description:
-      t('fabrication3.description'),
-    specials: [
-      { point : t('fabrication3.specials.point1') },
-      { point : t('fabrication3.specials.point2') },
-      { point : t('fabrication3.specials.point3') },
-    ],
-    image: fabrication3,
-  },
-];
+  // ---- Fabrication data ----
+  let fabricationContent: {
+    title: string;
+    description: string;
+    specials: { point: string }[];
+    image: any;
+  }[] = [];
 
-const t2 = await getTranslations('Experience')
-const experienceContent = [
+  if (isFabrication) {
+    const items = await getFabricationSection(locale);
+    fabricationContent = items.map((item, i) => ({
+      ...item,
+      image: [fabrication1, fabrication2, fabrication3][i],
+    }));
+  }
 
-  {
-    title: t2('experience1.title'),
-    description: t2('experience1.description'),
-    image: experience2,
-    specials: [
-      {
-        point: t2('experience1.specials.point1'),
-      },
-      {
-        point: t2('experience1.specials.point2'),
-      },
-      {
-        point: t2('experience1.specials.point3'),
-      }
-    ],
-  },
-  {
-    title: t2("experience2.title"),
-    description: t2("experience2.description"),
-    image: experience2,
-    specials: [
-      {
-        point: t2("experience2.specials.point1"),
-      },
-      {
-        point: t2("experience2.specials.point2"),
-      },
-      {
-        point: t2("experience2.specials.point3"),
-      }
-    ],
-  },
-  {
-    title: t2("experience3.title"),
-    description: t2("experience3.description"),
-    image: experience3,
-    cta: "https://www.youtube.com/watch?v=xmI_naeRfdw",
-    specials: [
-      {
-        point: t2("experience3.specials.point1"),
-      },
-      {
-        point: t2("experience3.specials.point2"),
-      },
-      {
-        point: t2("experience3.specials.point3"),
-      }
-     ]
-  },
-  {
-    title: t2("experience4.title"),
-    description: t2("experience4.description"),
-    image: experience4,
-    specials: [
-     { point: t2("experience4.specials.point1") },
-      { point: t2("experience4.specials.point2") },
-      { point: t2("experience4.specials.point3") },
-    ]
-  },
-];
+  // ---- Utilisations data ----
+  let utilisationHeroData: { title: string; description: string; details: string[] } | null = null;
+  let utilisationMainData: { title: string; description: string; dimensions: string[] } | null = null;
+
+  if (isUtilisations) {
+    [utilisationHeroData, utilisationMainData] = await Promise.all([
+      getUtilisationHeroSection(locale),
+      getUtilisationMainSection(locale),
+    ]);
+  }
+
+  // ---- Experience data ----
+  let experienceHeroData: { title: string; description: string } | null = null;
+  let experienceContent: {
+    title: string;
+    description: string;
+    specials: { point: string }[];
+    cta?: string;
+    image: any;
+  }[] = [];
+
+  if (isExperience) {
+    const [heroData, items] = await Promise.all([
+      getExperienceHeroSection(locale),
+      getExperienceSection(locale),
+    ]);
+    experienceHeroData = heroData;
+    const experienceImages = [experience2, experience2, experience3, experience4];
+    experienceContent = items.map((item, i) => ({
+      ...item,
+      image: experienceImages[i],
+    }));
+  }
+
 const useImages = [
   { url: montage1 },
   { url: montage2 },
@@ -247,26 +215,11 @@ const useImages = [
   { url: montage11 },
   { url: montage12 },
 ]
-      // <section className="relative h-[70vh] lg:h-[90vh] w-full">
-      //   <Image
-      //     src={HeroBg}
-      //     alt="mbio7 panel"
-      //     fill
-      //     priority
-      //     className="object-cover w-full object-bottom  "
-      //   />
-      //   {/* <div className="absolute inset-0 bg-[#084E4D78]" /> */}
-      //   <div className="absolute inset-0 bg-black/10" />
-      //   <div className="relative z-10">
-      //     <Nav />
-      //     <Hero />
-      //   </div>
-      // </section>
   return (
     <div className="min-h-screen w-full relative ">
     <div className="relative z-10">
 
-  
+
       <Nav />
         <div className=" h-64 w-full">
           <Image
@@ -291,11 +244,11 @@ const useImages = [
           </p>
         </div>
         </div>
-      { (decodeURIComponent(slug) === "fabrication" || decodeURIComponent(slug) === "manufacture") && (
+      {isFabrication && (
         <>
         {fabricationContent.map((item, index) => (
           <Section key={index} >
-           
+
            {
             index % 2 === 0 && (
               <FeatureInverted
@@ -315,22 +268,33 @@ const useImages = [
             )}
           </Section>
         ))}
-         
+
         </>
       )}
-       { (decodeURIComponent(slug) === "utilisations" || decodeURIComponent(slug) === "how-to-use") && (
+      {isUtilisations && utilisationMainData && utilisationHeroData && (
         <>
-          <Main />
+          <Main
+            title={utilisationMainData.title}
+            description={utilisationMainData.description}
+            dimensions={utilisationMainData.dimensions}
+          />
           <CarouselV2 images={useImages} />
-          <Hero />
+          <Hero
+            title={utilisationHeroData.title}
+            description={utilisationHeroData.description}
+            details={utilisationHeroData.details}
+          />
         </>
       )}
-       { (decodeURIComponent(slug) === "expérience" || decodeURIComponent(slug) === "experience") && (
+      {isExperience && experienceHeroData && (
         <>
-          <ExperienceHero />
+          <ExperienceHero
+            title={experienceHeroData.title}
+            description={experienceHeroData.description}
+          />
             {experienceContent.map((item, index) => (
           <Section key={index} >
-           
+
            {
             index % 2 === 0 && (
               <FeatureInverted
@@ -352,8 +316,8 @@ const useImages = [
             )}
           </Section>
         ))}
-         
-      
+
+
         </>
       )}
     </div>
@@ -375,15 +339,15 @@ const Feature = ({ image, title, description, specials, cta }: FeatureProps) => 
   return (
     <Container className="grid items-stretch md:grid-cols-2 md:gap-12 relative" >
       {/* =====================================================
-        GEOMETRY ADDITION - Image Container 
+        GEOMETRY ADDITION - Image Container
         - Relative positioning for the absolute pseudo-elements.
         - `z-0` ensures the image wrapper is in a standard layer.
         - Increased `h-96` to `h-[420px]` just for a slightly bigger image area.
       */}
       <div className="not-prose relative flex h-[420px] overflow-hidden rounded-lg z-0">
-        
+
         {/* Slanted Accent Background (Bottom Left Corner) */}
-        <div 
+        <div
           className="absolute bottom-0 left-0 w-3/4 h-3/4 bg-mbioAccent opacity-20 transform skew-y-3 -translate-x-1/4 -translate-y-1/4 z-[-1]"
         ></div>
 
@@ -397,7 +361,7 @@ const Feature = ({ image, title, description, specials, cta }: FeatureProps) => 
           className="fill object-contain object-left rounded-lg transition-transform duration-500 hover:scale-[1.03] z-10"
         />
       </div>
-      
+
       {/* =====================================================
         TEXT CONTENT - Kept largely the same, maybe slight tweaks
       */}
@@ -425,7 +389,7 @@ const Feature = ({ image, title, description, specials, cta }: FeatureProps) => 
           </div>
         }
       </div>
-              
+
     </Container>
   );
 };
@@ -437,7 +401,7 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
         {/* =====================================================
           TEXT CONTENT (Left Side) - Kept the same
         */}
-    
+
         <div className="flex flex-col gap-6 py-8 text-mbioPrimary">
           <h2 className="!my-0 text-mbioPrimary text-3xl sm:text-5xl">{title}</h2>
 
@@ -446,7 +410,7 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
               {description}
             </p>
           </Balancer>
-            
+
           {
             specials &&
             <ul className=" list-disc text-mbioAccent marker:text-mbioAccent pl-5">
@@ -456,25 +420,25 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
               </ul>
           }
         </div>
-        
+
         {/* =====================================================
           GEOMETRY ADDITION - Image Container (Right Side)
         */}
         <div className="not-prose relative flex h-[420px] overflow-hidden rounded-lg z-0">
-          
+
           {/* 1. Slanted Accent (Bottom Left) - Subtle background movement */}
-          <div 
+          <div
             className="absolute top-0 left-0 w-3/5 h-3/5 bg-[#080d46] opacity-10 transform skew-y-3 -translate-x-1/4 translate-y-1/4 z-[-1] rounded-tl-xl"
           ></div>
 
           {/* 2. Structured Corner Frame (Top Right) - Uses a border for a modular, open-box feel */}
-            
+
 
           {/* The actual image element with hover effect */}
-          <Image 
-            src={image} 
-            alt="Illustration de panneaux de construction en bois" 
-            className="fill object-contain rounded-lg transition-transform duration-500 hover:scale-[1.03] z-10" 
+          <Image
+            src={image}
+            alt="Illustration de panneaux de construction en bois"
+            className="fill object-contain rounded-lg transition-transform duration-500 hover:scale-[1.03] z-10"
           />
 
           {/* CTA button (Z-20 to ensure it's on top of everything) */}
@@ -482,7 +446,7 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
             cta &&
             <div className="absolute inset-0 flex items-center justify-center z-20">
               <Link href={cta} target="_blank" rel="noopener noreferrer">
-                <Button 
+                <Button
                   variant="ghost"
                   className="h-16 w-16 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0 transition-all duration-300"
                 >
@@ -500,30 +464,19 @@ const FeatureInverted = ({ image, title, description, specials, cta }: FeaturePr
 
 
 
-const Hero = () => {
-  const t = useTranslations('UtilisationHero');
-  const utilisationHero = {
-    title: t("title"),
-    description: t("description"),
-    image: thumbnail,
-    details: [
-      t("details.point1"),
-      t("details.point2"),
-      t("details.point3"),
-      t("details.point4"),
-      t("details.point5"),
-      t("details.point6"),
-      t("details.point7"),
-      t("details.point8"),
+interface HeroProps {
+  title: string;
+  description: string;
+  details: string[];
+}
 
-    ],
-  }
+const Hero = ({ title, description, details }: HeroProps) => {
   return (
     <Section>
       <Container className="grid items-center md:grid-cols-2 gap-6 md:gap-16 ">
         <div className="not-prose relative h-full flex overflow-hidden rounded-lg relative ">
           <Image
-            src={utilisationHero.image}
+            src={thumbnail}
             alt="Mbio7"
              className="object-cover object-bottom rounded-lg w-full h-full"
             height={600}
@@ -532,7 +485,7 @@ const Hero = () => {
         <div className="absolute inset-0  bg-black/30" />
         <div className="absolute inset-0 flex items-center justify-center">
           <Link href="https://www.youtube.com/watch?v=vjsfSNBXmXM" target="_blank" rel="noopener noreferrer">
-          <Button 
+          <Button
             variant="ghost"
             className="h-16 w-16 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
           >
@@ -541,26 +494,24 @@ const Hero = () => {
           </Link>
         </div>
         </div>
-        
+
         <div className="flex flex-col gap-6 py-8 relative">
           <h2 className="!my-0 font-semibold text-mbioPrimary text-3xl sm:text-5xl ">
-            {utilisationHero.title}
+            {title}
           </h2>
           <div
            className="text-muted-foreground max-w-xl prose"
           >
-            {utilisationHero.description}
-        
+            {description}
+
             <br />
             <ul className=" text-mbioAccent marker:text-mbioAccent">
-              {utilisationHero.details.map((detail, index) => (
+              {details.map((detail, index) => (
                 <li key={index}>{detail}</li>
               ))}
             </ul>
           </div>
-         
 
-       
         </div>
       </Container>
     </Section>
@@ -568,52 +519,37 @@ const Hero = () => {
 };
 
 
-const Main = () => {
-  const t = useTranslations('UtilisationMain');
-  const MainContent = {
-    title: t("title"),
-    description: t("description"),
-    dimensions: [
-      t("dimensions.point1"),
-      t("dimensions.point2"),
-      t("dimensions.point3"),
-      t("dimensions.point4"),
-      t("dimensions.point5"),
-      t("dimensions.point6"),
-      t("dimensions.point7"),
-      t("dimensions.point8"),
-      t("dimensions.point9"),
-      t("dimensions.point10"),
-    ],
-    image: main,
-  };
+interface MainProps {
+  title: string;
+  description: string;
+  dimensions: string[];
+}
+
+const Main = ({ title, description, dimensions }: MainProps) => {
   return (
     <Section>
       <Container className="grid items-stretch">
         <div className="not-prose relative flex h-auto w-full overflow-hidden rounded-lg ">
           <Image
-            src={MainContent.image}
+            src={main}
             alt="main"
             className="fill object-cover"
           />
         </div>
         <h3 className="my-2 mt-8 text-mbioPrimary text-3xl sm:text-5xl font-semibold">
-          <Balancer>{MainContent.title}</Balancer>
+          <Balancer>{title}</Balancer>
         </h3>
         <p className="text-muted-foreground leading-[1.6] my-6">
           <Balancer>
-            {MainContent.description}
+            {description}
           </Balancer>
         </p>
         <div className="flex flex-wrap">
-
-          {
-            MainContent.dimensions.map((dimension, index) => (
-              <span key={index} className="rounded-full capitalize text-mbioAccent border border-mbioAccent px-4 py-2 text-xs font-medium mr-2 mb-2 inline-block bg-white/5">
-                {dimension}
-              </span>
-          ))
-        }
+          {dimensions.map((dimension, index) => (
+            <span key={index} className="rounded-full capitalize text-mbioAccent border border-mbioAccent px-4 py-2 text-xs font-medium mr-2 mb-2 inline-block bg-white/5">
+              {dimension}
+            </span>
+          ))}
         </div>
       </Container>
     </Section>
@@ -621,46 +557,31 @@ const Main = () => {
 };
 
 
+interface ExperienceHeroProps {
+  title: string;
+  description: string;
+}
 
-
-
-
-const ExperienceHero =  () => {
-  const t2 = useTranslations('Experience');
-  const experienceHero =   {
-      title: t2("title"),
-      description: t2("description"),
-      image: experience1,
-     
-    }
+const ExperienceHero = ({ title, description }: ExperienceHeroProps) => {
   return (
     <Section className="relative">
-       <div 
+       <div
           className="absolute bottom-0 right-0 w-2/4 h-2/4 bg-[#064343] opacity-10 transform skew-y-3 -translate-x-1/4 -translate-y-1/4 z-[-1]"
         ></div>
       <Container className="grid items-stretch">
         <h3 className="text-mbioPrimary text-4xl sm:text-5xl mb-6">
           <Balancer>
-
-          {experienceHero.title}
+          {title}
           </Balancer>
           </h3>
         <p className="text-muted-foreground mb-6" >
           <Balancer>
-            {experienceHero.description}
+            {description}
           </Balancer>
         </p>
-        {/* <div className="not-prose my-8 flex items-center gap-2">
-          <Button className="w-fit" asChild>
-            <Link href="#">Get Started</Link>
-          </Button>
-          <Button className="w-fit" variant="link" asChild>
-            <Link href="#">Learn More {"->"}</Link>
-          </Button>
-        </div> */}
         <div className="not-prose relative flex h-auto overflow-hidden rounded-lg lg:ml-auto">
           <Image
-            src={experienceHero.image}
+            src={experience1}
             alt="placeholder"
             className="fill object-cover"
           />
@@ -669,4 +590,3 @@ const ExperienceHero =  () => {
     </Section>
   );
 };
-
