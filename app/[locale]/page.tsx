@@ -96,14 +96,7 @@ export default  function Home() {
   return (
     <div>
       <section className="relative h-[550px] lg:h-[600px]  w-full">
-        {/* <Image
-          src={HeroBg}
-          alt="mbio7 panel"
-          fill
-          priority
-          className="object-cover w-full object-bottom  "
-        /> */}
-        {/* <div className="absolute inset-0 bg-[#084E4D78]" /> */}
+
         <div className="absolute inset-0 bg-black/10" />
         <div className="relative z-10">
           <Nav />
@@ -114,7 +107,6 @@ export default  function Home() {
 
       <div className=" relative">
         <Mbio7 locale={locale} />
-        {/* <div className="absolute inset-y-20 left-0 w-1/2 bg-mbioPrimary/10 blur-[100px] h-[500px]" /> */}
 
         <div className="p-2 bg-gradient-to-b from-[#084E4D]/60 to-[#6CC1BB] " />
 
