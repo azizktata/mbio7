@@ -141,7 +141,7 @@ export default  function Home() {
   );
 }
 
-const Hero = async ({locale}) => {
+const Hero = async ({locale}: { locale: string }) => {
   const heroData = await getHeroSection(locale);
   console.log("Hero Data:", heroData); // Debug log to check the fetched data
 
