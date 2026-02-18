@@ -55,16 +55,16 @@ import {
 // Revalidate pages every hour
 export const revalidate = 3600;
 
-export async function generateStaticParams() {
-  return [
-    { slug: "fabrication" },
-    { slug: "utilisations" },
-    { slug: "expérience" },
-    { slug: "manufacture" },
-    { slug: "how-to-use" },
-    { slug: "experience" },
-  ];
-}
+// export async function generateStaticParams() {
+//   return [
+//     { slug: "fabrication" },
+//     { slug: "utilisations" },
+//     { slug: "expérience" },
+//     { slug: "manufacture" },
+//     { slug: "how-to-use" },
+//     { slug: "experience" },
+//   ];
+// }
 
 function getPageTitle(slug: string, locale: string): string {
   const decoded = decodeURIComponent(slug.replace(/-/g, " "));

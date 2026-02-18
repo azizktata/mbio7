@@ -135,7 +135,6 @@ export default  function Home() {
 
 const Hero = async ({locale}: { locale: string }) => {
   const heroData = await getHeroSection(locale);
-  console.log("Hero Data:", heroData); // Debug log to check the fetched data
 
   const heroes = heroData.imageUrls.map((url) => ({
     title: heroData.title,
@@ -406,7 +405,6 @@ const fallbackBlogImages = [Monaco, Liberation, NiceMatin];
 
 const Blogs = async ({ locale }: { locale: string }) => {
   const blogsData = await getBlogsSection(locale);
-  console.log("Blogs Data:", blogsData); // Debug log to check the fetched data
 
   return (
     <Section>
