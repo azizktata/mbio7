@@ -236,10 +236,10 @@ const useImages = [
           </h1>
           <p
             className={
-              "bg-[#F7F7F71A]/10 text-white rounded-full px-5 py-2 text-base s"
+              "bg-[#F7F7F71A]/10 text-white rounded-full px-5 py-2 text-base"
             }
           >
-            <Link href={"/"}>Accueil</Link> /{" "}
+            <Link href={"/"}> {locale == "fr" ? "Accueil" : "Home"} </Link> /{" "}
            <Balancer>{handleTranslateTitle(decodeURIComponent(slug.replace(/-/g, " ")))}</Balancer>
           </p>
         </div>
