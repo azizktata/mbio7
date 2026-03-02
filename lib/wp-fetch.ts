@@ -2,7 +2,7 @@ import { fabricationMock } from "@/mocks/fabrication";
 import { utilisationsMock } from "@/mocks/utilisations";
 import { experienceMock } from "@/mocks/experience";
 
-const BASE_URL = "https://www.mbio7.com/index.php/wp-json/wp/v2";
+const BASE_URL = process.env.WORDPRESS_URL;
 
 export interface HeroSection {
   title: string;
