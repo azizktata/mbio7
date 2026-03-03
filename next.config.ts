@@ -1,10 +1,14 @@
 import type { NextConfig } from "next";
-import createNextIntlPlugin from 'next-intl/plugin';
+import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
+  output: "export",
+
   images: {
+    unoptimized: true,
+
     remotePatterns: [
       {
         protocol: "https",
@@ -24,10 +28,9 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/admin",
-        destination: `${process.env.WORDPRESS_URL}/wp-admin`,
+        destination: `https://${process.env.WORDPRESS_HOSTNAME}/wp-admin`,
         permanent: true,
       },
-      
     ];
   },
 };
