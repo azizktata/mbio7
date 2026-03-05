@@ -650,7 +650,7 @@ const Contact = async ({ locale }: { locale: string }) => {
 
         <div className="w-full md:w-1/2 ">
           <div className="bg-white p-8 rounded-lg shadow-md ">
-            <ContactForm />
+            <ContactForm emailTo={contactData.email} />
           </div>
         </div>
       </Container>

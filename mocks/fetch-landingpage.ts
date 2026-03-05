@@ -492,14 +492,14 @@ const MOCK_LANDING_PAGE = {
     contactsection_fr: {
       subtitle: "Restons en contact",
       title: "Contactez-nous",
-      email: "contact@woodwise.fr",
+      email: "d.mary@woodwise.fr",
       phone: "80157 59053",
       address: "QUARTIER CUNI, SOSPEL, 06380, FR",
     },
     contactsection_en: {
       subtitle: "Get in Touch",
       title: "Contact Us",
-      email: "contact@woodwise.fr",
+      email: "d.mary@woodwise.fr",
       phone: "80157 59053",
       address: "QUARTIER CUNI, SOSPEL, 06380, FR",
     },

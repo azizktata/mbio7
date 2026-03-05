@@ -30,7 +30,7 @@ const formSchema = z.object({
     message: "votre message doit contenir au moins 10 caractères.",
   }),
 });
-export default function ContactForm() {
+export default function ContactForm({ emailTo }: { emailTo: string }) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { nom: "", email: "", sujet: "", message: "" },
@@ -43,6 +43,7 @@ export default function ContactForm() {
       text: mailText,
       sujet: "Nouveau message de contact",
       email: values.email,
+      emailTo: emailTo,
     });
     if (res?.success) {
       toast.success("Votre message a été envoyé avec succès.");
