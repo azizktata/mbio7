@@ -266,5 +266,10 @@
             "point9": "Fenêtres PVC",
             "point10": "Enduit rustique sur treillis agrafé"
         }
+    },
+    "Comparative": {
+        "docLanguage": "Langue du document",
+        "downloadPdf": "Télécharger le comparatif",
+        "viewFull": "Voir le document complet"
     }
 }

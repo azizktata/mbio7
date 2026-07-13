@@ -5,7 +5,8 @@ import { Inter as FontSans, Poppins, Roboto } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { MobileNav } from "@/components/nav/mobile-nav";
-import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import { Button } from "@/components/ui/button";
 
 import { mainMenu, contentMenu } from "@/menu.config";
@@ -91,8 +92,8 @@ export default async function RootLayout({
           <Footer />
             </NextIntlClientProvider>
         </ThemeProvider>
-        <Analytics />
       </body>
+        <GoogleAnalytics gaId="G-8L46133ZE5" />
     </html>
   );
 }

@@ -1,6 +1,11 @@
 import { fabricationMock } from "@/mocks/fabrication";
 import { utilisationsMock } from "@/mocks/utilisations";
 import { experienceMock } from "@/mocks/experience";
+import {
+  COMPARATIVE_FALLBACK,
+  type ComparativeDoc,
+  type DocLang,
+} from "@/lib/comparative-data";
 
 const BASE_URL = process.env.WORDPRESS_URL;
 
@@ -52,9 +57,24 @@ export interface WhyUsSection {
   points: Record<string, WhyUsPoint>;
 }
 
+/**
+ * `comparativesection_{fr,en}` ACF group.
+ *
+ * Only the editorial bits live in WordPress: the heading, the subtitle, and the
+ * two document files. The comparison tables and figures stay in
+ * lib/comparative-data.ts — they change only when the source documents are
+ * regenerated, and are not worth maintaining as ACF repeaters.
+ *
+ * Every field is optional so the section still renders before the group exists.
+ */
 export interface ComparativeSection {
-  title: string;
-  image: string | false;
+  title?: string;
+  /** Subtitle under the heading, e.g. "mBio7 vs Maçonnerie Traditionnelle". */
+  intro?: string;
+  /** ACF File field (Return Format: File URL). Falls back to the /public copy. */
+  pdf?: string | false;
+  /** ACF File field (Return Format: File URL). Falls back to the /public copy. */
+  html_doc?: string | false;
 }
 
 export interface BlogItem {
@@ -285,15 +305,47 @@ export const getWhyUsSection = async (
   };
 };
 
-export const getComparativeSection = async (
-  locale: string
-): Promise<{
-  title: string;
-  image: string | false;
-}> => {
-  const landing = await fetchLandingPage();
-  return getSection<ComparativeSection>(landing.acf, "comparativesection", locale);
+/**
+ * Merges the WordPress-editable fields over the local document data.
+ *
+ * Anything WordPress does not provide — including the whole of the tables —
+ * comes from COMPARATIVE_FALLBACK, so the section renders correctly whether the
+ * ACF group is fully populated, partly filled, or absent entirely.
+ */
+export const getComparativeDoc = async (
+  lang: DocLang
+): Promise<ComparativeDoc> => {
+  const local = COMPARATIVE_FALLBACK[lang];
+
+  let section: ComparativeSection | undefined;
+  try {
+    const landing = await fetchLandingPage();
+    section = getSection<ComparativeSection>(
+      landing.acf,
+      "comparativesection",
+      lang
+    );
+  } catch {
+    // WordPress unreachable — fall back to the local document entirely.
+    return local;
+  }
+
+  return {
+    ...local,
+    title: section?.title || local.title,
+    intro: section?.intro || local.intro,
+    pdf: section?.pdf || local.pdf,
+    htmlDoc: section?.html_doc || local.htmlDoc,
+  };
 };
+
+/** Both languages at once: the selector switches without a refetch. */
+export const getComparativeDocs = async (): Promise<
+  Record<DocLang, ComparativeDoc>
+> => ({
+  fr: await getComparativeDoc("fr"),
+  en: await getComparativeDoc("en"),
+});
 
 export const getBlogsSection = async (
   locale: string

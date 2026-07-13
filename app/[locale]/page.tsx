@@ -16,8 +16,6 @@ import Liberation from "@/public/liberation.png";
 import Monaco from "@/public/monaco.png";
 // import Stats from "@/public/stats.png";
 import Logo from "@/public/mbio7-logo.png";
-import Comparative from "@/public/comparaison.jpg";
-import ComparativeEng from "@/public/Comparative.jpg";
 import slide1 from "@/public/mBio7-montage12.jpg";
 import slide2 from "@/public/fabrication-2.png";
 import slide3 from "@/public/fabrication-3.png";
@@ -68,6 +66,7 @@ import ContactForm from "@/components/contact-form";
 import { useLocale, useTranslations } from "next-intl";
 import CarouselV1 from "@/components/carousel-v1";
 import CarouselHero from "@/components/carousel-hero";
+import ComparativeStudySection from "@/components/comparative-study";
 import {
   getHeroSection,
   getAboutSection,
@@ -75,7 +74,7 @@ import {
   getVideoSection,
   getImpactSection,
   getWhyUsSection,
-  getComparativeSection,
+  getComparativeDocs,
   getBlogsSection,
   getActualitesSection,
   getReviewsSection,
@@ -368,36 +367,16 @@ const WhyUs = async ({ locale }: { locale: string }) => {
   );
 };
 
+// Title, subtitle and the two document files come from WordPress; the tables and
+// figures come from lib/comparative-data.ts. Missing ACF fields fall back to it.
 const ComparativeStudy = async ({ locale }: { locale: string }) => {
-  const compData = await getComparativeSection(locale);
-  const fallbackImage = locale === "fr" ? Comparative : ComparativeEng;
+  const docs = await getComparativeDocs();
 
   return (
-    <Section className="bg-gradient-to-l from-[#2A6F6A] to-[#85E08A] py-16">
-      <Container>
-        <h2 className="text-4xl sm:text-5xl font-semibold text-white text-center mb-8 lg:mb-16">
-          {compData.title}
-        </h2>
-        <div
-          className="
-          relative w-full
-          bg-white
-          rounded-lg
-          shadow-[8px_8px_0_0_rgba(0,0,0,0.4)]
-          border border-gray-200
-          max-w-4xl mx-auto
-        "
-        >
-          <Image
-            src={compData.image || fallbackImage}
-            alt={compData.title}
-            width={1200}
-            height={800}
-            className="w-full h-auto rounded-md"
-          />
-        </div>
-      </Container>
-    </Section>
+    <ComparativeStudySection
+      docs={docs}
+      initialLang={locale === "en" ? "en" : "fr"}
+    />
   );
 };
 

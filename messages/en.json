@@ -23,15 +23,15 @@
         "title": "Construire Mieux ÉCOLOGIQUEMENT",
         "description": "The mBio7 panel is a renewable material par excellence, made from recycled and crushed wood. It spares forests and guarantees an optimized CO2 balance during manufacturing and transportation.",
         "tags": {
-      "tag1": "Ultra-light (9kg) & Innovative",
-      "tag2": "Recycled Wood & Waste-based",
-      "tag3": "Zero Deforestation Impact",
-      "tag4": "CO2-Negative (7.66 kg saved/panel)",
-      "tag5": "Simplified Logistics & Storage",
-      "tag6": "Multi-Thickness & Insulation",
-      "tag7": "Phase Change Material Ready",
-      "tag8": "Acoustic Insulation" 
-    }
+            "tag1": "Ultra-light (9kg) & Innovative",
+            "tag2": "Recycled Wood & Waste-based",
+            "tag3": "Zero Deforestation Impact",
+            "tag4": "CO2-Negative (7.66 kg saved/panel)",
+            "tag5": "Simplified Logistics & Storage",
+            "tag6": "Multi-Thickness & Insulation",
+            "tag7": "Phase Change Material Ready",
+            "tag8": "Acoustic Insulation"
+        }
     },
     "Carousel": {
         "slide1": {
@@ -272,5 +272,10 @@
             "point9": "PVC windows",
             "point10": "Rustic coating on stapled trellis"
         }
+    },
+    "Comparative": {
+        "docLanguage": "Document language",
+        "downloadPdf": "Download the comparison",
+        "viewFull": "View the full document"
     }
 }
