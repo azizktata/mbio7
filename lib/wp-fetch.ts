@@ -6,6 +6,7 @@ import {
   type ComparativeDoc,
   type DocLang,
 } from "@/lib/comparative-data";
+import { getSizedImage, getSizedImages } from "@/lib/wp-image";
 
 const BASE_URL = process.env.WORDPRESS_URL;
 
@@ -205,7 +206,9 @@ export const getHeroSection = async (
   return {
     title: hero.title,
     subtitle: hero.subtitle,
-    imageUrls: imageUrls.filter(Boolean),
+    // Full-bleed banner (400px tall). 1536 covers large retina screens and
+    // still cuts the 2560px originals down substantially.
+    imageUrls: await getSizedImages(imageUrls, 1536),
     cta: hero.cta,
   };
 };
@@ -229,7 +232,7 @@ export const getAboutSection = async (
     title: about.title,
     description: about.description,
     tags,
-    logo: about.logo,
+    logo: await getSizedImage(about.logo, 240),
   };
 };
 
@@ -241,7 +244,12 @@ export const getProcessSection = async (
   const landing = await fetchLandingPage();
   const process = getSection<ProcessSection>(landing.acf, "processsection", locale);
 
-  return Object.values(process);
+  return Promise.all(
+    Object.values(process).map(async (slide) => ({
+      ...slide,
+      image: await getSizedImage(slide.image, 1024),
+    }))
+  );
 };
 
 export const getVideoSection = async (
@@ -266,7 +274,7 @@ export const getVideoSection = async (
     description: video.description,
     points,
     video_url: video.video_url,
-    thumbnail: video.thumbnail,
+    thumbnail: await getSizedImage(video.thumbnail, 1024),
     label: video.label,
   };
 };
@@ -286,7 +294,8 @@ export const getImpactSection = async (
     title: impact.title,
     description: impact.description,
     stats: Object.values(impact.stats),
-    background: impact.background,
+    // Full-bleed background.
+    background: await getSizedImage(impact.background, 1536),
   };
 };
 
@@ -360,7 +369,12 @@ export const getBlogsSection = async (
   return {
     title: section.title,
     cta: section.cta,
-    blogs: Object.values(section.blogs),
+    blogs: await Promise.all(
+      Object.values(section.blogs).map(async (blog) => ({
+        ...blog,
+        image: await getSizedImage(blog.image, 768),
+      }))
+    ),
   };
 };
 
@@ -375,7 +389,12 @@ export const getActualitesSection = async (
 
   return {
     title: section.title,
-    items: Object.values(section.items),
+    items: await Promise.all(
+      Object.values(section.items).map(async (item) => ({
+        ...item,
+        image: await getSizedImage(item.image, 768),
+      }))
+    ),
   };
 };
 

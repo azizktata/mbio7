@@ -56,8 +56,9 @@ export default function CarouselV2({
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious variant={'ghost'} className="text-mbioPrimary rounded-sm shadow-none border-none" />
-          <CarouselNext variant={'ghost'} className="text-mbioPrimary rounded-sm shadow-none border-none" />
+          {/* Hidden on mobile — swiping already works on touch. */}
+          <CarouselPrevious variant={'ghost'} className="hidden md:inline-flex text-mbioPrimary rounded-sm shadow-none border-none" />
+          <CarouselNext variant={'ghost'} className="hidden md:inline-flex text-mbioPrimary rounded-sm shadow-none border-none" />
         </Carousel>
       </Container>
     </div>

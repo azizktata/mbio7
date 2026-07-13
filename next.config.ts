@@ -7,7 +7,11 @@ const nextConfig: NextConfig = {
   // output: "export",
 
   images: {
-    // unoptimized: true,
+    // Next's optimizer runs on Vercel's image CDN, whose quota this project has
+    // exhausted (/_next/image returned 402 OPTIMIZED_IMAGE_REQUEST_PAYMENT_REQUIRED).
+    // Serve images directly instead, and rely on WordPress's own generated sizes
+    // to keep payloads down — see getSizedImage() in lib/wp-image.ts.
+    unoptimized: true,
 
     remotePatterns: [
       {
