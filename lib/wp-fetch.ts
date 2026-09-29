@@ -476,8 +476,8 @@ export interface UtilisationHeroACF {
   description: string;
   details: Record<string, string>;
   video_url: string;
-  video_url2: string;
   thumbnail: string;
+  video_url2: string;
   thumbnail2: string;
 }
 
@@ -584,8 +584,8 @@ export const getUtilisationHeroSection = async (
     description: section.description,
     details: Object.values(section.details),
     video_url: section.video_url,
-    video_url2: section.video_url2,
     thumbnail: section.thumbnail,
+    video_url2: section.video_url2,
     thumbnail2: section.thumbnail2,
   };
 };

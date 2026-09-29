@@ -170,7 +170,7 @@ export default async function Page({
   }
 
   // ---- Utilisations data ----
-  let utilisationHeroData: { title: string; description: string; details: string[], video_url: string, video_url2: string, thumbnail: string, thumbnail2: string } | null = null;
+  let utilisationHeroData: { title: string; description: string; details: string[], video_url: string, thumbnail: string, video_url2: string, thumbnail2: string } | null = null;
   let utilisationMainData: { title: string; description: string; dimensions: string[] } | null = null;
 
   if (isUtilisations) {
@@ -473,12 +473,12 @@ interface HeroProps {
   description: string;
   details: string[];
   video_url: string;
-  video_url2: string;
   thumbnail: string;
+  video_url2: string;
   thumbnail2: string;
 }
 
-const Hero = ({ title, description, details, video_url, video_url2, thumbnail, thumbnail2 }: HeroProps) => {
+const Hero = ({ title, description, details, video_url, thumbnail, video_url2, thumbnail2 }: HeroProps) => {
   return (
     <Section>
       <Container className="grid items-center md:grid-cols-2 gap-6 md:gap-16">
@@ -495,7 +495,7 @@ const Hero = ({ title, description, details, video_url, video_url2, thumbnail, t
             />
             <div className="absolute inset-0 bg-black/30" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <Link href={video_url || "https://youtu.be/5ti1yaMWZqE"} target="_blank" rel="noopener noreferrer">
+              <Link href={video_url ?? "https://youtu.be/5ti1yaMWZqE"} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   className="h-14 w-14 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
@@ -517,7 +517,7 @@ const Hero = ({ title, description, details, video_url, video_url2, thumbnail, t
             />
             <div className="absolute inset-0 bg-black/30" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <Link href={video_url2 || "https://youtu.be/aBZvcnLBJ_4"} target="_blank" rel="noopener noreferrer">
+              <Link href={video_url2 ?? "https://youtu.be/aBZvcnLBJ_4"} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   className="h-14 w-14 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
