@@ -16,7 +16,7 @@ import Placeholder from "@/public/banner-3.jpg";
 import banner from "@/public/hero-bg.png";
 // import banner from "@/public/hero.jpg";
 import HeroImage from "@/public/hero-mbio.jpg";
-import thumbnail from "@/public/thumbnail-2.png";
+import thumbnailDefault from "@/public/thumbnail-2.png";
 import main from "@/public/utilisation.png";
 import experience1 from "@/public/mBio7-C-1.png";
 import experience2 from "@/public/mBio7-B.png";
@@ -170,7 +170,7 @@ export default async function Page({
   }
 
   // ---- Utilisations data ----
-  let utilisationHeroData: { title: string; description: string; details: string[] } | null = null;
+  let utilisationHeroData: { title: string; description: string; details: string[], video_url: string, video_url2: string, thumbnail: string, thumbnail2: string } | null = null;
   let utilisationMainData: { title: string; description: string; dimensions: string[] } | null = null;
 
   if (isUtilisations) {
@@ -283,6 +283,10 @@ const useImages = [
             title={utilisationHeroData.title}
             description={utilisationHeroData.description}
             details={utilisationHeroData.details}
+            video_url={utilisationHeroData.video_url}
+            thumbnail={utilisationHeroData.thumbnail}
+            video_url2={utilisationHeroData.video_url2}
+            thumbnail2={utilisationHeroData.thumbnail2}
           />
         </>
       )}
@@ -468,50 +472,77 @@ interface HeroProps {
   title: string;
   description: string;
   details: string[];
+  video_url: string;
+  video_url2: string;
+  thumbnail: string;
+  thumbnail2: string;
 }
 
-const Hero = ({ title, description, details }: HeroProps) => {
+const Hero = ({ title, description, details, video_url, video_url2, thumbnail, thumbnail2 }: HeroProps) => {
   return (
     <Section>
-      <Container className="grid items-center md:grid-cols-2 gap-6 md:gap-16 ">
-        <div className="not-prose relative h-full flex overflow-hidden rounded-lg relative ">
-          <Image
-            src={thumbnail}
-            alt="Mbio7"
-             className="object-cover object-bottom rounded-lg w-full h-full"
-            height={600}
-            width={800}
-/>
-        <div className="absolute inset-0  bg-black/30" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <Link href="https://www.youtube.com/watch?v=vjsfSNBXmXM" target="_blank" rel="noopener noreferrer">
-          <Button
-            variant="ghost"
-            className="h-16 w-16 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
-          >
-            <PlayIcon className="h-8 w-8 fill-current text-white" />
-          </Button>
-          </Link>
-        </div>
+      <Container className="grid items-center md:grid-cols-2 gap-6 md:gap-16">
+        {/* Stacked Images/Videos Column */}
+        <div className="flex flex-col gap-4 h-full">
+          {/* First Video/Image Box */}
+          <div className="not-prose relative flex overflow-hidden rounded-lg w-full h-[280px]">
+            <Image
+              src={thumbnail || thumbnailDefault}
+              alt="Mbio7 Video 1"
+              className="object-cover object-bottom rounded-lg w-full h-full"
+              height={300}
+              width={800}
+            />
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Link href={video_url || "https://www.youtube.com/watch?v=vjsfSNBXmXM"} target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="ghost"
+                  className="h-14 w-14 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
+                >
+                  <PlayIcon className="h-7 w-7 fill-current text-white" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Second Video/Image Box */}
+          <div className="not-prose relative flex overflow-hidden rounded-lg w-full h-[280px]">
+            <Image
+              src={thumbnail2 || thumbnailDefault}
+              alt="Mbio7 Video 2"
+              className="object-cover object-bottom rounded-lg w-full h-full"
+              height={300}
+              width={800}
+            />
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Link href={video_url2 || "https://www.youtube.com/watch?v=vjsfSNBXmXM"} target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="ghost"
+                  className="h-14 w-14 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
+                >
+                  <PlayIcon className="h-7 w-7 fill-current text-white" />
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-col gap-6 py-8 relative">
-          <h2 className="!my-0 font-semibold text-mbioPrimary text-3xl sm:text-5xl ">
+        {/* Content Column */}
+        <div className="flex flex-col gap-6 relative">
+          <h2 className="!my-0 font-semibold text-mbioPrimary text-3xl sm:text-5xl">
             {title}
           </h2>
-          <div
-           className="text-muted-foreground max-w-xl prose"
-          >
+          <div className="text-muted-foreground max-w-xl prose">
             {description}
-
             <br />
-            <ul className=" text-mbioAccent marker:text-mbioAccent">
+            <ul className="text-mbioAccent marker:text-mbioAccent">
               {details.map((detail, index) => (
                 <li key={index}>{detail}</li>
               ))}
             </ul>
           </div>
-
         </div>
       </Container>
     </Section>

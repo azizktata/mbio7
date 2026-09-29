@@ -475,6 +475,10 @@ export interface UtilisationHeroACF {
   title: string;
   description: string;
   details: Record<string, string>;
+  video_url: string;
+  video_url2: string;
+  thumbnail: string;
+  thumbnail2: string;
 }
 
 export interface UtilisationMainACF {
@@ -571,7 +575,7 @@ export const getFabricationSection = async (
 
 export const getUtilisationHeroSection = async (
   locale: string
-): Promise<{ title: string; description: string; details: string[] }> => {
+): Promise<{ title: string; description: string; details: string[]; video_url: string, video_url2: string, thumbnail: string, thumbnail2: string }> => {
   const page = await fetchUtilisationsPage();
   const key = `utilisationhero_${locale}` as keyof UtilisationsPageACF;
   const section = page.acf[key] as UtilisationHeroACF;
@@ -579,6 +583,10 @@ export const getUtilisationHeroSection = async (
     title: section.title,
     description: section.description,
     details: Object.values(section.details),
+    video_url: section.video_url,
+    video_url2: section.video_url2,
+    thumbnail: section.thumbnail,
+    thumbnail2: section.thumbnail2,
   };
 };
 
