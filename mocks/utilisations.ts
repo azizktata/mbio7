@@ -19,6 +19,10 @@ export const utilisationsMock: SubPageResponse<UtilisationsPageACF> = {
         point7: "l'utilisation en coffrage perdu (piscines ou murs de soutènement)",
         point8: "et bien plus encore..",
       },
+      video_url: "https://youtu.be/5ti1yaMWZqE",
+      video_url2: "https://youtu.be/aBZvcnLBJ_4",
+      thumbnail: "https://i.ytimg.com/vi/5ti1yaMWZqE/hqdefault.jpg",
+      thumbnail2: "https://i.ytimg.com/vi/aBZvcnLBJ_4/hqdefault.jpg",
     },
     utilisationhero_en: {
       title: "How to use mBio7 panels?",
@@ -34,6 +38,10 @@ export const utilisationsMock: SubPageResponse<UtilisationsPageACF> = {
         point7: "Use as permanent formwork (swimming pools or retaining walls)",
         point8: "and much more..",
       },
+      video_url: "https://youtu.be/5ti1yaMWZqE",
+      video_url2: "https://youtu.be/aBZvcnLBJ_4",
+      thumbnail: "https://i.ytimg.com/vi/5ti1yaMWZqE/hqdefault.jpg",
+      thumbnail2: "https://i.ytimg.com/vi/aBZvcnLBJ_4/hqdefault.jpg",
     },
     utilisationmain_fr: {
       title: "Première Maison écologique en panneaux de bois moulé en France",

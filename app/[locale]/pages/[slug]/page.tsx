@@ -495,7 +495,7 @@ const Hero = ({ title, description, details, video_url, video_url2, thumbnail, t
             />
             <div className="absolute inset-0 bg-black/30" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <Link href={video_url || "https://www.youtube.com/watch?v=vjsfSNBXmXM"} target="_blank" rel="noopener noreferrer">
+              <Link href={video_url || "https://youtu.be/5ti1yaMWZqE"} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   className="h-14 w-14 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
@@ -517,7 +517,7 @@ const Hero = ({ title, description, details, video_url, video_url2, thumbnail, t
             />
             <div className="absolute inset-0 bg-black/30" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <Link href={video_url2 || "https://www.youtube.com/watch?v=vjsfSNBXmXM"} target="_blank" rel="noopener noreferrer">
+              <Link href={video_url2 || "https://youtu.be/aBZvcnLBJ_4"} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="ghost"
                   className="h-14 w-14 rounded-full bg-mbioQuaternary hover:bg-mbioTertiary p-0"
